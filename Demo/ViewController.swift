@@ -14,6 +14,12 @@ class ViewController: UIViewController {
   @IBAction func didTapShowButton(sender: AnyObject) {
     if view.glyptodon.visible {
       view.glyptodon.hide()
+      updateButtonTitle()
+      return
+    }
+    
+    if withButtonSwitch.on {
+      view.glyptodon.show("Cart is empty", withButton: "Go shopping") { }
     } else {
       view.glyptodon.show("No new messages")
     }

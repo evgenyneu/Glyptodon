@@ -88,7 +88,7 @@ public struct GlyptodonTitleDefaultStyles {
   // ---------------------------
   
   
-  private static let _verticalOffset: CGFloat = -10
+  private static let _verticalOffset: CGFloat = 0
   
   /// Vertical offset of the title relative to the center of the view. If zero the label is aligned exactly at the center.
   public static var verticalOffset = _verticalOffset
