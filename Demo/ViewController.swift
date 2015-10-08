@@ -8,7 +8,7 @@ class ViewController: UIViewController {
   }
 
   @IBAction func didTapShowButton(sender: AnyObject) {
-    view.glyptodon.show("No new messages.")
+    view.glyptodon.show("No new messages")
   }
 }
 

@@ -45,7 +45,7 @@ public struct GlyptodonTitleDefaultStyles {
   // ---------------------------
   
   
-  private static let _horizontalMargin: CGFloat = 10
+  private static let _horizontalMargin: CGFloat = 15
   
   /// Horizontal margin between the title and the edge of the view.
   public static var horizontalMargin = _horizontalMargin
