@@ -22,6 +22,9 @@
 		2BAC6F8E1BC614F500D0A9A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BAC6F8C1BC614F500D0A9A2 /* Main.storyboard */; };
 		2BAC6F901BC614F500D0A9A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BAC6F8F1BC614F500D0A9A2 /* Assets.xcassets */; };
 		2BAC6F931BC614F500D0A9A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BAC6F911BC614F500D0A9A2 /* LaunchScreen.storyboard */; };
+		2BAC6F981BC615E000D0A9A2 /* Glyptodon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAC6F571BC6053A00D0A9A2 /* Glyptodon.framework */; };
+		2BAC6F991BC615E000D0A9A2 /* Glyptodon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAC6F571BC6053A00D0A9A2 /* Glyptodon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2BAC6F9F1BC6168900D0A9A2 /* TegAutolayoutConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F9E1BC6168900D0A9A2 /* TegAutolayoutConstraints.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +35,28 @@
 			remoteGlobalIDString = 2BAC6F561BC6053A00D0A9A2;
 			remoteInfo = Glyptodon;
 		};
+		2BAC6F9A1BC615E000D0A9A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BAC6F4E1BC6053A00D0A9A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BAC6F561BC6053A00D0A9A2;
+			remoteInfo = Glyptodon;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2BAC6F9C1BC615E000D0A9A2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2BAC6F991BC615E000D0A9A2 /* Glyptodon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2BAC6F571BC6053A00D0A9A2 /* Glyptodon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Glyptodon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +79,7 @@
 		2BAC6F8F1BC614F500D0A9A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BAC6F921BC614F500D0A9A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BAC6F941BC614F500D0A9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BAC6F9E1BC6168900D0A9A2 /* TegAutolayoutConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegAutolayoutConstraints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BAC6F981BC615E000D0A9A2 /* Glyptodon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +132,7 @@
 		2BAC6F591BC6053A00D0A9A2 /* Glyptodon */ = {
 			isa = PBXGroup;
 			children = (
+				2BAC6F9D1BC6168500D0A9A2 /* Utils */,
 				2BAC6F5A1BC6053A00D0A9A2 /* Glyptodon.h */,
 				2BAC6F5C1BC6053A00D0A9A2 /* Info.plist */,
 				2BAC6F641BC606DE00D0A9A2 /* Glyptodon.swift */,
@@ -147,6 +174,14 @@
 				2BAC6F941BC614F500D0A9A2 /* Info.plist */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		2BAC6F9D1BC6168500D0A9A2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2BAC6F9E1BC6168900D0A9A2 /* TegAutolayoutConstraints.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,10 +241,12 @@
 				2BAC6F821BC614F500D0A9A2 /* Sources */,
 				2BAC6F831BC614F500D0A9A2 /* Frameworks */,
 				2BAC6F841BC614F500D0A9A2 /* Resources */,
+				2BAC6F9C1BC615E000D0A9A2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2BAC6F9B1BC615E000D0A9A2 /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -292,6 +329,7 @@
 				2BAC6F651BC606DE00D0A9A2 /* Glyptodon.swift in Sources */,
 				2BAC6F7F1BC610D100D0A9A2 /* GlyptodonView.swift in Sources */,
 				2BAC6F631BC605FE00D0A9A2 /* GlyptodonInterface.swift in Sources */,
+				2BAC6F9F1BC6168900D0A9A2 /* TegAutolayoutConstraints.swift in Sources */,
 				2BAC6F781BC60F5500D0A9A2 /* UIView+Glyptodon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +361,11 @@
 			isa = PBXTargetDependency;
 			target = 2BAC6F561BC6053A00D0A9A2 /* Glyptodon */;
 			targetProxy = 2BAC6F701BC6075F00D0A9A2 /* PBXContainerItemProxy */;
+		};
+		2BAC6F9B1BC615E000D0A9A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2BAC6F561BC6053A00D0A9A2 /* Glyptodon */;
+			targetProxy = 2BAC6F9A1BC615E000D0A9A2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -496,10 +539,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.Demo;
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.GlyptodonDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -508,10 +552,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.Demo;
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.GlyptodonDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
