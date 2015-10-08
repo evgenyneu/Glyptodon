@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Glyptodon.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2BAC6FA01BC618F000D0A9A2"
+               BuildableName = "ConcatenateSwift"
+               BlueprintName = "ConcatenateSwift"
+               ReferencedContainer = "container:Glyptodon.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -29,6 +43,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2BAC6F561BC6053A00D0A9A2"
+            BuildableName = "Glyptodon.framework"
+            BlueprintName = "Glyptodon"
+            ReferencedContainer = "container:Glyptodon.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

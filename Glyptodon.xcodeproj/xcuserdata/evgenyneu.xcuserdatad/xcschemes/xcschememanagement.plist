@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ConcatenateSwift.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>Demo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -33,6 +38,11 @@
 			<true/>
 		</dict>
 		<key>2BAC6F851BC614F500D0A9A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2BAC6FA01BC618F000D0A9A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
