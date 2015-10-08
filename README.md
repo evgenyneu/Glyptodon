@@ -1,8 +1,8 @@
 > 🚧🚧🚧 This is work in progress 🚧🚧🚧
 
-# Glyptodon, a UI widget for displaying 'no results' message in iOS
+# Glyptodon, a UI widget for displaying 'no content' message in iOS
 
-This is a UI element for showing 'no results' message in iOS.
+This is a UI element for iOS that shows 'no content' message with an optional button. It can be used on screens with optional content. When the content is empty we may want to inform the user why it is empty and suggest an action. For example, consider we have an ecommerce app with a shopping cart screen that  shows the list of products. If the user goes to the empty cart screen we can show a "Cart is empty" message and a "Go shopping" button.
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/Drawings/Glyptodon_Riha2000.jpg' alt='UI widget for displaying 'no results' message in iOS' width='450'>
 
@@ -48,7 +48,7 @@ view.glyptodon.visible
 ### Show message with a button and a tap handler
 
 ```Swift
-view.glyptodon.show("Shopping cart is empty.", buttonLabel: 'Go shopping') {
+view.glyptodon.show("Cart is empty", buttonLabel: 'Go shopping') {
   // Called when button is tapped.
 }
 ```
