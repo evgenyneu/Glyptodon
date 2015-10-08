@@ -2,13 +2,26 @@ import UIKit
 import Glyptodon
 
 class ViewController: UIViewController {
+  @IBOutlet var showHideButton: UIBarButtonItem!
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    updateButtonTitle()
   }
 
   @IBAction func didTapShowButton(sender: AnyObject) {
-    view.glyptodon.show("No new messages")
+    if view.glyptodon.visible {
+      view.glyptodon.hide()
+    } else {
+      view.glyptodon.show("No new messages")
+    }
+    
+    updateButtonTitle()
+  }
+  
+  private func updateButtonTitle() {
+    showHideButton.title = view.glyptodon.visible ? "Hide" : "Show"
   }
 }
 
