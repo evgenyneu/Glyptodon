@@ -55,7 +55,13 @@ final class Glyptodon: GlyptodonInterface {
   
   /// Hide the message window if it's currently open.
   func hide() {
-    
+    glyptodonView?.hide()
+  }
+  
+  private var glyptodonView: GlyptodonView? {
+    get {
+      return superview.subviews.filter { $0 is GlyptodonView }.map { $0 as! GlyptodonView }.first
+    }
   }
 }
 
@@ -134,6 +140,9 @@ class GlyptodonView: UIView {
     applyStyle()
   }
   
+  func hide() {
+    removeFromSuperview()
+  }
   
   private func applyStyle() {
     backgroundColor = style.view.backgroundColor
@@ -161,7 +170,8 @@ class GlyptodonView: UIView {
   
   private func addTitleLayoutConstraints(label: UILabel) {
     label.translatesAutoresizingMaskIntoConstraints = false
-    TegAutolayoutConstraints.fillParent(label, parentView: self, margin: 20, vertically: false)
+    TegAutolayoutConstraints.fillParent(label, parentView: self,
+      margin: style.title.horizontalMargin, vertically: false)
     
     TegAutolayoutConstraints.centerY(label, viewTwo: self, constraintContainer: self,
       constant: style.title.verticalOffset)
@@ -240,6 +250,7 @@ public struct GlyptodonTitleDefaultStyles {
   public static func resetToDefaults() {
     color = _color
     font = _font
+    horizontalMargin = _horizontalMargin
     verticalOffset = _verticalOffset
     numberOfLines = _numberOfLines
     shadowColor = _shadowColor
@@ -251,23 +262,38 @@ public struct GlyptodonTitleDefaultStyles {
   
   private static let _color = GlyptodonColor.fromHexString("#666666")
   
-  /// Color of the label text.
+  /// Color of the title text.
   public static var color = _color
   
   
   // ---------------------------
   
   
+  private static let defaultNonDynamicFontSize: CGFloat = 28
+  
   private static let _font: UIFont = {
     if #available(iOS 8.2, *) {
-      return UIFont.systemFontOfSize(30, weight: UIFontWeightLight)
+      if #available(iOS 9.0, *) {
+        // Use dynamic type font for accessibility when available
+        return UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
+      } else {
+        return UIFont.systemFontOfSize(defaultNonDynamicFontSize, weight: UIFontWeightLight)
+      }
     } else {
-      return UIFont.systemFontOfSize(30)
+      return UIFont.systemFontOfSize(defaultNonDynamicFontSize)
     }
   }()
   
-  /// Font of the label text.
+  /// Font of the title text.
   public static var font = _font
+  
+  // ---------------------------
+  
+  
+  private static let _horizontalMargin: CGFloat = 15
+  
+  /// Horizontal margin between the title and the edge of the view.
+  public static var horizontalMargin = _horizontalMargin
   
   
   // ---------------------------
@@ -275,7 +301,7 @@ public struct GlyptodonTitleDefaultStyles {
   
   private static let _numberOfLines: Int = 5
   
-  /// The maximum number of lines in the label.
+  /// The maximum number of lines in the title.
   public static var numberOfLines = _numberOfLines
   
   
@@ -300,9 +326,9 @@ public struct GlyptodonTitleDefaultStyles {
   // ---------------------------
   
   
-  private static let _verticalOffset: CGFloat = 10
+  private static let _verticalOffset: CGFloat = -10
   
-  /// Vertical offset of the label relative to the center of the view. If zero the label is aligned exactly at the center.
+  /// Vertical offset of the title relative to the center of the view. If zero the label is aligned exactly at the center.
   public static var verticalOffset = _verticalOffset
   
   
@@ -325,6 +351,7 @@ public class GlyptodonTitleStyle {
   public func clear() {
     _color = nil
     _font = nil
+    _horizontalMargin = nil
     _numberOfLines = nil
     _shadowColor = nil
     _shadowOffset = nil
@@ -335,7 +362,7 @@ public class GlyptodonTitleStyle {
   
   private var _color: UIColor?
   
-  /// Color of the label text.
+  /// Color of the title text.
   public var color: UIColor {
     get {
       return _color ??  GlyptodonTitleDefaultStyles.color
@@ -350,7 +377,7 @@ public class GlyptodonTitleStyle {
   
   private var _font: UIFont?
   
-  /// Color of the label text.
+  /// Color of the title text.
   public var font: UIFont {
     get {
       return _font ?? GlyptodonTitleDefaultStyles.font
@@ -363,9 +390,24 @@ public class GlyptodonTitleStyle {
   
   // -----------------------------
   
+  private var _horizontalMargin: CGFloat?
+  
+  /// Horizontal margin between the title and the edge of the view.
+  public var horizontalMargin: CGFloat {
+    get {
+      return _horizontalMargin ?? GlyptodonTitleDefaultStyles.horizontalMargin
+    }
+    
+    set {
+      _horizontalMargin = newValue
+    }
+  }
+  
+  // -----------------------------
+  
   private var _numberOfLines: Int?
   
-  /// The maximum number of lines in the label.
+  /// The maximum number of lines in the title.
   public var numberOfLines: Int {
     get {
       return _numberOfLines ?? GlyptodonTitleDefaultStyles.numberOfLines
@@ -410,7 +452,7 @@ public class GlyptodonTitleStyle {
   
   private var _verticalOffset: CGFloat?
   
-  /// Vertical offset of the label relative to the center of the view. If zero the label is aligned exactly at the center.
+  /// Vertical offset of the title relative to the center of the view. If zero the label is aligned exactly at the center.
   public var verticalOffset: CGFloat {
     get {
       return _verticalOffset ?? GlyptodonTitleDefaultStyles.verticalOffset

@@ -38,6 +38,12 @@ final class Glyptodon: GlyptodonInterface {
   
   /// Hide the message window if it's currently open.
   func hide() {
-    
+    glyptodonView?.hide()
+  }
+  
+  private var glyptodonView: GlyptodonView? {
+    get {
+      return superview.subviews.filter { $0 is GlyptodonView }.map { $0 as! GlyptodonView }.first
+    }
   }
 }

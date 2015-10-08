@@ -56,19 +56,19 @@ Set `glyptodon.style` property to style the view **before** it is shown.
 
 ```Swift
 // Set the view background color
-view.glyptodon.style.view.backgroundColor = UIColor.grayColor()
+view.glyptodon.style.view.backgroundColor = GlyptodonColor.fromHexString("#EEEEEE")
 
 // Set the title font
 view.glyptodon.style.title.font = UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
 
 // Set the title color
-view.glyptodon.style.title.color = UIColor.blackColor()
+view.glyptodon.style.title.color = GlyptodonColor.fromHexString("#666666")
 
 // Set the button font
 view.glyptodon.style.button.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
 
 // Set the button color
-view.glyptodon.style.button.color = UIColor.yellowColor()
+view.glyptodon.style.button.color = UIColor.blueColor()
 ```
 
 ### Customize animation

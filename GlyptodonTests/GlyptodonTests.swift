@@ -21,4 +21,11 @@ class GlyptodonTests: XCTestCase {
     
     XCTAssertEqual("Nothing here", glyptodonTitleLabel(superview)?.text)
   }
+  
+  func testHide() {
+    obj.show("Nothing here")
+    obj.hide()
+
+    XCTAssert(glyptodonView(superview) == nil)
+  }
 }

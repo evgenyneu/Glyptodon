@@ -26,6 +26,9 @@ class GlyptodonView: UIView {
     applyStyle()
   }
   
+  func hide() {
+    removeFromSuperview()
+  }
   
   private func applyStyle() {
     backgroundColor = style.view.backgroundColor

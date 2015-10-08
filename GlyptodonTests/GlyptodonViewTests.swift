@@ -29,6 +29,14 @@ class GlyptodonViewTests: XCTestCase {
     XCTAssertEqual("My test message", glyptodonTitleLabel(superview)?.text)
   }
   
+  // MARK: - Hide
+  
+  func testHide() {
+    obj.showInSuperview(superview, withTitle: "My test message")
+    obj.hide()
+    XCTAssert(glyptodonView(superview) == nil)
+  }
+  
   // MARK: - Style
   
   func testStyleLabel() {
