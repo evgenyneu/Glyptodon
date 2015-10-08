@@ -13,6 +13,7 @@ public struct GlyptodonButtonDefaultStyles {
   public static func resetToDefaults() {
     borderColor = _borderColor
     borderMargin = _borderMargin
+    borderWidth = _borderWidth
     color = _color
     font = _font
     horizontalMargin = _horizontalMargin
@@ -24,17 +25,30 @@ public struct GlyptodonButtonDefaultStyles {
   
   // ---------------------------
   
+  
   private static let _borderColor = GlyptodonColor.fromHexString("#666666")
   
   /// Color of the button's border.
   public static var borderColor = _borderColor
   
+  
   // ---------------------------
+  
   
   private static let _borderMargin = CGSize(width: 5, height: 5)
   
   /// Margin between the button's title and its border.
   public static var borderMargin = _borderMargin
+  
+  
+  // ---------------------------
+  
+  
+  private static let _borderWidth = 1 / UIScreen.mainScreen().scale
+  
+  /// Width of the button's border.
+  public static var borderWidth = _borderWidth
+  
   
   // ---------------------------
   

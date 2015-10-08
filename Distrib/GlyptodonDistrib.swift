@@ -272,13 +272,23 @@ class GlyptodonView: UIView {
   }
   
   private func applyButtonStyle(button: UIButton) {
+    button.setTitleColor(style.button.color, forState: .Normal)
+    button.setTitleShadowColor(style.button.shadowColor, forState: .Normal)
+    
+    
+    button.layer.borderColor = style.button.borderColor.CGColor
+    
+    button.titleEdgeInsets = UIEdgeInsets(top: style.button.borderMargin.height,
+      left: style.button.borderMargin.width,
+      bottom: style.button.borderMargin.height,
+      right: style.button.borderMargin.width)
+    
+    button.layer.borderWidth = style.button.borderWidth
+
     guard let label = button.titleLabel else { return }
     
     label.font = style.button.font
-    button.setTitleColor(style.button.color, forState: .Normal)
-    
     label.numberOfLines = style.button.numberOfLines
-    label.shadowColor = style.button.shadowColor
     label.shadowOffset = style.button.shadowOffset
   }
 }
@@ -305,6 +315,7 @@ public struct GlyptodonButtonDefaultStyles {
   public static func resetToDefaults() {
     borderColor = _borderColor
     borderMargin = _borderMargin
+    borderWidth = _borderWidth
     color = _color
     font = _font
     horizontalMargin = _horizontalMargin
@@ -316,17 +327,30 @@ public struct GlyptodonButtonDefaultStyles {
   
   // ---------------------------
   
+  
   private static let _borderColor = GlyptodonColor.fromHexString("#666666")
   
   /// Color of the button's border.
   public static var borderColor = _borderColor
   
+  
   // ---------------------------
+  
   
   private static let _borderMargin = CGSize(width: 5, height: 5)
   
   /// Margin between the button's title and its border.
   public static var borderMargin = _borderMargin
+  
+  
+  // ---------------------------
+  
+  
+  private static let _borderWidth = 1 / UIScreen.mainScreen().scale
+  
+  /// Width of the button's border.
+  public static var borderWidth = _borderWidth
+  
   
   // ---------------------------
   
@@ -409,6 +433,7 @@ public class GlyptodonButtonStyle {
   public func clear() {
     _borderColor = nil
     _borderMargin = nil
+    _borderWidth = nil
     _color = nil
     _font = nil
     _horizontalMargin = nil
@@ -445,6 +470,21 @@ public class GlyptodonButtonStyle {
     
     set {
       _borderMargin = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _borderWidth: CGFloat?
+  
+  /// Width of the button's border.
+  public var borderWidth: CGFloat {
+    get {
+      return _borderWidth ?? GlyptodonButtonDefaultStyles.borderWidth
+    }
+    
+    set {
+      _borderWidth = newValue
     }
   }
   

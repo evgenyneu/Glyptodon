@@ -7,6 +7,7 @@ public class GlyptodonButtonStyle {
   public func clear() {
     _borderColor = nil
     _borderMargin = nil
+    _borderWidth = nil
     _color = nil
     _font = nil
     _horizontalMargin = nil
@@ -43,6 +44,21 @@ public class GlyptodonButtonStyle {
     
     set {
       _borderMargin = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _borderWidth: CGFloat?
+  
+  /// Width of the button's border.
+  public var borderWidth: CGFloat {
+    get {
+      return _borderWidth ?? GlyptodonButtonDefaultStyles.borderWidth
+    }
+    
+    set {
+      _borderWidth = newValue
     }
   }
   
