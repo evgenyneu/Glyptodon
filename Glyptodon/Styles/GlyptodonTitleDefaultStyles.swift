@@ -31,11 +31,18 @@ public struct GlyptodonTitleDefaultStyles {
   // ---------------------------
   
   
+  private static let defaultNonDynamicFontSize: CGFloat = 28
+  
   private static let _font: UIFont = {
     if #available(iOS 8.2, *) {
-      return UIFont.systemFontOfSize(30, weight: UIFontWeightLight)
+      if #available(iOS 9.0, *) {
+        // Use dynamic type font for accessibility when available
+        return UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
+      } else {
+        return UIFont.systemFontOfSize(defaultNonDynamicFontSize, weight: UIFontWeightLight)
+      }
     } else {
-      return UIFont.systemFontOfSize(30)
+      return UIFont.systemFontOfSize(defaultNonDynamicFontSize)
     }
   }()
   

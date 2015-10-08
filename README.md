@@ -59,7 +59,7 @@ Set `glyptodon.style` property to style the view **before** it is shown.
 view.glyptodon.style.view.backgroundColor = UIColor.grayColor()
 
 // Set the title font
-view.glyptodon.style.title.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+view.glyptodon.style.title.font = UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
 
 // Set the title color
 view.glyptodon.style.title.color = UIColor.blackColor()
