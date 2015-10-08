@@ -12,6 +12,7 @@
 		2BAC6F651BC606DE00D0A9A2 /* Glyptodon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F641BC606DE00D0A9A2 /* Glyptodon.swift */; settings = {ASSET_TAGS = (); }; };
 		2BAC6F6F1BC6075F00D0A9A2 /* Glyptodon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAC6F571BC6053A00D0A9A2 /* Glyptodon.framework */; settings = {ASSET_TAGS = (); }; };
 		2BAC6F761BC6077800D0A9A2 /* UIView+GlyptodonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F751BC6077800D0A9A2 /* UIView+GlyptodonTests.swift */; settings = {ASSET_TAGS = (); }; };
+		2BAC6F781BC60F5500D0A9A2 /* UIView+Glyptodon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F771BC60F5500D0A9A2 /* UIView+Glyptodon.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		2BAC6F6A1BC6075F00D0A9A2 /* GlyptodonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlyptodonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAC6F6E1BC6075F00D0A9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BAC6F751BC6077800D0A9A2 /* UIView+GlyptodonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+GlyptodonTests.swift"; sourceTree = "<group>"; };
+		2BAC6F771BC60F5500D0A9A2 /* UIView+Glyptodon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Glyptodon.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				2BAC6F5C1BC6053A00D0A9A2 /* Info.plist */,
 				2BAC6F621BC605FE00D0A9A2 /* GlyptodonInterface.swift */,
 				2BAC6F641BC606DE00D0A9A2 /* Glyptodon.swift */,
+				2BAC6F771BC60F5500D0A9A2 /* UIView+Glyptodon.swift */,
 			);
 			path = Glyptodon;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			files = (
 				2BAC6F651BC606DE00D0A9A2 /* Glyptodon.swift in Sources */,
 				2BAC6F631BC605FE00D0A9A2 /* GlyptodonInterface.swift in Sources */,
+				2BAC6F781BC60F5500D0A9A2 /* UIView+Glyptodon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
