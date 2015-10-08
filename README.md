@@ -1,3 +1,5 @@
+> 🚧🚧🚧 This is work in progress 🚧🚧🚧
+
 # Glyptodon, a UI widget for displaying 'no results' message in iOS
 
 This is a UI element for showing 'no results' message in iOS.
@@ -34,6 +36,7 @@ view.glyptodon.show("Shopping cart is empty.", buttonLabel: 'Go shopping') {
 Set `glyptodon.style` property to style the view **before** it is shown.
 
 ```Swift
+// Set the view background color
 view.glyptodon.style.view.backgroundColor = UIColor.grayColor()
 
 // Set the message font
