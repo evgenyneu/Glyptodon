@@ -306,7 +306,7 @@ public struct GlyptodonButtonDefaultStyles {
   
   private static let _borderColor = GlyptodonColor.fromHexString("#666666")
   
-  /// Color of the button border.
+  /// Color of the button's border.
   public static var borderColor = _borderColor
   
   // ---------------------------
@@ -328,22 +328,9 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let defaultNonDynamicFontSize: CGFloat = 28
+  private static let _font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
   
-  private static let _font: UIFont = {
-    if #available(iOS 8.2, *) {
-      if #available(iOS 9.0, *) {
-        // Use dynamic type font for accessibility when available
-        return UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
-      } else {
-        return UIFont.systemFontOfSize(defaultNonDynamicFontSize, weight: UIFontWeightLight)
-      }
-    } else {
-      return UIFont.systemFontOfSize(defaultNonDynamicFontSize)
-    }
-    }()
-  
-  /// Font of the button text.
+  /// Font of the button title.
   public static var font = _font
   
   // ---------------------------
@@ -423,7 +410,7 @@ public class GlyptodonButtonStyle {
   
   private var _borderColor: UIColor?
   
-  /// Color of the title text.
+  /// Color of the button's border.
   public var borderColor: UIColor {
     get {
       return _borderColor ?? GlyptodonButtonDefaultStyles.borderColor
@@ -438,7 +425,7 @@ public class GlyptodonButtonStyle {
   
   private var _borderMargin: CGSize?
   
-  /// Color of the title text.
+  /// Margin between the button's title and its border.
   public var borderMargin: CGSize {
     get {
       return _borderMargin ?? GlyptodonButtonDefaultStyles.borderMargin
@@ -453,7 +440,7 @@ public class GlyptodonButtonStyle {
   
   private var _color: UIColor?
   
-  /// Color of the title text.
+  /// Color of the button title.
   public var color: UIColor {
     get {
       return _color ?? GlyptodonButtonDefaultStyles.color
@@ -468,7 +455,7 @@ public class GlyptodonButtonStyle {
   
   private var _font: UIFont?
   
-  /// Color of the title text.
+  /// Font of the button title.
   public var font: UIFont {
     get {
       return _font ?? GlyptodonButtonDefaultStyles.font
@@ -483,7 +470,7 @@ public class GlyptodonButtonStyle {
   
   private var _horizontalMargin: CGFloat?
   
-  /// Horizontal margin between the title and the edge of the view.
+  /// Horizontal margin between the button and the edge of the view.
   public var horizontalMargin: CGFloat {
     get {
       return _horizontalMargin ?? GlyptodonButtonDefaultStyles.horizontalMargin
@@ -498,7 +485,7 @@ public class GlyptodonButtonStyle {
   
   private var _numberOfLines: Int?
   
-  /// The maximum number of lines in the title.
+  /// The maximum number of lines in the button title.
   public var numberOfLines: Int {
     get {
       return _numberOfLines ?? GlyptodonButtonDefaultStyles.numberOfLines
@@ -543,7 +530,7 @@ public class GlyptodonButtonStyle {
   
   private var _verticalMargin: CGFloat?
   
-  /// Vertical offset of the title relative to the center of the view. If zero the label is aligned exactly at the center.
+  /// Vertical margin between the title and the button.
   public var verticalMargin: CGFloat {
     get {
       return _verticalMargin ?? GlyptodonButtonDefaultStyles.verticalMargin

@@ -26,7 +26,7 @@ public struct GlyptodonButtonDefaultStyles {
   
   private static let _borderColor = GlyptodonColor.fromHexString("#666666")
   
-  /// Color of the button border.
+  /// Color of the button's border.
   public static var borderColor = _borderColor
   
   // ---------------------------
@@ -48,22 +48,9 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let defaultNonDynamicFontSize: CGFloat = 28
+  private static let _font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
   
-  private static let _font: UIFont = {
-    if #available(iOS 8.2, *) {
-      if #available(iOS 9.0, *) {
-        // Use dynamic type font for accessibility when available
-        return UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
-      } else {
-        return UIFont.systemFontOfSize(defaultNonDynamicFontSize, weight: UIFontWeightLight)
-      }
-    } else {
-      return UIFont.systemFontOfSize(defaultNonDynamicFontSize)
-    }
-    }()
-  
-  /// Font of the button text.
+  /// Font of the button title.
   public static var font = _font
   
   // ---------------------------
