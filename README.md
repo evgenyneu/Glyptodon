@@ -29,6 +29,40 @@ view.glyptodon.show("Shopping cart is empty.", buttonLabel: 'Go shopping') {
 }
 ```
 
+### Styling
+
+Set `glyptodon.style` property to style the view **before** it is shown.
+
+```Swift
+view.glyptodon.style.view.backgroundColor = UIColor.grayColor()
+
+// Set the message font
+view.glyptodon.style.message.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+
+// Set the message color
+view.glyptodon.style.message.color = UIColor.blackColor()
+
+// Set the button font
+view.glyptodon.style.button.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+
+// Set the button color
+view.glyptodon.style.button.color = UIColor.yellowColor()
+```
+
+### Customize animation
+
+Configure the animation effect of the view before it is shown.
+
+
+```Swift
+// Use existing animations
+view.glyptodon.style.bar.animationShow = GlyptodonAnimations.Fade.show
+view.glyptodon.style.bar.animationHide = GlyptodonAnimations.Fade.hide
+
+// Turn off animation
+view.glyptodon.style.bar.animationShow = GlyptodonAnimations.NoAnimation.show
+```
+
 ## License
 
 Glyptodon is released under the [MIT License](LICENSE).
