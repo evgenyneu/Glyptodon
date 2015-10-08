@@ -24,6 +24,7 @@ class GlyptodonView: UIView {
     addLayoutConstraints()
     createTitle(title)
     applyStyle()
+    animateIn()
   }
   
   func showInSuperview(superview: UIView, title: String,
@@ -35,7 +36,9 @@ class GlyptodonView: UIView {
   }
   
   func hide() {
-    removeFromSuperview()
+    animateOut() { [weak self] in
+      self?.removeFromSuperview()
+    }
   }
   
   private func applyStyle() {
@@ -119,5 +122,26 @@ class GlyptodonView: UIView {
     label.font = style.button.font
     label.numberOfLines = style.button.numberOfLines
     label.shadowOffset = style.button.shadowOffset
+  }
+  
+  // MARK: - Animation
+  
+  private func animateIn() {
+    alpha = 0
+    
+    UIView.animateWithDuration(style.view.animationDurationSeconds) { [weak self] in
+      self?.alpha = 1
+    }
+  }
+  
+  private func animateOut(didFinish: ()->()) {
+    UIView.animateWithDuration(style.view.animationDurationSeconds,
+      animations: { [weak self] in
+        self?.alpha = 0
+      },
+      completion: { _ in
+        didFinish()
+      }
+    )
   }
 }

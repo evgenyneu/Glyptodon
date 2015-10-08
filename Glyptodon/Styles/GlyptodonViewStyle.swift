@@ -23,5 +23,20 @@ public class GlyptodonViewStyle {
     }
   }
   
+  // ---------------------------
+  
+  private var _animationDurationSeconds: NSTimeInterval?
+  
+  /// Duration of the fade animation that is used to show the message view. Setting it to 0 will result in no animation.
+  public var animationDurationSeconds: NSTimeInterval {
+    get {
+      return _animationDurationSeconds ?? GlyptodonViewDefaultStyles.animationDurationSeconds
+    }
+    
+    set {
+      _animationDurationSeconds = newValue
+    }
+  }
+  
   // -----------------------------
 }
