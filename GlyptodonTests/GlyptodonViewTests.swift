@@ -64,7 +64,9 @@ class GlyptodonViewTests: XCTestCase {
   }
   
   func testStyleButton() {
-    style.button.font = UIFont.systemFontOfSize(38.31)
+    style.button.borderColor = UIColor.greenColor()
+    style.button.borderMargin = CGSize(width: 4.13, height: 4.12)
+    style.button.font = UIFont.systemFontOfSize(12.31)
     style.button.color = UIColor.purpleColor()
     style.button.numberOfLines = 3
     style.button.shadowColor = UIColor.yellowColor()
@@ -75,10 +77,11 @@ class GlyptodonViewTests: XCTestCase {
     let button = glyptodonButton(superview)!
     let buttonLabel = button.titleLabel
     
-    XCTAssertEqual(38.31, buttonLabel?.font.pointSize)
-    XCTAssertEqual(UIColor.purpleColor(), buttonLabel?.textColor)
+    XCTAssertEqual(UIColor.greenColor(), UIColor(CGColor: button.layer.borderColor!))
+    XCTAssertEqual(12.31, buttonLabel?.font.pointSize)
+    XCTAssertEqual(UIColor.purpleColor(), button.titleColorForState(.Normal))
     XCTAssertEqual(3, buttonLabel?.numberOfLines)
-    XCTAssertEqual(UIColor.yellowColor(), buttonLabel?.shadowColor)
+    XCTAssertEqual(UIColor.yellowColor(), button.titleShadowColorForState(.Normal))
     XCTAssertEqual(CGSize(width: 3, height: 2), buttonLabel?.shadowOffset)
   }
 }

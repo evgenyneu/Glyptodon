@@ -257,6 +257,7 @@ class GlyptodonView: UIView {
     addSubview(button)
     button.setTitle(title, forState: .Normal)
     addButtonLayoutConstraints(button)
+    applyButtonStyle(button)
   }
   
   private func addButtonLayoutConstraints(button: UIButton) {
@@ -268,6 +269,17 @@ class GlyptodonView: UIView {
     
     // Position the button under the title label
     TegAutolayoutConstraints.twoViewsNextToEachOther(titleLabel, viewTwo: button, constraintContainer: self, margin: 20, vertically: true)
+  }
+  
+  private func applyButtonStyle(button: UIButton) {
+    guard let label = button.titleLabel else { return }
+    
+    label.font = style.button.font
+    button.setTitleColor(style.button.color, forState: .Normal)
+    
+    label.numberOfLines = style.button.numberOfLines
+    label.shadowColor = style.button.shadowColor
+    label.shadowOffset = style.button.shadowOffset
   }
 }
 
