@@ -25,6 +25,9 @@
 		2BAC6F981BC615E000D0A9A2 /* Glyptodon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAC6F571BC6053A00D0A9A2 /* Glyptodon.framework */; };
 		2BAC6F991BC615E000D0A9A2 /* Glyptodon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAC6F571BC6053A00D0A9A2 /* Glyptodon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2BAC6F9F1BC6168900D0A9A2 /* TegAutolayoutConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F9E1BC6168900D0A9A2 /* TegAutolayoutConstraints.swift */; settings = {ASSET_TAGS = (); }; };
+		2BAC6FA91BC61B5C00D0A9A2 /* GlyptodonViewDefaultStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6FA81BC61B5C00D0A9A2 /* GlyptodonViewDefaultStyles.swift */; settings = {ASSET_TAGS = (); }; };
+		2BAC6FAB1BC61BB700D0A9A2 /* GlyptodonColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6FAA1BC61BB700D0A9A2 /* GlyptodonColor.swift */; settings = {ASSET_TAGS = (); }; };
+		2BAC6FAE1BC61BEA00D0A9A2 /* GlyptodonColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6FAD1BC61BEA00D0A9A2 /* GlyptodonColorTests.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		2BAC6F941BC614F500D0A9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BAC6F9E1BC6168900D0A9A2 /* TegAutolayoutConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegAutolayoutConstraints.swift; sourceTree = "<group>"; };
 		2BAC6FA51BC619FF00D0A9A2 /* GlyptodonDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonDistrib.swift; sourceTree = "<group>"; };
+		2BAC6FA81BC61B5C00D0A9A2 /* GlyptodonViewDefaultStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonViewDefaultStyles.swift; sourceTree = "<group>"; };
+		2BAC6FAA1BC61BB700D0A9A2 /* GlyptodonColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonColor.swift; sourceTree = "<group>"; };
+		2BAC6FAD1BC61BEA00D0A9A2 /* GlyptodonColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonColorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +140,7 @@
 		2BAC6F591BC6053A00D0A9A2 /* Glyptodon */ = {
 			isa = PBXGroup;
 			children = (
+				2BAC6FA71BC61B5500D0A9A2 /* Styles */,
 				2BAC6F9D1BC6168500D0A9A2 /* Utils */,
 				2BAC6F5A1BC6053A00D0A9A2 /* Glyptodon.h */,
 				2BAC6F5C1BC6053A00D0A9A2 /* Info.plist */,
@@ -149,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				2BAC6F7B1BC610AC00D0A9A2 /* TestHelpers */,
+				2BAC6FAC1BC61BE300D0A9A2 /* Utils */,
 				2BAC6F791BC6102A00D0A9A2 /* GlyptodonTests.swift */,
 				2BAC6F801BC613B600D0A9A2 /* GlyptodonViewTests.swift */,
 				2BAC6F751BC6077800D0A9A2 /* UIView+GlyptodonTests.swift */,
@@ -181,6 +189,7 @@
 		2BAC6F9D1BC6168500D0A9A2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2BAC6FAA1BC61BB700D0A9A2 /* GlyptodonColor.swift */,
 				2BAC6F9E1BC6168900D0A9A2 /* TegAutolayoutConstraints.swift */,
 			);
 			path = Utils;
@@ -192,6 +201,22 @@
 				2BAC6FA51BC619FF00D0A9A2 /* GlyptodonDistrib.swift */,
 			);
 			path = Distrib;
+			sourceTree = "<group>";
+		};
+		2BAC6FA71BC61B5500D0A9A2 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				2BAC6FA81BC61B5C00D0A9A2 /* GlyptodonViewDefaultStyles.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		2BAC6FAC1BC61BE300D0A9A2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2BAC6FAD1BC61BEA00D0A9A2 /* GlyptodonColorTests.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,7 +384,9 @@
 			files = (
 				2BAC6F651BC606DE00D0A9A2 /* Glyptodon.swift in Sources */,
 				2BAC6F7F1BC610D100D0A9A2 /* GlyptodonView.swift in Sources */,
+				2BAC6FAB1BC61BB700D0A9A2 /* GlyptodonColor.swift in Sources */,
 				2BAC6F631BC605FE00D0A9A2 /* GlyptodonInterface.swift in Sources */,
+				2BAC6FA91BC61B5C00D0A9A2 /* GlyptodonViewDefaultStyles.swift in Sources */,
 				2BAC6F9F1BC6168900D0A9A2 /* TegAutolayoutConstraints.swift in Sources */,
 				2BAC6F781BC60F5500D0A9A2 /* UIView+Glyptodon.swift in Sources */,
 			);
@@ -371,6 +398,7 @@
 			files = (
 				2BAC6F7D1BC610B100D0A9A2 /* XCTestCase+Helpers.swift in Sources */,
 				2BAC6F811BC613B600D0A9A2 /* GlyptodonViewTests.swift in Sources */,
+				2BAC6FAE1BC61BEA00D0A9A2 /* GlyptodonColorTests.swift in Sources */,
 				2BAC6F7A1BC6102A00D0A9A2 /* GlyptodonTests.swift in Sources */,
 				2BAC6F761BC6077800D0A9A2 /* UIView+GlyptodonTests.swift in Sources */,
 			);
