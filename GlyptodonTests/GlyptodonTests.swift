@@ -16,9 +16,9 @@ class GlyptodonTests: XCTestCase {
   
   // MARK : - Show
   
-  func testThis() {
+  func testShow() {
     obj.show("Nothing here")
     
-    XCTAssert(glyptodonView(superview) != nil)
+    XCTAssertEqual("Nothing here", glyptodonLabel(superview)?.text)
   }
 }

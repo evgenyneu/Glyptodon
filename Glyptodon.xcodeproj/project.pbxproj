@@ -17,6 +17,11 @@
 		2BAC6F7D1BC610B100D0A9A2 /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F7C1BC610B100D0A9A2 /* XCTestCase+Helpers.swift */; settings = {ASSET_TAGS = (); }; };
 		2BAC6F7F1BC610D100D0A9A2 /* GlyptodonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F7E1BC610D100D0A9A2 /* GlyptodonView.swift */; settings = {ASSET_TAGS = (); }; };
 		2BAC6F811BC613B600D0A9A2 /* GlyptodonViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F801BC613B600D0A9A2 /* GlyptodonViewTests.swift */; settings = {ASSET_TAGS = (); }; };
+		2BAC6F891BC614F500D0A9A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F881BC614F500D0A9A2 /* AppDelegate.swift */; };
+		2BAC6F8B1BC614F500D0A9A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F8A1BC614F500D0A9A2 /* ViewController.swift */; };
+		2BAC6F8E1BC614F500D0A9A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BAC6F8C1BC614F500D0A9A2 /* Main.storyboard */; };
+		2BAC6F901BC614F500D0A9A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BAC6F8F1BC614F500D0A9A2 /* Assets.xcassets */; };
+		2BAC6F931BC614F500D0A9A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BAC6F911BC614F500D0A9A2 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +48,13 @@
 		2BAC6F7C1BC610B100D0A9A2 /* XCTestCase+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Helpers.swift"; sourceTree = "<group>"; };
 		2BAC6F7E1BC610D100D0A9A2 /* GlyptodonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonView.swift; sourceTree = "<group>"; };
 		2BAC6F801BC613B600D0A9A2 /* GlyptodonViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonViewTests.swift; sourceTree = "<group>"; };
+		2BAC6F861BC614F500D0A9A2 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BAC6F881BC614F500D0A9A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2BAC6F8A1BC614F500D0A9A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2BAC6F8D1BC614F500D0A9A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2BAC6F8F1BC614F500D0A9A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2BAC6F921BC614F500D0A9A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2BAC6F941BC614F500D0A9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +73,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2BAC6F831BC614F500D0A9A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -69,6 +88,7 @@
 			children = (
 				2BAC6F591BC6053A00D0A9A2 /* Glyptodon */,
 				2BAC6F6B1BC6075F00D0A9A2 /* GlyptodonTests */,
+				2BAC6F871BC614F500D0A9A2 /* Demo */,
 				2BAC6F581BC6053A00D0A9A2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +98,7 @@
 			children = (
 				2BAC6F571BC6053A00D0A9A2 /* Glyptodon.framework */,
 				2BAC6F6A1BC6075F00D0A9A2 /* GlyptodonTests.xctest */,
+				2BAC6F861BC614F500D0A9A2 /* Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,6 +134,19 @@
 				2BAC6F7C1BC610B100D0A9A2 /* XCTestCase+Helpers.swift */,
 			);
 			path = TestHelpers;
+			sourceTree = "<group>";
+		};
+		2BAC6F871BC614F500D0A9A2 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				2BAC6F881BC614F500D0A9A2 /* AppDelegate.swift */,
+				2BAC6F8A1BC614F500D0A9A2 /* ViewController.swift */,
+				2BAC6F8C1BC614F500D0A9A2 /* Main.storyboard */,
+				2BAC6F8F1BC614F500D0A9A2 /* Assets.xcassets */,
+				2BAC6F911BC614F500D0A9A2 /* LaunchScreen.storyboard */,
+				2BAC6F941BC614F500D0A9A2 /* Info.plist */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +199,23 @@
 			productReference = 2BAC6F6A1BC6075F00D0A9A2 /* GlyptodonTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		2BAC6F851BC614F500D0A9A2 /* Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BAC6F951BC614F500D0A9A2 /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildPhases = (
+				2BAC6F821BC614F500D0A9A2 /* Sources */,
+				2BAC6F831BC614F500D0A9A2 /* Frameworks */,
+				2BAC6F841BC614F500D0A9A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Demo;
+			productName = Demo;
+			productReference = 2BAC6F861BC614F500D0A9A2 /* Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -181,6 +232,9 @@
 					2BAC6F691BC6075F00D0A9A2 = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
+					2BAC6F851BC614F500D0A9A2 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
 				};
 			};
 			buildConfigurationList = 2BAC6F511BC6053A00D0A9A2 /* Build configuration list for PBXProject "Glyptodon" */;
@@ -189,6 +243,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 2BAC6F4D1BC6053A00D0A9A2;
 			productRefGroup = 2BAC6F581BC6053A00D0A9A2 /* Products */;
@@ -197,6 +252,7 @@
 			targets = (
 				2BAC6F561BC6053A00D0A9A2 /* Glyptodon */,
 				2BAC6F691BC6075F00D0A9A2 /* GlyptodonTests */,
+				2BAC6F851BC614F500D0A9A2 /* Demo */,
 			);
 		};
 /* End PBXProject section */
@@ -213,6 +269,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BAC6F841BC614F500D0A9A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BAC6F931BC614F500D0A9A2 /* LaunchScreen.storyboard in Resources */,
+				2BAC6F901BC614F500D0A9A2 /* Assets.xcassets in Resources */,
+				2BAC6F8E1BC614F500D0A9A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +307,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2BAC6F821BC614F500D0A9A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BAC6F8B1BC614F500D0A9A2 /* ViewController.swift in Sources */,
+				2BAC6F891BC614F500D0A9A2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -250,6 +325,25 @@
 			targetProxy = 2BAC6F701BC6075F00D0A9A2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2BAC6F8C1BC614F500D0A9A2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BAC6F8D1BC614F500D0A9A2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2BAC6F911BC614F500D0A9A2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BAC6F921BC614F500D0A9A2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2BAC6F5D1BC6053A00D0A9A2 /* Debug */ = {
@@ -398,6 +492,30 @@
 			};
 			name = Release;
 		};
+		2BAC6F961BC614F500D0A9A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2BAC6F971BC614F500D0A9A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -423,6 +541,14 @@
 			buildConfigurations = (
 				2BAC6F731BC6075F00D0A9A2 /* Debug */,
 				2BAC6F741BC6075F00D0A9A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2BAC6F951BC614F500D0A9A2 /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BAC6F961BC614F500D0A9A2 /* Debug */,
+				2BAC6F971BC614F500D0A9A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
