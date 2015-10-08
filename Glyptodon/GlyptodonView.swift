@@ -47,26 +47,35 @@ class GlyptodonView: UIView {
     
     translatesAutoresizingMaskIntoConstraints = false
     
+    // Fill the message view to covert entire area of its superview
     TegAutolayoutConstraints.fillParent(self, parentView: superview, margin: 0, vertically: true)
     TegAutolayoutConstraints.fillParent(self, parentView: superview, margin: 0, vertically: false)
+  }
+  
+  private var titleLabel: UILabel? {
+    return subviews.filter { $0 is UILabel }.map { $0 as! UILabel }.first
   }
   
   // MARK: - Title
   
   private func createTitle(title: String) {
     let label = UILabel()
+    addSubview(label)
     label.text = title
     
-    addSubview(label)
     addTitleLayoutConstraints(label)
     applyTitleStyle(label)
   }
   
   private func addTitleLayoutConstraints(label: UILabel) {
     label.translatesAutoresizingMaskIntoConstraints = false
+    
+    
+    // Make the width of the title label the same as the view, minus the margins.
     TegAutolayoutConstraints.fillParent(label, parentView: self,
       margin: style.title.horizontalMargin, vertically: false)
     
+    // Center the label vertically in the view with an offset.
     TegAutolayoutConstraints.centerY(label, viewTwo: self, constraintContainer: self,
       constant: style.title.verticalOffset)
   }
@@ -84,7 +93,19 @@ class GlyptodonView: UIView {
   
   private func createButton(title: String) {
     let button = UIButton()
-    button.setTitle(title, forState: .Normal)
     addSubview(button)
+    button.setTitle(title, forState: .Normal)
+    addButtonLayoutConstraints(button)
+  }
+  
+  private func addButtonLayoutConstraints(button: UIButton) {
+    guard let titleLabel = titleLabel else { return }
+    button.translatesAutoresizingMaskIntoConstraints = false
+    
+    // Make the width of the button the same as the view, minus the margins.
+    TegAutolayoutConstraints.fillParent(button, parentView: self, margin: style.title.horizontalMargin, vertically: false)
+    
+    // Position the button under the title label
+    TegAutolayoutConstraints.twoViewsNextToEachOther(titleLabel, viewTwo: button, constraintContainer: self, margin: 20, vertically: true)
   }
 }

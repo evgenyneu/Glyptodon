@@ -59,4 +59,29 @@ class TegAutolayoutConstraints {
     
     parentView.addConstraints(constraints)
   }
+  
+  class func twoViewsNextToEachOther(viewOne: UIView, viewTwo: UIView,
+    constraintContainer: UIView, margin: CGFloat = 0,
+    vertically: Bool = false) -> [NSLayoutConstraint] {
+      
+      var marginFormat = ""
+      
+      if margin != 0 {
+        marginFormat = "-\(margin)-"
+      }
+      
+      var format = "[viewOne]\(marginFormat)[viewTwo]"
+      
+      if vertically {
+        format = "V:" + format
+      }
+      
+      let constraints = NSLayoutConstraint.constraintsWithVisualFormat(format,
+        options: [], metrics: nil,
+        views: [ "viewOne": viewOne, "viewTwo": viewTwo ])
+      
+      constraintContainer.addConstraints(constraints)
+      
+      return constraints
+  }
 }
