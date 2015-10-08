@@ -59,10 +59,10 @@ Set `glyptodon.style` property to style the view **before** it is shown.
 view.glyptodon.style.view.backgroundColor = UIColor.grayColor()
 
 // Set the message font
-view.glyptodon.style.message.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+view.glyptodon.style.label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
 
 // Set the message color
-view.glyptodon.style.message.color = UIColor.blackColor()
+view.glyptodon.style.label.color = UIColor.blackColor()
 
 // Set the button font
 view.glyptodon.style.button.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)

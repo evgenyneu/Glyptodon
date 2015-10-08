@@ -30,6 +30,8 @@
 		2BAC6FAE1BC61BEA00D0A9A2 /* GlyptodonColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6FAD1BC61BEA00D0A9A2 /* GlyptodonColorTests.swift */; settings = {ASSET_TAGS = (); }; };
 		2BAC6FB01BC61C9B00D0A9A2 /* GlyptodonViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6FAF1BC61C9B00D0A9A2 /* GlyptodonViewStyle.swift */; settings = {ASSET_TAGS = (); }; };
 		2BAC6FB21BC61D1D00D0A9A2 /* GlyptodonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6FB11BC61D1D00D0A9A2 /* GlyptodonStyle.swift */; settings = {ASSET_TAGS = (); }; };
+		2BAC6FB41BC61F0900D0A9A2 /* GlyptodonTitleDefaultStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6FB31BC61F0900D0A9A2 /* GlyptodonTitleDefaultStyles.swift */; settings = {ASSET_TAGS = (); }; };
+		2BAC6FB61BC620F000D0A9A2 /* GlyptodonTitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6FB51BC620F000D0A9A2 /* GlyptodonTitleStyle.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		2BAC6FAD1BC61BEA00D0A9A2 /* GlyptodonColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonColorTests.swift; sourceTree = "<group>"; };
 		2BAC6FAF1BC61C9B00D0A9A2 /* GlyptodonViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonViewStyle.swift; sourceTree = "<group>"; };
 		2BAC6FB11BC61D1D00D0A9A2 /* GlyptodonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonStyle.swift; sourceTree = "<group>"; };
+		2BAC6FB31BC61F0900D0A9A2 /* GlyptodonTitleDefaultStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonTitleDefaultStyles.swift; sourceTree = "<group>"; };
+		2BAC6FB51BC620F000D0A9A2 /* GlyptodonTitleStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonTitleStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +216,8 @@
 			children = (
 				2BAC6FA81BC61B5C00D0A9A2 /* GlyptodonViewDefaultStyles.swift */,
 				2BAC6FAF1BC61C9B00D0A9A2 /* GlyptodonViewStyle.swift */,
+				2BAC6FB31BC61F0900D0A9A2 /* GlyptodonTitleDefaultStyles.swift */,
+				2BAC6FB51BC620F000D0A9A2 /* GlyptodonTitleStyle.swift */,
 				2BAC6FB11BC61D1D00D0A9A2 /* GlyptodonStyle.swift */,
 			);
 			path = Styles;
@@ -390,12 +396,14 @@
 			files = (
 				2BAC6F651BC606DE00D0A9A2 /* Glyptodon.swift in Sources */,
 				2BAC6FB01BC61C9B00D0A9A2 /* GlyptodonViewStyle.swift in Sources */,
+				2BAC6FB41BC61F0900D0A9A2 /* GlyptodonTitleDefaultStyles.swift in Sources */,
 				2BAC6F7F1BC610D100D0A9A2 /* GlyptodonView.swift in Sources */,
 				2BAC6FAB1BC61BB700D0A9A2 /* GlyptodonColor.swift in Sources */,
 				2BAC6F631BC605FE00D0A9A2 /* GlyptodonInterface.swift in Sources */,
 				2BAC6FA91BC61B5C00D0A9A2 /* GlyptodonViewDefaultStyles.swift in Sources */,
 				2BAC6F9F1BC6168900D0A9A2 /* TegAutolayoutConstraints.swift in Sources */,
 				2BAC6F781BC60F5500D0A9A2 /* UIView+Glyptodon.swift in Sources */,
+				2BAC6FB61BC620F000D0A9A2 /* GlyptodonTitleStyle.swift in Sources */,
 				2BAC6FB21BC61D1D00D0A9A2 /* GlyptodonStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
