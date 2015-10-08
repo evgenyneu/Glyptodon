@@ -130,7 +130,7 @@ class GlyptodonView: UIView {
   func showInSuperview(superview: UIView, withTitle title: String) {
     superview.addSubview(self)
     addLayoutConstraints()
-    createLabel(title)
+    createTitle(title)
     applyStyle()
   }
   
@@ -148,28 +148,32 @@ class GlyptodonView: UIView {
     TegAutolayoutConstraints.fillParent(self, parentView: superview, margin: 0, vertically: false)
   }
   
-  // MARK: - Label
+  // MARK: - Title
   
-  private func createLabel(title: String) {
+  private func createTitle(title: String) {
     let label = UILabel()
     label.text = title
     
     addSubview(label)
-    addLabelLayoutConstraints(label)
-    applyLabelStyle(label)
+    addTitleLayoutConstraints(label)
+    applyTitleStyle(label)
   }
   
-  private func addLabelLayoutConstraints(label: UILabel) {
+  private func addTitleLayoutConstraints(label: UILabel) {
     label.translatesAutoresizingMaskIntoConstraints = false
     TegAutolayoutConstraints.fillParent(label, parentView: self, margin: 20, vertically: false)
-    TegAutolayoutConstraints.centerY(label, viewTwo: self, constraintContainer: self)
+    
+    TegAutolayoutConstraints.centerY(label, viewTwo: self, constraintContainer: self,
+      constant: style.title.verticalOffset)
   }
   
-  private func applyLabelStyle(label: UILabel) {
+  private func applyTitleStyle(label: UILabel) {
     label.textAlignment = .Center
-    
-    label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-    label.textColor = UIColor.redColor()
+    label.font = style.title.font
+    label.textColor = style.title.color
+    label.numberOfLines = style.title.numberOfLines
+    label.shadowColor = style.title.shadowColor
+    label.shadowOffset = style.title.shadowOffset
   }
 }
 
@@ -269,7 +273,7 @@ public struct GlyptodonTitleDefaultStyles {
   // ---------------------------
   
   
-  private static let _numberOfLines: Int = 3
+  private static let _numberOfLines: Int = 5
   
   /// The maximum number of lines in the label.
   public static var numberOfLines = _numberOfLines
@@ -624,34 +628,36 @@ import UIKit
 
 class TegAutolayoutConstraints {
   class func centerX(viewOne: UIView, viewTwo: UIView,
-    constraintContainer: UIView) -> [NSLayoutConstraint] {
+    constraintContainer: UIView, constant: CGFloat = 0) -> [NSLayoutConstraint] {
       
-      return center(viewOne, viewTwo: viewTwo, constraintContainer: constraintContainer, vertically: false)
+    return center(viewOne, viewTwo: viewTwo, constraintContainer: constraintContainer,
+      vertically: false, constant: constant)
   }
   
   class func centerY(viewOne: UIView, viewTwo: UIView,
-    constraintContainer: UIView) -> [NSLayoutConstraint] {
+    constraintContainer: UIView, constant: CGFloat = 0) -> [NSLayoutConstraint] {
       
-      return center(viewOne, viewTwo: viewTwo, constraintContainer: constraintContainer, vertically: true)
+    return center(viewOne, viewTwo: viewTwo, constraintContainer: constraintContainer,
+      vertically: true, constant: constant)
   }
   
   private class func center(viewOne: UIView, viewTwo: UIView,
-    constraintContainer: UIView, vertically: Bool = false) -> [NSLayoutConstraint] {
+    constraintContainer: UIView, vertically: Bool = false, constant: CGFloat = 0) -> [NSLayoutConstraint] {
       
-      let attribute = vertically ? NSLayoutAttribute.CenterY : NSLayoutAttribute.CenterX
-      
-      let constraint = NSLayoutConstraint(
-        item: viewOne,
-        attribute: attribute,
-        relatedBy: NSLayoutRelation.Equal,
-        toItem: viewTwo,
-        attribute: attribute,
-        multiplier: 1,
-        constant: 0)
-      
-      constraintContainer.addConstraint(constraint)
-      
-      return [constraint]
+    let attribute = vertically ? NSLayoutAttribute.CenterY : NSLayoutAttribute.CenterX
+    
+    let constraint = NSLayoutConstraint(
+      item: viewOne,
+      attribute: attribute,
+      relatedBy: NSLayoutRelation.Equal,
+      toItem: viewTwo,
+      attribute: attribute,
+      multiplier: 1,
+      constant: constant)
+    
+    constraintContainer.addConstraint(constraint)
+    
+    return [constraint]
   }
   
   class func fillParent(view: UIView, parentView: UIView, margin: CGFloat = 0, vertically: Bool) {

@@ -22,7 +22,7 @@ class GlyptodonView: UIView {
   func showInSuperview(superview: UIView, withTitle title: String) {
     superview.addSubview(self)
     addLayoutConstraints()
-    createLabel(title)
+    createTitle(title)
     applyStyle()
   }
   
@@ -40,27 +40,32 @@ class GlyptodonView: UIView {
     TegAutolayoutConstraints.fillParent(self, parentView: superview, margin: 0, vertically: false)
   }
   
-  // MARK: - Label
+  // MARK: - Title
   
-  private func createLabel(title: String) {
+  private func createTitle(title: String) {
     let label = UILabel()
     label.text = title
     
     addSubview(label)
-    addLabelLayoutConstraints(label)
-    applyLabelStyle(label)
+    addTitleLayoutConstraints(label)
+    applyTitleStyle(label)
   }
   
-  private func addLabelLayoutConstraints(label: UILabel) {
+  private func addTitleLayoutConstraints(label: UILabel) {
     label.translatesAutoresizingMaskIntoConstraints = false
-    TegAutolayoutConstraints.fillParent(label, parentView: self, margin: 20, vertically: false)
-    TegAutolayoutConstraints.centerY(label, viewTwo: self, constraintContainer: self)
+    TegAutolayoutConstraints.fillParent(label, parentView: self,
+      margin: style.title.horizontalMargin, vertically: false)
+    
+    TegAutolayoutConstraints.centerY(label, viewTwo: self, constraintContainer: self,
+      constant: style.title.verticalOffset)
   }
   
-  private func applyLabelStyle(label: UILabel) {
+  private func applyTitleStyle(label: UILabel) {
     label.textAlignment = .Center
-    
-    label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-    label.textColor = UIColor.redColor()
+    label.font = style.title.font
+    label.textColor = style.title.color
+    label.numberOfLines = style.title.numberOfLines
+    label.shadowColor = style.title.shadowColor
+    label.shadowOffset = style.title.shadowOffset
   }
 }

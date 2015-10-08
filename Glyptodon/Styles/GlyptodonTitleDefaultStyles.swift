@@ -12,6 +12,7 @@ public struct GlyptodonTitleDefaultStyles {
   public static func resetToDefaults() {
     color = _color
     font = _font
+    horizontalMargin = _horizontalMargin
     verticalOffset = _verticalOffset
     numberOfLines = _numberOfLines
     shadowColor = _shadowColor
@@ -23,7 +24,7 @@ public struct GlyptodonTitleDefaultStyles {
   
   private static let _color = GlyptodonColor.fromHexString("#666666")
   
-  /// Color of the label text.
+  /// Color of the title text.
   public static var color = _color
   
   
@@ -38,16 +39,24 @@ public struct GlyptodonTitleDefaultStyles {
     }
   }()
   
-  /// Font of the label text.
+  /// Font of the title text.
   public static var font = _font
+  
+  // ---------------------------
+  
+  
+  private static let _horizontalMargin: CGFloat = 10
+  
+  /// Horizontal margin between the title and the edge of the view.
+  public static var horizontalMargin = _horizontalMargin
   
   
   // ---------------------------
   
   
-  private static let _numberOfLines: Int = 3
+  private static let _numberOfLines: Int = 5
   
-  /// The maximum number of lines in the label.
+  /// The maximum number of lines in the title.
   public static var numberOfLines = _numberOfLines
   
   
@@ -72,9 +81,9 @@ public struct GlyptodonTitleDefaultStyles {
   // ---------------------------
   
   
-  private static let _verticalOffset: CGFloat = 10
+  private static let _verticalOffset: CGFloat = -10
   
-  /// Vertical offset of the label relative to the center of the view. If zero the label is aligned exactly at the center.
+  /// Vertical offset of the title relative to the center of the view. If zero the label is aligned exactly at the center.
   public static var verticalOffset = _verticalOffset
   
   

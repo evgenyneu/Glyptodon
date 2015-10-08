@@ -13,7 +13,7 @@ extension XCTestCase {
     return view
   }
   
-  func glyptodonLabel(superview: UIView) -> UILabel? {
+  func glyptodonTitleLabel(superview: UIView) -> UILabel? {
     return glyptodonView(superview)?.subviews.filter { $0 is UILabel }.map { $0 as! UILabel }.first
   }
   

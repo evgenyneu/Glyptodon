@@ -7,6 +7,7 @@ public class GlyptodonTitleStyle {
   public func clear() {
     _color = nil
     _font = nil
+    _horizontalMargin = nil
     _numberOfLines = nil
     _shadowColor = nil
     _shadowOffset = nil
@@ -17,7 +18,7 @@ public class GlyptodonTitleStyle {
   
   private var _color: UIColor?
   
-  /// Color of the label text.
+  /// Color of the title text.
   public var color: UIColor {
     get {
       return _color ??  GlyptodonTitleDefaultStyles.color
@@ -32,7 +33,7 @@ public class GlyptodonTitleStyle {
   
   private var _font: UIFont?
   
-  /// Color of the label text.
+  /// Color of the title text.
   public var font: UIFont {
     get {
       return _font ?? GlyptodonTitleDefaultStyles.font
@@ -45,9 +46,24 @@ public class GlyptodonTitleStyle {
   
   // -----------------------------
   
+  private var _horizontalMargin: CGFloat?
+  
+  /// Horizontal margin between the title and the edge of the view.
+  public var horizontalMargin: CGFloat {
+    get {
+      return _horizontalMargin ?? GlyptodonTitleDefaultStyles.horizontalMargin
+    }
+    
+    set {
+      _horizontalMargin = newValue
+    }
+  }
+  
+  // -----------------------------
+  
   private var _numberOfLines: Int?
   
-  /// The maximum number of lines in the label.
+  /// The maximum number of lines in the title.
   public var numberOfLines: Int {
     get {
       return _numberOfLines ?? GlyptodonTitleDefaultStyles.numberOfLines
@@ -92,7 +108,7 @@ public class GlyptodonTitleStyle {
   
   private var _verticalOffset: CGFloat?
   
-  /// Vertical offset of the label relative to the center of the view. If zero the label is aligned exactly at the center.
+  /// Vertical offset of the title relative to the center of the view. If zero the label is aligned exactly at the center.
   public var verticalOffset: CGFloat {
     get {
       return _verticalOffset ?? GlyptodonTitleDefaultStyles.verticalOffset

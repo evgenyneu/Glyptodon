@@ -26,11 +26,24 @@ class GlyptodonViewTests: XCTestCase {
   func testShow_message() {
     obj.showInSuperview(superview, withTitle: "My test message")
     
-    XCTAssertEqual("My test message", glyptodonLabel(superview)?.text)
+    XCTAssertEqual("My test message", glyptodonTitleLabel(superview)?.text)
   }
   
   // MARK: - Style
   
-  func testStyleLabel_font() {
+  func testStyleLabel() {
+    style.title.font = UIFont.systemFontOfSize(38.31)
+    style.title.color = UIColor.purpleColor()
+    style.title.numberOfLines = 3
+    style.title.shadowColor = UIColor.yellowColor()
+    style.title.shadowOffset = CGSize(width: 3, height: 2)
+    
+    obj.showInSuperview(superview, withTitle: "My test message")
+    
+    XCTAssertEqual(38.31, glyptodonTitleLabel(superview)?.font.pointSize)
+    XCTAssertEqual(UIColor.purpleColor(), glyptodonTitleLabel(superview)?.textColor)
+    XCTAssertEqual(3, glyptodonTitleLabel(superview)?.numberOfLines)
+    XCTAssertEqual(UIColor.yellowColor(), glyptodonTitleLabel(superview)?.shadowColor)
+    XCTAssertEqual(CGSize(width: 3, height: 2), glyptodonTitleLabel(superview)?.shadowOffset)
   }
 }

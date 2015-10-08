@@ -8,34 +8,36 @@ import UIKit
 
 class TegAutolayoutConstraints {
   class func centerX(viewOne: UIView, viewTwo: UIView,
-    constraintContainer: UIView) -> [NSLayoutConstraint] {
+    constraintContainer: UIView, constant: CGFloat = 0) -> [NSLayoutConstraint] {
       
-      return center(viewOne, viewTwo: viewTwo, constraintContainer: constraintContainer, vertically: false)
+    return center(viewOne, viewTwo: viewTwo, constraintContainer: constraintContainer,
+      vertically: false, constant: constant)
   }
   
   class func centerY(viewOne: UIView, viewTwo: UIView,
-    constraintContainer: UIView) -> [NSLayoutConstraint] {
+    constraintContainer: UIView, constant: CGFloat = 0) -> [NSLayoutConstraint] {
       
-      return center(viewOne, viewTwo: viewTwo, constraintContainer: constraintContainer, vertically: true)
+    return center(viewOne, viewTwo: viewTwo, constraintContainer: constraintContainer,
+      vertically: true, constant: constant)
   }
   
   private class func center(viewOne: UIView, viewTwo: UIView,
-    constraintContainer: UIView, vertically: Bool = false) -> [NSLayoutConstraint] {
+    constraintContainer: UIView, vertically: Bool = false, constant: CGFloat = 0) -> [NSLayoutConstraint] {
       
-      let attribute = vertically ? NSLayoutAttribute.CenterY : NSLayoutAttribute.CenterX
-      
-      let constraint = NSLayoutConstraint(
-        item: viewOne,
-        attribute: attribute,
-        relatedBy: NSLayoutRelation.Equal,
-        toItem: viewTwo,
-        attribute: attribute,
-        multiplier: 1,
-        constant: 0)
-      
-      constraintContainer.addConstraint(constraint)
-      
-      return [constraint]
+    let attribute = vertically ? NSLayoutAttribute.CenterY : NSLayoutAttribute.CenterX
+    
+    let constraint = NSLayoutConstraint(
+      item: viewOne,
+      attribute: attribute,
+      relatedBy: NSLayoutRelation.Equal,
+      toItem: viewTwo,
+      attribute: attribute,
+      multiplier: 1,
+      constant: constant)
+    
+    constraintContainer.addConstraint(constraint)
+    
+    return [constraint]
   }
   
   class func fillParent(view: UIView, parentView: UIView, margin: CGFloat = 0, vertically: Bool) {
