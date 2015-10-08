@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>GlyptodonTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>2BAC6F561BC6053A00D0A9A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2BAC6F691BC6075F00D0A9A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

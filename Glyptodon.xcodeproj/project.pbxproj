@@ -8,12 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		2BAC6F5B1BC6053A00D0A9A2 /* Glyptodon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BAC6F5A1BC6053A00D0A9A2 /* Glyptodon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2BAC6F631BC605FE00D0A9A2 /* GlyptodonInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F621BC605FE00D0A9A2 /* GlyptodonInterface.swift */; settings = {ASSET_TAGS = (); }; };
+		2BAC6F651BC606DE00D0A9A2 /* Glyptodon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F641BC606DE00D0A9A2 /* Glyptodon.swift */; settings = {ASSET_TAGS = (); }; };
+		2BAC6F6F1BC6075F00D0A9A2 /* Glyptodon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAC6F571BC6053A00D0A9A2 /* Glyptodon.framework */; settings = {ASSET_TAGS = (); }; };
+		2BAC6F761BC6077800D0A9A2 /* UIView+GlyptodonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F751BC6077800D0A9A2 /* UIView+GlyptodonTests.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2BAC6F701BC6075F00D0A9A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BAC6F4E1BC6053A00D0A9A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BAC6F561BC6053A00D0A9A2;
+			remoteInfo = Glyptodon;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2BAC6F571BC6053A00D0A9A2 /* Glyptodon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Glyptodon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAC6F5A1BC6053A00D0A9A2 /* Glyptodon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Glyptodon.h; sourceTree = "<group>"; };
 		2BAC6F5C1BC6053A00D0A9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BAC6F621BC605FE00D0A9A2 /* GlyptodonInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonInterface.swift; sourceTree = "<group>"; };
+		2BAC6F641BC606DE00D0A9A2 /* Glyptodon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Glyptodon.swift; sourceTree = "<group>"; };
+		2BAC6F6A1BC6075F00D0A9A2 /* GlyptodonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlyptodonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BAC6F6E1BC6075F00D0A9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BAC6F751BC6077800D0A9A2 /* UIView+GlyptodonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+GlyptodonTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -24,6 +43,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2BAC6F671BC6075F00D0A9A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BAC6F6F1BC6075F00D0A9A2 /* Glyptodon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -31,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				2BAC6F591BC6053A00D0A9A2 /* Glyptodon */,
+				2BAC6F6B1BC6075F00D0A9A2 /* GlyptodonTests */,
 				2BAC6F581BC6053A00D0A9A2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -39,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				2BAC6F571BC6053A00D0A9A2 /* Glyptodon.framework */,
+				2BAC6F6A1BC6075F00D0A9A2 /* GlyptodonTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,8 +77,19 @@
 			children = (
 				2BAC6F5A1BC6053A00D0A9A2 /* Glyptodon.h */,
 				2BAC6F5C1BC6053A00D0A9A2 /* Info.plist */,
+				2BAC6F621BC605FE00D0A9A2 /* GlyptodonInterface.swift */,
+				2BAC6F641BC606DE00D0A9A2 /* Glyptodon.swift */,
 			);
 			path = Glyptodon;
+			sourceTree = "<group>";
+		};
+		2BAC6F6B1BC6075F00D0A9A2 /* GlyptodonTests */ = {
+			isa = PBXGroup;
+			children = (
+				2BAC6F751BC6077800D0A9A2 /* UIView+GlyptodonTests.swift */,
+				2BAC6F6E1BC6075F00D0A9A2 /* Info.plist */,
+			);
+			path = GlyptodonTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,16 +124,38 @@
 			productReference = 2BAC6F571BC6053A00D0A9A2 /* Glyptodon.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		2BAC6F691BC6075F00D0A9A2 /* GlyptodonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BAC6F721BC6075F00D0A9A2 /* Build configuration list for PBXNativeTarget "GlyptodonTests" */;
+			buildPhases = (
+				2BAC6F661BC6075F00D0A9A2 /* Sources */,
+				2BAC6F671BC6075F00D0A9A2 /* Frameworks */,
+				2BAC6F681BC6075F00D0A9A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2BAC6F711BC6075F00D0A9A2 /* PBXTargetDependency */,
+			);
+			name = GlyptodonTests;
+			productName = GlyptodonTests;
+			productReference = 2BAC6F6A1BC6075F00D0A9A2 /* GlyptodonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		2BAC6F4E1BC6053A00D0A9A2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Marketplacer;
 				TargetAttributes = {
 					2BAC6F561BC6053A00D0A9A2 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					2BAC6F691BC6075F00D0A9A2 = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
 				};
@@ -111,12 +173,20 @@
 			projectRoot = "";
 			targets = (
 				2BAC6F561BC6053A00D0A9A2 /* Glyptodon */,
+				2BAC6F691BC6075F00D0A9A2 /* GlyptodonTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2BAC6F551BC6053A00D0A9A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BAC6F681BC6075F00D0A9A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -130,10 +200,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BAC6F651BC606DE00D0A9A2 /* Glyptodon.swift in Sources */,
+				2BAC6F631BC605FE00D0A9A2 /* GlyptodonInterface.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BAC6F661BC6075F00D0A9A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BAC6F761BC6077800D0A9A2 /* UIView+GlyptodonTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2BAC6F711BC6075F00D0A9A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2BAC6F561BC6053A00D0A9A2 /* Glyptodon */;
+			targetProxy = 2BAC6F701BC6075F00D0A9A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2BAC6F5D1BC6053A00D0A9A2 /* Debug */ = {
@@ -173,7 +261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -215,7 +303,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -228,6 +316,25 @@
 		2BAC6F601BC6053A00D0A9A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Glyptodon/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.Glyptodon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2BAC6F611BC6053A00D0A9A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -239,21 +346,27 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
-		2BAC6F611BC6053A00D0A9A2 /* Release */ = {
+		2BAC6F731BC6075F00D0A9A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Glyptodon/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INFOPLIST_FILE = GlyptodonTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.Glyptodon;
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.GlyptodonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2BAC6F741BC6075F00D0A9A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GlyptodonTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.marketplacer.GlyptodonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -274,6 +387,14 @@
 			buildConfigurations = (
 				2BAC6F601BC6053A00D0A9A2 /* Debug */,
 				2BAC6F611BC6053A00D0A9A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2BAC6F721BC6075F00D0A9A2 /* Build configuration list for PBXNativeTarget "GlyptodonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BAC6F731BC6075F00D0A9A2 /* Debug */,
+				2BAC6F741BC6075F00D0A9A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
