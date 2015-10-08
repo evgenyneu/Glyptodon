@@ -8,6 +8,25 @@ This is a UI element for showing 'no results' message in iOS.
 
 *A large extinct armadillo on his walk round the Guayana highlands. Image by Pavel Riha. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Glyptodon_(Riha2000).jpg).*
 
+## Setup
+
+There are three ways you can add Glyptodon to your project.
+
+**Add source (iOS 7+)**
+
+Simply add [GlyptodonDistrib.swift](https://github.com/exchangegroup/Dodo/blob/master/Distrib/DodoDistrib.swift) file into your Xcode project.
+
+**Setup with Carthage (iOS 8+)**
+
+Add `github "exchangegroup/Glyptodon" ~> 2.0` to your Cartfile and run `carthage update`.
+
+**Setup with CocoaPods (iOS 8+)**
+
+If you are using CocoaPods add this text to your Podfile and run `pod install`.
+
+    use_frameworks!
+    pod 'Glyptodon', '~> 2.0'
+
 ## Usage
 
 Add `import Glyptodon` to your source code if you used Carthage or CocoaPods setup methods.
