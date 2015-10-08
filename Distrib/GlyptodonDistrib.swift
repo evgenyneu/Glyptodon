@@ -38,6 +38,9 @@ final class Glyptodon: GlyptodonInterface {
     self.superview = superview
   }
   
+  /// Defines styles for the view.
+  var style = GlyptodonStyle()
+  
   /**
   
   Shows the message view.
@@ -46,7 +49,7 @@ final class Glyptodon: GlyptodonInterface {
   
   */
   func show(message: String) {
-    let view = GlyptodonView()
+    let view = GlyptodonView(style: style)
     view.showInSuperview(superview, withMessage: message)
   }
   
@@ -79,6 +82,10 @@ view.glyptodon.show("No messages")
 
 */
 public protocol GlyptodonInterface: class {
+  
+  /// Defines styles for the view.
+  var style: GlyptodonStyle { get set }
+
   /**
   
   Shows the message view.
@@ -102,11 +109,29 @@ public protocol GlyptodonInterface: class {
 import UIKit
 
 class GlyptodonView: UIView {
+  var style: GlyptodonStyle
+  
+  convenience init(style: GlyptodonStyle) {
+    self.init(frame: CGRect())
+    
+    self.style = style
+  }
+  
+  override init(frame: CGRect) {
+    style = GlyptodonStyle()
+    
+    super.init(frame: frame)
+  }
+  
+  required init(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   func showInSuperview(superview: UIView, withMessage message: String) {
     superview.addSubview(self)
     addLayoutConstraints()
     createLabel(message)
-    style()
+    applyStyle()
   }
   
   private func createLabel(message: String) {
@@ -120,8 +145,8 @@ class GlyptodonView: UIView {
     addLabelLayoutConstraints(label)
   }
   
-  private func style() {
-    backgroundColor = UIColor.grayColor()
+  private func applyStyle() {
+    backgroundColor = style.view.backgroundColor 
   }
   
   private func addLayoutConstraints() {

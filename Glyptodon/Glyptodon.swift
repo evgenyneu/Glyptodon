@@ -21,6 +21,9 @@ final class Glyptodon: GlyptodonInterface {
     self.superview = superview
   }
   
+  /// Defines styles for the view.
+  var style = GlyptodonStyle()
+  
   /**
   
   Shows the message view.
@@ -29,7 +32,7 @@ final class Glyptodon: GlyptodonInterface {
   
   */
   func show(message: String) {
-    let view = GlyptodonView()
+    let view = GlyptodonView(style: style)
     view.showInSuperview(superview, withMessage: message)
   }
   

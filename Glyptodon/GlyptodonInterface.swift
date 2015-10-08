@@ -14,6 +14,10 @@ view.glyptodon.show("No messages")
 
 */
 public protocol GlyptodonInterface: class {
+  
+  /// Defines styles for the view.
+  var style: GlyptodonStyle { get set }
+
   /**
   
   Shows the message view.

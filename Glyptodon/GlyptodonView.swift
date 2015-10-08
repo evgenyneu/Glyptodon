@@ -1,11 +1,29 @@
 import UIKit
 
 class GlyptodonView: UIView {
+  var style: GlyptodonStyle
+  
+  convenience init(style: GlyptodonStyle) {
+    self.init(frame: CGRect())
+    
+    self.style = style
+  }
+  
+  override init(frame: CGRect) {
+    style = GlyptodonStyle()
+    
+    super.init(frame: frame)
+  }
+  
+  required init(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   func showInSuperview(superview: UIView, withMessage message: String) {
     superview.addSubview(self)
     addLayoutConstraints()
     createLabel(message)
-    style()
+    applyStyle()
   }
   
   private func createLabel(message: String) {
@@ -19,8 +37,8 @@ class GlyptodonView: UIView {
     addLabelLayoutConstraints(label)
   }
   
-  private func style() {
-    backgroundColor = UIColor.grayColor()
+  private func applyStyle() {
+    backgroundColor = style.view.backgroundColor
   }
   
   private func addLayoutConstraints() {
