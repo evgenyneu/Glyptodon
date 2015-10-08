@@ -4,7 +4,7 @@
 
 This is a UI element for showing 'no results' message in iOS.
 
-<img src='https://raw.githubusercontent.com/exchangegroup/glyptodon/master/Graphics/Drawings/Glyptodon_Riha2000.jpg' alt='UI widget for displaying 'no results' message in iOS' width='450'>
+<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/Drawings/Glyptodon_Riha2000.jpg' alt='UI widget for displaying 'no results' message in iOS' width='450'>
 
 *A large extinct armadillo on his walk round the Guayana highlands. Image by Pavel Riha. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Glyptodon_(Riha2000).jpg).*
 
@@ -14,7 +14,7 @@ There are three ways you can add Glyptodon to your project.
 
 **Add source (iOS 7+)**
 
-Simply add [GlyptodonDistrib.swift](https://github.com/exchangegroup/glyptodon/blob/master/Distrib/GlyptodonDistrib.swift) file into your Xcode project.
+Simply add [GlyptodonDistrib.swift](https://github.com/exchangegroup/Glyptodon/blob/master/Distrib/GlyptodonDistrib.swift) file into your Xcode project.
 
 **Setup with Carthage (iOS 8+)**
 
