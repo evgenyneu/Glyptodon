@@ -3,7 +3,7 @@ import UIKit
 /// Defines styles related to the view in general.
 public class GlyptodonViewStyle {
   
-  /// Clears the styles for all properties for this style object. The styles will be taken from parent and default properties.
+  /// Clears the styles for all properties for this style object. Default styles will be used instead.
   public func clear() {
     _backgroundColor = nil
   }

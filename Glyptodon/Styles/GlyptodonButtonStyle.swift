@@ -1,19 +1,51 @@
 import UIKit
 
-/// Defines styles related to the title label.
-public class GlyptodonTitleStyle {
+/// Defines styles related to the button.
+public class GlyptodonButtonStyle {
   
   /// Clears the styles for all properties for this style object. Default styles will be used instead.
   public func clear() {
+    _borderColor = nil
+    _borderMargin = nil
     _color = nil
     _font = nil
     _horizontalMargin = nil
     _numberOfLines = nil
     _shadowColor = nil
     _shadowOffset = nil
-    _verticalOffset = nil
+    _verticalMargin = nil
   }
-
+  
+  // -----------------------------
+  
+  private var _borderColor: UIColor?
+  
+  /// Color of the title text.
+  public var borderColor: UIColor {
+    get {
+      return _borderColor ?? GlyptodonButtonDefaultStyles.borderColor
+    }
+    
+    set {
+      _borderColor = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _borderMargin: CGSize?
+  
+  /// Color of the title text.
+  public var borderMargin: CGSize {
+    get {
+      return _borderMargin ?? GlyptodonButtonDefaultStyles.borderMargin
+    }
+    
+    set {
+      _borderMargin = newValue
+    }
+  }
+  
   // -----------------------------
   
   private var _color: UIColor?
@@ -21,7 +53,7 @@ public class GlyptodonTitleStyle {
   /// Color of the title text.
   public var color: UIColor {
     get {
-      return _color ??  GlyptodonTitleDefaultStyles.color
+      return _color ?? GlyptodonButtonDefaultStyles.color
     }
     
     set {
@@ -36,7 +68,7 @@ public class GlyptodonTitleStyle {
   /// Color of the title text.
   public var font: UIFont {
     get {
-      return _font ?? GlyptodonTitleDefaultStyles.font
+      return _font ?? GlyptodonButtonDefaultStyles.font
     }
     
     set {
@@ -51,7 +83,7 @@ public class GlyptodonTitleStyle {
   /// Horizontal margin between the title and the edge of the view.
   public var horizontalMargin: CGFloat {
     get {
-      return _horizontalMargin ?? GlyptodonTitleDefaultStyles.horizontalMargin
+      return _horizontalMargin ?? GlyptodonButtonDefaultStyles.horizontalMargin
     }
     
     set {
@@ -66,7 +98,7 @@ public class GlyptodonTitleStyle {
   /// The maximum number of lines in the title.
   public var numberOfLines: Int {
     get {
-      return _numberOfLines ?? GlyptodonTitleDefaultStyles.numberOfLines
+      return _numberOfLines ?? GlyptodonButtonDefaultStyles.numberOfLines
     }
     
     set {
@@ -81,7 +113,7 @@ public class GlyptodonTitleStyle {
   /// Color of text shadow.
   public var shadowColor: UIColor? {
     get {
-      return _shadowColor ?? GlyptodonTitleDefaultStyles.shadowColor
+      return _shadowColor ?? GlyptodonButtonDefaultStyles.shadowColor
     }
     
     set {
@@ -96,7 +128,7 @@ public class GlyptodonTitleStyle {
   /// Text shadow offset.
   public var shadowOffset: CGSize {
     get {
-      return _shadowOffset ?? GlyptodonTitleDefaultStyles.shadowOffset
+      return _shadowOffset ?? GlyptodonButtonDefaultStyles.shadowOffset
     }
     
     set {
@@ -106,16 +138,16 @@ public class GlyptodonTitleStyle {
   
   // -----------------------------
   
-  private var _verticalOffset: CGFloat?
+  private var _verticalMargin: CGFloat?
   
   /// Vertical offset of the title relative to the center of the view. If zero the label is aligned exactly at the center.
-  public var verticalOffset: CGFloat {
+  public var verticalMargin: CGFloat {
     get {
-      return _verticalOffset ?? GlyptodonTitleDefaultStyles.verticalOffset
+      return _verticalMargin ?? GlyptodonButtonDefaultStyles.verticalMargin
     }
     
     set {
-      _verticalOffset = newValue
+      _verticalMargin = newValue
     }
   }
   

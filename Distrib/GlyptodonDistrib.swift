@@ -208,26 +208,35 @@ class GlyptodonView: UIView {
     
     translatesAutoresizingMaskIntoConstraints = false
     
+    // Fill the message view to covert entire area of its superview
     TegAutolayoutConstraints.fillParent(self, parentView: superview, margin: 0, vertically: true)
     TegAutolayoutConstraints.fillParent(self, parentView: superview, margin: 0, vertically: false)
+  }
+  
+  private var titleLabel: UILabel? {
+    return subviews.filter { $0 is UILabel }.map { $0 as! UILabel }.first
   }
   
   // MARK: - Title
   
   private func createTitle(title: String) {
     let label = UILabel()
+    addSubview(label)
     label.text = title
     
-    addSubview(label)
     addTitleLayoutConstraints(label)
     applyTitleStyle(label)
   }
   
   private func addTitleLayoutConstraints(label: UILabel) {
     label.translatesAutoresizingMaskIntoConstraints = false
+    
+    
+    // Make the width of the title label the same as the view, minus the margins.
     TegAutolayoutConstraints.fillParent(label, parentView: self,
       margin: style.title.horizontalMargin, vertically: false)
     
+    // Center the label vertically in the view with an offset.
     TegAutolayoutConstraints.centerY(label, viewTwo: self, constraintContainer: self,
       constant: style.title.verticalOffset)
   }
@@ -245,9 +254,307 @@ class GlyptodonView: UIView {
   
   private func createButton(title: String) {
     let button = UIButton()
-    button.setTitle(title, forState: .Normal)
     addSubview(button)
+    button.setTitle(title, forState: .Normal)
+    addButtonLayoutConstraints(button)
   }
+  
+  private func addButtonLayoutConstraints(button: UIButton) {
+    guard let titleLabel = titleLabel else { return }
+    button.translatesAutoresizingMaskIntoConstraints = false
+    
+    // Make the width of the button the same as the view, minus the margins.
+    TegAutolayoutConstraints.fillParent(button, parentView: self, margin: style.title.horizontalMargin, vertically: false)
+    
+    // Position the button under the title label
+    TegAutolayoutConstraints.twoViewsNextToEachOther(titleLabel, viewTwo: button, constraintContainer: self, margin: 20, vertically: true)
+  }
+}
+
+
+// ----------------------------
+//
+// GlyptodonButtonDefaultStyles.swift
+//
+// ----------------------------
+
+
+import UIKit
+
+/**
+
+Default styles for the button.
+Default styles are used when individual element styles are not set.
+
+*/
+public struct GlyptodonButtonDefaultStyles {
+  
+  /// Revert the property values to their defaults
+  public static func resetToDefaults() {
+    borderColor = _borderColor
+    borderMargin = _borderMargin
+    color = _color
+    font = _font
+    horizontalMargin = _horizontalMargin
+    numberOfLines = _numberOfLines
+    shadowColor = _shadowColor
+    shadowOffset = _shadowOffset
+    verticalMargin = _verticalMargin
+  }
+  
+  // ---------------------------
+  
+  private static let _borderColor = GlyptodonColor.fromHexString("#666666")
+  
+  /// Color of the button border.
+  public static var borderColor = _borderColor
+  
+  // ---------------------------
+  
+  private static let _borderMargin = CGSize(width: 5, height: 5)
+  
+  /// Margin between the button's title and its border.
+  public static var borderMargin = _borderMargin
+  
+  // ---------------------------
+  
+  
+  private static let _color = GlyptodonColor.fromHexString("#666666")
+  
+  /// Color of the button title.
+  public static var color = _color
+  
+  
+  // ---------------------------
+  
+  
+  private static let defaultNonDynamicFontSize: CGFloat = 28
+  
+  private static let _font: UIFont = {
+    if #available(iOS 8.2, *) {
+      if #available(iOS 9.0, *) {
+        // Use dynamic type font for accessibility when available
+        return UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
+      } else {
+        return UIFont.systemFontOfSize(defaultNonDynamicFontSize, weight: UIFontWeightLight)
+      }
+    } else {
+      return UIFont.systemFontOfSize(defaultNonDynamicFontSize)
+    }
+    }()
+  
+  /// Font of the button text.
+  public static var font = _font
+  
+  // ---------------------------
+  
+  
+  private static let _horizontalMargin: CGFloat = 15
+  
+  /// Horizontal margin between the button and the edge of the view.
+  public static var horizontalMargin = _horizontalMargin
+  
+  
+  // ---------------------------
+  
+  
+  private static let _numberOfLines: Int = 5
+  
+  /// The maximum number of lines in the button title.
+  public static var numberOfLines = _numberOfLines
+  
+  
+  // ---------------------------
+  
+  
+  private static let _shadowColor: UIColor? = nil
+  
+  /// Color of text shadow.
+  public static var shadowColor = _shadowColor
+  
+  
+  // ---------------------------
+  
+  
+  private static let _shadowOffset = CGSize(width: 0, height: 1)
+  
+  /// Text shadow offset.
+  public static var shadowOffset = _shadowOffset
+  
+  
+  // ---------------------------
+  
+  
+  private static let _verticalMargin: CGFloat = 20
+  
+  /// Vertical margin between the title and the button.
+  public static var verticalMargin = _verticalMargin
+  
+  
+  // ---------------------------
+}
+
+
+// ----------------------------
+//
+// GlyptodonButtonStyle.swift
+//
+// ----------------------------
+
+import UIKit
+
+/// Defines styles related to the button.
+public class GlyptodonButtonStyle {
+  
+  /// Clears the styles for all properties for this style object. Default styles will be used instead.
+  public func clear() {
+    _borderColor = nil
+    _borderMargin = nil
+    _color = nil
+    _font = nil
+    _horizontalMargin = nil
+    _numberOfLines = nil
+    _shadowColor = nil
+    _shadowOffset = nil
+    _verticalMargin = nil
+  }
+  
+  // -----------------------------
+  
+  private var _borderColor: UIColor?
+  
+  /// Color of the title text.
+  public var borderColor: UIColor {
+    get {
+      return _borderColor ?? GlyptodonButtonDefaultStyles.borderColor
+    }
+    
+    set {
+      _borderColor = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _borderMargin: CGSize?
+  
+  /// Color of the title text.
+  public var borderMargin: CGSize {
+    get {
+      return _borderMargin ?? GlyptodonButtonDefaultStyles.borderMargin
+    }
+    
+    set {
+      _borderMargin = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _color: UIColor?
+  
+  /// Color of the title text.
+  public var color: UIColor {
+    get {
+      return _color ?? GlyptodonButtonDefaultStyles.color
+    }
+    
+    set {
+      _color = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _font: UIFont?
+  
+  /// Color of the title text.
+  public var font: UIFont {
+    get {
+      return _font ?? GlyptodonButtonDefaultStyles.font
+    }
+    
+    set {
+      _font = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _horizontalMargin: CGFloat?
+  
+  /// Horizontal margin between the title and the edge of the view.
+  public var horizontalMargin: CGFloat {
+    get {
+      return _horizontalMargin ?? GlyptodonButtonDefaultStyles.horizontalMargin
+    }
+    
+    set {
+      _horizontalMargin = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _numberOfLines: Int?
+  
+  /// The maximum number of lines in the title.
+  public var numberOfLines: Int {
+    get {
+      return _numberOfLines ?? GlyptodonButtonDefaultStyles.numberOfLines
+    }
+    
+    set {
+      _numberOfLines = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _shadowColor: UIColor?
+  
+  /// Color of text shadow.
+  public var shadowColor: UIColor? {
+    get {
+      return _shadowColor ?? GlyptodonButtonDefaultStyles.shadowColor
+    }
+    
+    set {
+      _shadowColor = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _shadowOffset: CGSize?
+  
+  /// Text shadow offset.
+  public var shadowOffset: CGSize {
+    get {
+      return _shadowOffset ?? GlyptodonButtonDefaultStyles.shadowOffset
+    }
+    
+    set {
+      _shadowOffset = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _verticalMargin: CGFloat?
+  
+  /// Vertical offset of the title relative to the center of the view. If zero the label is aligned exactly at the center.
+  public var verticalMargin: CGFloat {
+    get {
+      return _verticalMargin ?? GlyptodonButtonDefaultStyles.verticalMargin
+    }
+    
+    set {
+      _verticalMargin = newValue
+    }
+  }
+  
+  // -----------------------------
 }
 
 
@@ -389,7 +696,7 @@ public struct GlyptodonTitleDefaultStyles {
   // ---------------------------
   
   
-  private static let _verticalOffset: CGFloat = -10
+  private static let _verticalOffset: CGFloat = 0
   
   /// Vertical offset of the title relative to the center of the view. If zero the label is aligned exactly at the center.
   public static var verticalOffset = _verticalOffset
@@ -410,7 +717,7 @@ import UIKit
 /// Defines styles related to the title label.
 public class GlyptodonTitleStyle {
   
-  /// Clears the styles for all properties for this style object. The styles will be taken from parent and default properties.
+  /// Clears the styles for all properties for this style object. Default styles will be used instead.
   public func clear() {
     _color = nil
     _font = nil
@@ -573,7 +880,7 @@ import UIKit
 /// Defines styles related to the view in general.
 public class GlyptodonViewStyle {
   
-  /// Clears the styles for all properties for this style object. The styles will be taken from parent and default properties.
+  /// Clears the styles for all properties for this style object. Default styles will be used instead.
   public func clear() {
     _backgroundColor = nil
   }
@@ -783,6 +1090,31 @@ class TegAutolayoutConstraints {
       views: ["view": view])
     
     parentView.addConstraints(constraints)
+  }
+  
+  class func twoViewsNextToEachOther(viewOne: UIView, viewTwo: UIView,
+    constraintContainer: UIView, margin: CGFloat = 0,
+    vertically: Bool = false) -> [NSLayoutConstraint] {
+      
+      var marginFormat = ""
+      
+      if margin != 0 {
+        marginFormat = "-\(margin)-"
+      }
+      
+      var format = "[viewOne]\(marginFormat)[viewTwo]"
+      
+      if vertically {
+        format = "V:" + format
+      }
+      
+      let constraints = NSLayoutConstraint.constraintsWithVisualFormat(format,
+        options: [], metrics: nil,
+        views: [ "viewOne": viewOne, "viewTwo": viewTwo ])
+      
+      constraintContainer.addConstraints(constraints)
+      
+      return constraints
   }
 }
 
