@@ -49,6 +49,7 @@ final class Glyptodon: GlyptodonInterface {
   
   */
   func show(title: String) {
+    removeExistingViews()
     let view = GlyptodonView(style: style)
     view.showInSuperview(superview, withTitle: title)
   }
@@ -58,11 +59,27 @@ final class Glyptodon: GlyptodonInterface {
     glyptodonView?.hide()
   }
   
+  /// Check if the message view is currently visible.
+  var visible: Bool {
+    get {
+      return glyptodonView != nil
+    }
+  }
+  
   private var glyptodonView: GlyptodonView? {
     get {
       return superview.subviews.filter { $0 is GlyptodonView }.map { $0 as! GlyptodonView }.first
     }
   }
+  
+  private func removeExistingViews() {
+    for view in superview.subviews {
+      if let existingView = view as? GlyptodonView {
+        existingView.removeFromSuperview()
+      }
+    }
+  }
+  
 }
 
 
@@ -103,6 +120,9 @@ public protocol GlyptodonInterface: class {
   
   /// Hide the message window if it's currently open.
   func hide()
+  
+  /// Check if the message view is currently visible.
+  var visible: Bool { get }
 }
 
 

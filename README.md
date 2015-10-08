@@ -40,6 +40,9 @@ Glyptodon is an extension of UIView class. You can reach it by using using the `
 ```Swift
 view.glyptodon.show("No new message")
 view.glyptodon.hide()
+
+// Check if the view is currently visible
+view.glyptodon.visible
 ```
 
 ### Show message with a button and a tap handler

@@ -29,4 +29,7 @@ public protocol GlyptodonInterface: class {
   
   /// Hide the message window if it's currently open.
   func hide()
+  
+  /// Check if the message view is currently visible.
+  var visible: Bool { get }
 }
