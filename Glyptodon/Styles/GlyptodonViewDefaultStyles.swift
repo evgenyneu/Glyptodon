@@ -13,8 +13,12 @@ public struct GlyptodonViewDefaultStyles {
     backgroundColor = _backgroundColor
   }
   
-  private static let _backgroundColor: UIColor? = UIColor.blackColor()
+  // ---------------------------
+  
+  private static let _backgroundColor: UIColor? = GlyptodonColor.fromHexString("#EEEEEE")
   
   /// Background color of the view.
   public static var backgroundColor = _backgroundColor
+  
+  // ---------------------------
 }

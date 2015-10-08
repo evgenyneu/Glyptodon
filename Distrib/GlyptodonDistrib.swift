@@ -143,6 +143,40 @@ class GlyptodonView: UIView {
 
 // ----------------------------
 //
+// GlyptodonStyle.swift
+//
+// ----------------------------
+
+import UIKit
+
+/// Combines various styles for the toolbar element.
+public class GlyptodonStyle {
+  /**
+  
+  Reverts all the default styles to their initial values. Usually used in setUp() function in the unit tests.
+  
+  */
+  public static func resetDefaultStyles() {
+    GlyptodonViewDefaultStyles.resetToDefaults()
+  }
+  
+  
+  /// Clears the styles for all properties for this style object. The styles will be taken from parent and default properties.
+  public func clear() {
+    view.clear()
+  }
+  
+  /**
+
+  Styles for the  view.
+
+  */
+  public lazy var view = GlyptodonViewStyle()
+}
+
+
+// ----------------------------
+//
 // GlyptodonViewDefaultStyles.swift
 //
 // ----------------------------
@@ -162,10 +196,49 @@ public struct GlyptodonViewDefaultStyles {
     backgroundColor = _backgroundColor
   }
   
-  private static let _backgroundColor: UIColor? = UIColor.blackColor()
+  // ---------------------------
+  
+  private static let _backgroundColor: UIColor? = GlyptodonColor.fromHexString("#EEEEEE")
   
   /// Background color of the view.
   public static var backgroundColor = _backgroundColor
+  
+  // ---------------------------
+}
+
+
+// ----------------------------
+//
+// GlyptodonViewStyle.swift
+//
+// ----------------------------
+
+import UIKit
+
+/// Defines styles related to the view in general.
+public class GlyptodonViewStyle {
+  
+  /// Clears the styles for all properties for this style object. The styles will be taken from parent and default properties.
+  public func clear() {
+    _backgroundColor = nil
+  }
+  
+  // ---------------------------
+  
+  private var _backgroundColor: UIColor?
+  
+  /// Background color of the bar.
+  public var backgroundColor: UIColor? {
+    get {
+      return _backgroundColor ?? GlyptodonViewDefaultStyles.backgroundColor
+    }
+    
+    set {
+      _backgroundColor = newValue
+    }
+  }
+  
+  // -----------------------------
 }
 
 
