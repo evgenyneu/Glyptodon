@@ -114,16 +114,6 @@ class GlyptodonView: UIView {
     button.setTitleColor(style.button.color, forState: .Normal)
     button.setTitleShadowColor(style.button.shadowColor, forState: .Normal)
     
-    
-    button.layer.borderColor = style.button.borderColor.CGColor
-    
-    button.titleEdgeInsets = UIEdgeInsets(top: style.button.borderMargin.height,
-      left: style.button.borderMargin.width,
-      bottom: style.button.borderMargin.height,
-      right: style.button.borderMargin.width)
-    
-    button.layer.borderWidth = style.button.borderWidth
-
     guard let label = button.titleLabel else { return }
     
     label.font = style.button.font

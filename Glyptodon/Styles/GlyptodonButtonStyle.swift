@@ -5,9 +5,6 @@ public class GlyptodonButtonStyle {
   
   /// Clears the styles for all properties for this style object. Default styles will be used instead.
   public func clear() {
-    _borderColor = nil
-    _borderMargin = nil
-    _borderWidth = nil
     _color = nil
     _font = nil
     _horizontalMargin = nil
@@ -15,51 +12,6 @@ public class GlyptodonButtonStyle {
     _shadowColor = nil
     _shadowOffset = nil
     _verticalMargin = nil
-  }
-  
-  // -----------------------------
-  
-  private var _borderColor: UIColor?
-  
-  /// Color of the button's border.
-  public var borderColor: UIColor {
-    get {
-      return _borderColor ?? GlyptodonButtonDefaultStyles.borderColor
-    }
-    
-    set {
-      _borderColor = newValue
-    }
-  }
-  
-  // -----------------------------
-  
-  private var _borderMargin: CGSize?
-  
-  /// Margin between the button's title and its border.
-  public var borderMargin: CGSize {
-    get {
-      return _borderMargin ?? GlyptodonButtonDefaultStyles.borderMargin
-    }
-    
-    set {
-      _borderMargin = newValue
-    }
-  }
-  
-  // -----------------------------
-  
-  private var _borderWidth: CGFloat?
-  
-  /// Width of the button's border.
-  public var borderWidth: CGFloat {
-    get {
-      return _borderWidth ?? GlyptodonButtonDefaultStyles.borderWidth
-    }
-    
-    set {
-      _borderWidth = newValue
-    }
   }
   
   // -----------------------------
