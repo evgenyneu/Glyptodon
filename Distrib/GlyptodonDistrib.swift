@@ -33,7 +33,8 @@ view.glyptodon.show("No messages")
 */
 final class Glyptodon: GlyptodonInterface {
   private weak var superview: UIView!
-  
+  var didHide: (()->())? // Used in unit tests
+    
   init(superview: UIView) {
     self.superview = superview
   }
@@ -72,13 +73,19 @@ final class Glyptodon: GlyptodonInterface {
   
   /// Hide the message window if it's currently open.
   func hide() {
-    glyptodonView?.hide()
+    glyptodonView?.hide() { [weak self] in
+      self?.didHide?()
+    }
   }
   
   /// Check if the message view is currently visible.
   var visible: Bool {
     get {
-      return glyptodonView != nil
+      if let glyptodonView = glyptodonView {
+        return !glyptodonView.beingHidden
+      }
+      
+      return false
     }
   }
   
@@ -164,6 +171,9 @@ import UIKit
 class GlyptodonView: UIView {
   var style: GlyptodonStyle
   
+  /// Shows if the view is being hidden
+  var beingHidden = false
+  
   convenience init(style: GlyptodonStyle) {
     self.init(frame: CGRect())
     
@@ -185,6 +195,7 @@ class GlyptodonView: UIView {
     addLayoutConstraints()
     createTitle(title)
     applyStyle()
+    animateIn()
   }
   
   func showInSuperview(superview: UIView, title: String,
@@ -195,8 +206,18 @@ class GlyptodonView: UIView {
     createButton(buttonTitle)
   }
   
-  func hide() {
-    removeFromSuperview()
+  func hide(didFinish: ()->()) {
+    if beingHidden {
+      didFinish()
+      return
+    }
+    
+    beingHidden = true
+    
+    animateOut() { [weak self] in
+      self?.removeFromSuperview()
+      didFinish()
+    }
   }
   
   private func applyStyle() {
@@ -275,21 +296,32 @@ class GlyptodonView: UIView {
     button.setTitleColor(style.button.color, forState: .Normal)
     button.setTitleShadowColor(style.button.shadowColor, forState: .Normal)
     
-    
-    button.layer.borderColor = style.button.borderColor.CGColor
-    
-    button.titleEdgeInsets = UIEdgeInsets(top: style.button.borderMargin.height,
-      left: style.button.borderMargin.width,
-      bottom: style.button.borderMargin.height,
-      right: style.button.borderMargin.width)
-    
-    button.layer.borderWidth = style.button.borderWidth
-
     guard let label = button.titleLabel else { return }
     
     label.font = style.button.font
     label.numberOfLines = style.button.numberOfLines
     label.shadowOffset = style.button.shadowOffset
+  }
+  
+  // MARK: - Animation
+  
+  private func animateIn() {
+    alpha = 0
+    
+    UIView.animateWithDuration(style.view.animationDurationSeconds) { [weak self] in
+      self?.alpha = 1
+    }
+  }
+  
+  private func animateOut(didFinish: ()->()) {
+    UIView.animateWithDuration(style.view.animationDurationSeconds,
+      animations: { [weak self] in
+        self?.alpha = 0
+      },
+      completion: { _ in
+        didFinish()
+      }
+    )
   }
 }
 
@@ -313,9 +345,6 @@ public struct GlyptodonButtonDefaultStyles {
   
   /// Revert the property values to their defaults
   public static func resetToDefaults() {
-    borderColor = _borderColor
-    borderMargin = _borderMargin
-    borderWidth = _borderWidth
     color = _color
     font = _font
     horizontalMargin = _horizontalMargin
@@ -327,35 +356,8 @@ public struct GlyptodonButtonDefaultStyles {
   
   // ---------------------------
   
-  
-  private static let _borderColor = GlyptodonColor.fromHexString("#666666")
-  
-  /// Color of the button's border.
-  public static var borderColor = _borderColor
-  
-  
-  // ---------------------------
-  
-  
-  private static let _borderMargin = CGSize(width: 5, height: 5)
-  
-  /// Margin between the button's title and its border.
-  public static var borderMargin = _borderMargin
-  
-  
-  // ---------------------------
-  
-  
-  private static let _borderWidth = 1 / UIScreen.mainScreen().scale
-  
-  /// Width of the button's border.
-  public static var borderWidth = _borderWidth
-  
-  
-  // ---------------------------
-  
-  
-  private static let _color = GlyptodonColor.fromHexString("#666666")
+
+  private static let _color: UIColor = GlyptodonColor.fromHexString("#007Aff")
   
   /// Color of the button title.
   public static var color = _color
@@ -431,9 +433,6 @@ public class GlyptodonButtonStyle {
   
   /// Clears the styles for all properties for this style object. Default styles will be used instead.
   public func clear() {
-    _borderColor = nil
-    _borderMargin = nil
-    _borderWidth = nil
     _color = nil
     _font = nil
     _horizontalMargin = nil
@@ -441,51 +440,6 @@ public class GlyptodonButtonStyle {
     _shadowColor = nil
     _shadowOffset = nil
     _verticalMargin = nil
-  }
-  
-  // -----------------------------
-  
-  private var _borderColor: UIColor?
-  
-  /// Color of the button's border.
-  public var borderColor: UIColor {
-    get {
-      return _borderColor ?? GlyptodonButtonDefaultStyles.borderColor
-    }
-    
-    set {
-      _borderColor = newValue
-    }
-  }
-  
-  // -----------------------------
-  
-  private var _borderMargin: CGSize?
-  
-  /// Margin between the button's title and its border.
-  public var borderMargin: CGSize {
-    get {
-      return _borderMargin ?? GlyptodonButtonDefaultStyles.borderMargin
-    }
-    
-    set {
-      _borderMargin = newValue
-    }
-  }
-  
-  // -----------------------------
-  
-  private var _borderWidth: CGFloat?
-  
-  /// Width of the button's border.
-  public var borderWidth: CGFloat {
-    get {
-      return _borderWidth ?? GlyptodonButtonDefaultStyles.borderWidth
-    }
-    
-    set {
-      _borderWidth = newValue
-    }
   }
   
   // -----------------------------
@@ -901,6 +855,7 @@ public struct GlyptodonViewDefaultStyles {
   
   /// Revert the property values to their defaults
   public static func resetToDefaults() {
+    animationDurationSeconds = _animationDurationSeconds
     backgroundColor = _backgroundColor
   }
   
@@ -910,6 +865,13 @@ public struct GlyptodonViewDefaultStyles {
   
   /// Background color of the view.
   public static var backgroundColor = _backgroundColor
+  
+  // ---------------------------
+  
+  private static let _animationDurationSeconds: NSTimeInterval = 2.3
+  
+  /// Duration of the fade animation that is used to show the message view. Setting it to 0 will result in no animation.
+  public static var animationDurationSeconds = _animationDurationSeconds
   
   // ---------------------------
 }
@@ -943,6 +905,21 @@ public class GlyptodonViewStyle {
     
     set {
       _backgroundColor = newValue
+    }
+  }
+  
+  // ---------------------------
+  
+  private var _animationDurationSeconds: NSTimeInterval?
+  
+  /// Duration of the fade animation that is used to show the message view. Setting it to 0 will result in no animation.
+  public var animationDurationSeconds: NSTimeInterval {
+    get {
+      return _animationDurationSeconds ?? GlyptodonViewDefaultStyles.animationDurationSeconds
+    }
+    
+    set {
+      _animationDurationSeconds = newValue
     }
   }
   

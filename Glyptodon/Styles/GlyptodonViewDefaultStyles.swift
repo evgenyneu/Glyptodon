@@ -23,7 +23,7 @@ public struct GlyptodonViewDefaultStyles {
   
   // ---------------------------
   
-  private static let _animationDurationSeconds: NSTimeInterval = 2.3
+  private static let _animationDurationSeconds: NSTimeInterval = 0.3
   
   /// Duration of the fade animation that is used to show the message view. Setting it to 0 will result in no animation.
   public static var animationDurationSeconds = _animationDurationSeconds

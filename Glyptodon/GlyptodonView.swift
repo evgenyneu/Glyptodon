@@ -3,6 +3,9 @@ import UIKit
 class GlyptodonView: UIView {
   var style: GlyptodonStyle
   
+  /// Shows if the view is being hidden
+  var beingHidden = false
+  
   convenience init(style: GlyptodonStyle) {
     self.init(frame: CGRect())
     
@@ -35,9 +38,17 @@ class GlyptodonView: UIView {
     createButton(buttonTitle)
   }
   
-  func hide() {
+  func hide(didFinish: ()->()) {
+    if beingHidden {
+      didFinish()
+      return
+    }
+    
+    beingHidden = true
+    
     animateOut() { [weak self] in
       self?.removeFromSuperview()
+      didFinish()
     }
   }
   

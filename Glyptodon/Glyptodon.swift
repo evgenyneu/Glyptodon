@@ -16,7 +16,8 @@ view.glyptodon.show("No messages")
 */
 final class Glyptodon: GlyptodonInterface {
   private weak var superview: UIView!
-  
+  var didHide: (()->())? // Used in unit tests
+    
   init(superview: UIView) {
     self.superview = superview
   }
@@ -55,13 +56,19 @@ final class Glyptodon: GlyptodonInterface {
   
   /// Hide the message window if it's currently open.
   func hide() {
-    glyptodonView?.hide()
+    glyptodonView?.hide() { [weak self] in
+      self?.didHide?()
+    }
   }
   
   /// Check if the message view is currently visible.
   var visible: Bool {
     get {
-      return glyptodonView != nil
+      if let glyptodonView = glyptodonView {
+        return !glyptodonView.beingHidden
+      }
+      
+      return false
     }
   }
   

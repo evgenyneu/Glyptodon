@@ -40,8 +40,16 @@ class GlyptodonViewTests: XCTestCase {
   // MARK: - Hide
   
   func testHide() {
+    let expectation = expectationWithDescription("view is removed")
+
     obj.showInSuperview(superview, title: "My test message")
-    obj.hide()
+    XCTAssertFalse(glyptodonView(superview)!.beingHidden)
+    
+    obj.hide() { expectation.fulfill() }
+      
+    XCTAssert(glyptodonView(superview)!.beingHidden)
+    
+    waitForExpectationsWithTimeout(0.5, handler: nil)
     XCTAssert(glyptodonView(superview) == nil)
   }
   
@@ -64,9 +72,6 @@ class GlyptodonViewTests: XCTestCase {
   }
   
   func testStyleButton() {
-    style.button.borderColor = UIColor.greenColor()
-    style.button.borderMargin = CGSize(width: 4.13, height: 4.12)
-    style.button.borderWidth = 1.234
     style.button.font = UIFont.systemFontOfSize(12.31)
     style.button.color = UIColor.purpleColor()
     style.button.numberOfLines = 3
@@ -78,9 +83,6 @@ class GlyptodonViewTests: XCTestCase {
     let button = glyptodonButton(superview)!
     let buttonLabel = button.titleLabel
     
-    XCTAssertEqual(UIColor.greenColor(), UIColor(CGColor: button.layer.borderColor!))
-    XCTAssertEqual(UIEdgeInsets(top: 4.12, left: 4.13, bottom: 4.12, right: 4.13), button.titleEdgeInsets)
-    XCTAssertEqual(1.234, button.layer.borderWidth)
     XCTAssertEqual(12.31, buttonLabel?.font.pointSize)
     XCTAssertEqual(UIColor.purpleColor(), button.titleColorForState(.Normal))
     XCTAssertEqual(3, buttonLabel?.numberOfLines)

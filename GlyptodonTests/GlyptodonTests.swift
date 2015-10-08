@@ -54,9 +54,13 @@ class GlyptodonTests: XCTestCase {
   // MARK: - Hide
   
   func testHide() {
+    let expectation = expectationWithDescription("did hide")
+    obj.didHide = { expectation.fulfill() }
+    
     obj.show("Nothing here")
     obj.hide()
 
+    waitForExpectationsWithTimeout(0.5, handler: nil)
     XCTAssert(glyptodonView(superview) == nil)
   }
   
@@ -66,7 +70,13 @@ class GlyptodonTests: XCTestCase {
     obj.show("Nothing here")
     XCTAssert(obj.visible)
     
+    let expectation = expectationWithDescription("did hide")
+    obj.didHide = { expectation.fulfill() }
+    
     obj.hide()
+    XCTAssertFalse(obj.visible)
+    
+    waitForExpectationsWithTimeout(0.5, handler: nil)
     XCTAssertFalse(obj.visible)
   }
 }
