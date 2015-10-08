@@ -31,9 +31,9 @@ final class Glyptodon: GlyptodonInterface {
   - parameter message: The text message to be shown.
   
   */
-  func show(message: String) {
+  func show(title: String) {
     let view = GlyptodonView(style: style)
-    view.showInSuperview(superview, withMessage: message)
+    view.showInSuperview(superview, withTitle: title)
   }
   
   /// Hide the message window if it's currently open.

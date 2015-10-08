@@ -48,9 +48,9 @@ final class Glyptodon: GlyptodonInterface {
   - parameter message: The text message to be shown.
   
   */
-  func show(message: String) {
+  func show(title: String) {
     let view = GlyptodonView(style: style)
-    view.showInSuperview(superview, withMessage: message)
+    view.showInSuperview(superview, withTitle: title)
   }
   
   /// Hide the message window if it's currently open.
@@ -93,7 +93,7 @@ public protocol GlyptodonInterface: class {
   - parameter message: The text message to be shown.
   
   */
-  func show(message: String)
+  func show(title: String)
   
   /// Hide the message window if it's currently open.
   func hide()
@@ -127,26 +127,16 @@ class GlyptodonView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func showInSuperview(superview: UIView, withMessage message: String) {
+  func showInSuperview(superview: UIView, withTitle title: String) {
     superview.addSubview(self)
     addLayoutConstraints()
-    createLabel(message)
+    createLabel(title)
     applyStyle()
   }
   
-  private func createLabel(message: String) {
-    let label = UILabel()
-    label.text = message
-    label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-    label.textColor = UIColor.redColor()
-    label.textAlignment = .Center
-    
-    addSubview(label)
-    addLabelLayoutConstraints(label)
-  }
   
   private func applyStyle() {
-    backgroundColor = style.view.backgroundColor 
+    backgroundColor = style.view.backgroundColor
   }
   
   private func addLayoutConstraints() {
@@ -158,10 +148,28 @@ class GlyptodonView: UIView {
     TegAutolayoutConstraints.fillParent(self, parentView: superview, margin: 0, vertically: false)
   }
   
+  // MARK: - Label
+  
+  private func createLabel(title: String) {
+    let label = UILabel()
+    label.text = title
+    
+    addSubview(label)
+    addLabelLayoutConstraints(label)
+    applyLabelStyle(label)
+  }
+  
   private func addLabelLayoutConstraints(label: UILabel) {
     label.translatesAutoresizingMaskIntoConstraints = false
     TegAutolayoutConstraints.fillParent(label, parentView: self, margin: 20, vertically: false)
     TegAutolayoutConstraints.centerY(label, viewTwo: self, constraintContainer: self)
+  }
+  
+  private func applyLabelStyle(label: UILabel) {
+    label.textAlignment = .Center
+    
+    label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+    label.textColor = UIColor.redColor()
   }
 }
 
@@ -183,6 +191,7 @@ public class GlyptodonStyle {
   */
   public static func resetDefaultStyles() {
     GlyptodonViewDefaultStyles.resetToDefaults()
+    GlyptodonTitleDefaultStyles.resetToDefaults()
   }
   
   
@@ -197,6 +206,218 @@ public class GlyptodonStyle {
 
   */
   public lazy var view = GlyptodonViewStyle()
+  
+  /**
+  
+  Styles for the title text.
+  
+  */
+  public lazy var title = GlyptodonTitleStyle()
+}
+
+
+// ----------------------------
+//
+// GlyptodonTitleDefaultStyles.swift
+//
+// ----------------------------
+
+import UIKit
+
+/**
+
+Default styles for the title label.
+Default styles are used when individual element styles are not set.
+
+*/
+public struct GlyptodonTitleDefaultStyles {
+  
+  /// Revert the property values to their defaults
+  public static func resetToDefaults() {
+    color = _color
+    font = _font
+    verticalOffset = _verticalOffset
+    numberOfLines = _numberOfLines
+    shadowColor = _shadowColor
+    shadowOffset = _shadowOffset
+  }
+  
+  // ---------------------------
+  
+  
+  private static let _color = GlyptodonColor.fromHexString("#666666")
+  
+  /// Color of the label text.
+  public static var color = _color
+  
+  
+  // ---------------------------
+  
+  
+  private static let _font: UIFont = {
+    if #available(iOS 8.2, *) {
+      return UIFont.systemFontOfSize(30, weight: UIFontWeightLight)
+    } else {
+      return UIFont.systemFontOfSize(30)
+    }
+  }()
+  
+  /// Font of the label text.
+  public static var font = _font
+  
+  
+  // ---------------------------
+  
+  
+  private static let _numberOfLines: Int = 3
+  
+  /// The maximum number of lines in the label.
+  public static var numberOfLines = _numberOfLines
+  
+  
+  // ---------------------------
+  
+  
+  private static let _shadowColor: UIColor? = nil
+  
+  /// Color of text shadow.
+  public static var shadowColor = _shadowColor
+  
+
+  // ---------------------------
+
+  
+  private static let _shadowOffset = CGSize(width: 0, height: 1)
+  
+  /// Text shadow offset.
+  public static var shadowOffset = _shadowOffset
+  
+  
+  // ---------------------------
+  
+  
+  private static let _verticalOffset: CGFloat = 10
+  
+  /// Vertical offset of the label relative to the center of the view. If zero the label is aligned exactly at the center.
+  public static var verticalOffset = _verticalOffset
+  
+  
+  // ---------------------------
+}
+
+
+// ----------------------------
+//
+// GlyptodonTitleStyle.swift
+//
+// ----------------------------
+
+import UIKit
+
+/// Defines styles related to the title label.
+public class GlyptodonTitleStyle {
+  
+  /// Clears the styles for all properties for this style object. The styles will be taken from parent and default properties.
+  public func clear() {
+    _color = nil
+    _font = nil
+    _numberOfLines = nil
+    _shadowColor = nil
+    _shadowOffset = nil
+    _verticalOffset = nil
+  }
+
+  // -----------------------------
+  
+  private var _color: UIColor?
+  
+  /// Color of the label text.
+  public var color: UIColor {
+    get {
+      return _color ??  GlyptodonTitleDefaultStyles.color
+    }
+    
+    set {
+      _color = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _font: UIFont?
+  
+  /// Color of the label text.
+  public var font: UIFont {
+    get {
+      return _font ?? GlyptodonTitleDefaultStyles.font
+    }
+    
+    set {
+      _font = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _numberOfLines: Int?
+  
+  /// The maximum number of lines in the label.
+  public var numberOfLines: Int {
+    get {
+      return _numberOfLines ?? GlyptodonTitleDefaultStyles.numberOfLines
+    }
+    
+    set {
+      _numberOfLines = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _shadowColor: UIColor?
+  
+  /// Color of text shadow.
+  public var shadowColor: UIColor? {
+    get {
+      return _shadowColor ?? GlyptodonTitleDefaultStyles.shadowColor
+    }
+    
+    set {
+      _shadowColor = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _shadowOffset: CGSize?
+  
+  /// Text shadow offset.
+  public var shadowOffset: CGSize {
+    get {
+      return _shadowOffset ?? GlyptodonTitleDefaultStyles.shadowOffset
+    }
+    
+    set {
+      _shadowOffset = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _verticalOffset: CGFloat?
+  
+  /// Vertical offset of the label relative to the center of the view. If zero the label is aligned exactly at the center.
+  public var verticalOffset: CGFloat {
+    get {
+      return _verticalOffset ?? GlyptodonTitleDefaultStyles.verticalOffset
+    }
+    
+    set {
+      _verticalOffset = newValue
+    }
+  }
+  
+  // -----------------------------
 }
 
 

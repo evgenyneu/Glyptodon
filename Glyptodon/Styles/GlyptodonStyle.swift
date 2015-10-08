@@ -9,6 +9,7 @@ public class GlyptodonStyle {
   */
   public static func resetDefaultStyles() {
     GlyptodonViewDefaultStyles.resetToDefaults()
+    GlyptodonTitleDefaultStyles.resetToDefaults()
   }
   
   
@@ -23,4 +24,11 @@ public class GlyptodonStyle {
 
   */
   public lazy var view = GlyptodonViewStyle()
+  
+  /**
+  
+  Styles for the title text.
+  
+  */
+  public lazy var title = GlyptodonTitleStyle()
 }

@@ -19,10 +19,10 @@ class GlyptodonView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func showInSuperview(superview: UIView, withMessage message: String) {
+  func showInSuperview(superview: UIView, withTitle title: String) {
     superview.addSubview(self)
     addLayoutConstraints()
-    createLabel(message)
+    createLabel(title)
     applyStyle()
   }
   
@@ -42,9 +42,9 @@ class GlyptodonView: UIView {
   
   // MARK: - Label
   
-  private func createLabel(message: String) {
+  private func createLabel(title: String) {
     let label = UILabel()
-    label.text = message
+    label.text = title
     
     addSubview(label)
     addLabelLayoutConstraints(label)

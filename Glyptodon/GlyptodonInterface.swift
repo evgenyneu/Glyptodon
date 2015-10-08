@@ -25,7 +25,7 @@ public protocol GlyptodonInterface: class {
   - parameter message: The text message to be shown.
   
   */
-  func show(message: String)
+  func show(title: String)
   
   /// Hide the message window if it's currently open.
   func hide()
