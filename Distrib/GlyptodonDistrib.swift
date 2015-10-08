@@ -43,15 +43,31 @@ final class Glyptodon: GlyptodonInterface {
   
   /**
   
-  Shows the message view.
+  Shows the message view with a title.
   
-  - parameter message: The text message to be shown.
+  - parameter title: The text message to be shown.
   
   */
   func show(title: String) {
     removeExistingViews()
     let view = GlyptodonView(style: style)
-    view.showInSuperview(superview, withTitle: title)
+    view.showInSuperview(superview, title: title)
+  }
+  
+  /**
+  
+  Shows the message view with a title and a button.
+  
+  - parameter title: The text message to be shown.
+  - parameter withButton: The title for the button
+  - parameter didTap: A closure that will be called when the button is tapped.
+  
+  */
+  func show(title: String, withButton button: String, didTap: ()->()) {
+    removeExistingViews()
+    let view = GlyptodonView(style: style)
+    
+    view.showInSuperview(superview, title: title, withButton: button, didTapButton: didTap)
   }
   
   /// Hide the message window if it's currently open.
@@ -111,12 +127,23 @@ public protocol GlyptodonInterface: class {
 
   /**
   
-  Shows the message view.
+  Shows the message view with a title.
   
-  - parameter message: The text message to be shown.
+  - parameter title: The text message to be shown.
   
   */
   func show(title: String)
+  
+  /**
+  
+  Shows the message view with a title and a button.
+  
+  - parameter title: The text message to be shown.
+  - parameter withButton: The title for the button
+  - parameter didTap: A closure that will be called when the button is tapped.
+
+  */
+  func show(title: String, withButton button: String, didTap: ()->())
   
   /// Hide the message window if it's currently open.
   func hide()
@@ -153,11 +180,19 @@ class GlyptodonView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func showInSuperview(superview: UIView, withTitle title: String) {
+  func showInSuperview(superview: UIView, title: String) {
     superview.addSubview(self)
     addLayoutConstraints()
     createTitle(title)
     applyStyle()
+  }
+  
+  func showInSuperview(superview: UIView, title: String,
+    withButton buttonTitle: String, didTapButton: ()->()) {
+    
+    showInSuperview(superview, title: title)
+      
+    createButton(buttonTitle)
   }
   
   func hide() {
@@ -204,6 +239,14 @@ class GlyptodonView: UIView {
     label.numberOfLines = style.title.numberOfLines
     label.shadowColor = style.title.shadowColor
     label.shadowOffset = style.title.shadowOffset
+  }
+  
+  // MARK: - Button
+  
+  private func createButton(title: String) {
+    let button = UIButton()
+    button.setTitle(title, forState: .Normal)
+    addSubview(button)
   }
 }
 

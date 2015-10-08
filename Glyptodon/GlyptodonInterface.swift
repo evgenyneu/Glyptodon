@@ -20,12 +20,23 @@ public protocol GlyptodonInterface: class {
 
   /**
   
-  Shows the message view.
+  Shows the message view with a title.
   
-  - parameter message: The text message to be shown.
+  - parameter title: The text message to be shown.
   
   */
   func show(title: String)
+  
+  /**
+  
+  Shows the message view with a title and a button.
+  
+  - parameter title: The text message to be shown.
+  - parameter withButton: The title for the button
+  - parameter didTap: A closure that will be called when the button is tapped.
+
+  */
+  func show(title: String, withButton button: String, didTap: ()->())
   
   /// Hide the message window if it's currently open.
   func hide()

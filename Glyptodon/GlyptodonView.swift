@@ -19,11 +19,19 @@ class GlyptodonView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func showInSuperview(superview: UIView, withTitle title: String) {
+  func showInSuperview(superview: UIView, title: String) {
     superview.addSubview(self)
     addLayoutConstraints()
     createTitle(title)
     applyStyle()
+  }
+  
+  func showInSuperview(superview: UIView, title: String,
+    withButton buttonTitle: String, didTapButton: ()->()) {
+    
+    showInSuperview(superview, title: title)
+      
+    createButton(buttonTitle)
   }
   
   func hide() {
@@ -70,5 +78,13 @@ class GlyptodonView: UIView {
     label.numberOfLines = style.title.numberOfLines
     label.shadowColor = style.title.shadowColor
     label.shadowOffset = style.title.shadowOffset
+  }
+  
+  // MARK: - Button
+  
+  private func createButton(title: String) {
+    let button = UIButton()
+    button.setTitle(title, forState: .Normal)
+    addSubview(button)
   }
 }

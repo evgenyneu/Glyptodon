@@ -22,7 +22,7 @@ class GlyptodonTests: XCTestCase {
     XCTAssertEqual("Nothing here", glyptodonTitleLabel(superview)?.text)
   }
   
-  func testShowOnlyOneViewWhenCalledMultipleTimes() {
+  func testShow_showOnceViewWhenCalledMultipleTimes() {
     obj.show("Message 1")
     obj.show("Message 2")
     
@@ -30,6 +30,25 @@ class GlyptodonTests: XCTestCase {
 
     XCTAssertEqual(1, views.count)
     XCTAssertEqual("Message 2", glyptodonTitleLabel(superview)?.text)
+  }
+  
+  // MARK: - Show with button
+  
+  func testShowWithButton() {
+    obj.show("Nothing here", withButton: "Continue") { }
+    
+    XCTAssertEqual("Nothing here", glyptodonTitleLabel(superview)?.text)
+    XCTAssertEqual("Continue", glyptodonButton(superview)?.titleLabel?.text)
+  }
+  
+  func testShowWithButton_showOnceViewWhenCalledMultipleTimes() {
+    obj.show("Message 1", withButton: "Continue 1") { }
+    obj.show("Message 2", withButton: "Continue 2") { }
+    
+    let views = superview.subviews.filter { $0 is GlyptodonView }.map { $0 as! GlyptodonView }
+    
+    XCTAssertEqual(1, views.count)
+    XCTAssertEqual("Continue 2", glyptodonButton(superview)?.titleLabel?.text)
   }
   
   // MARK: - Hide

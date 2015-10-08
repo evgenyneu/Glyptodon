@@ -26,15 +26,31 @@ final class Glyptodon: GlyptodonInterface {
   
   /**
   
-  Shows the message view.
+  Shows the message view with a title.
   
-  - parameter message: The text message to be shown.
+  - parameter title: The text message to be shown.
   
   */
   func show(title: String) {
     removeExistingViews()
     let view = GlyptodonView(style: style)
-    view.showInSuperview(superview, withTitle: title)
+    view.showInSuperview(superview, title: title)
+  }
+  
+  /**
+  
+  Shows the message view with a title and a button.
+  
+  - parameter title: The text message to be shown.
+  - parameter withButton: The title for the button
+  - parameter didTap: A closure that will be called when the button is tapped.
+  
+  */
+  func show(title: String, withButton button: String, didTap: ()->()) {
+    removeExistingViews()
+    let view = GlyptodonView(style: style)
+    
+    view.showInSuperview(superview, title: title, withButton: button, didTapButton: didTap)
   }
   
   /// Hide the message window if it's currently open.

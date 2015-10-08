@@ -16,8 +16,27 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e6Q-on-gLc">
+                                <rect key="frame" x="296" y="285" width="51" height="31"/>
+                                <animations/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With button" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lE-nc-pNK">
+                                <rect key="frame" x="196" y="290" width="90" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="e6Q-on-gLc" firstAttribute="leading" secondItem="3lE-nc-pNK" secondAttribute="trailing" constant="10" id="U5M-Qq-lhf"/>
+                            <constraint firstItem="3lE-nc-pNK" firstAttribute="centerY" secondItem="e6Q-on-gLc" secondAttribute="centerY" id="d6e-wN-RYR"/>
+                            <constraint firstItem="e6Q-on-gLc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="20" id="xWv-Oy-cY1"/>
+                            <constraint firstItem="e6Q-on-gLc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zGi-lW-zHV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YFD-71-Sbf">
                         <barButtonItem key="rightBarButtonItem" title="Show" id="ZoN-mK-juk">
@@ -28,6 +47,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="showHideButton" destination="ZoN-mK-juk" id="qZZ-ef-2QQ"/>
+                        <outlet property="withButtonSwitch" destination="e6Q-on-gLc" id="OiD-db-YFg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

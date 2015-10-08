@@ -3,7 +3,8 @@ import Glyptodon
 
 class ViewController: UIViewController {
   @IBOutlet var showHideButton: UIBarButtonItem!
-
+  @IBOutlet var withButtonSwitch: UISwitch!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
