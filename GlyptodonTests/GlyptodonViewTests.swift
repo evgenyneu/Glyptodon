@@ -37,6 +37,19 @@ class GlyptodonViewTests: XCTestCase {
     XCTAssertEqual("Continue", glyptodonButton(superview)?.titleLabel?.text)
   }
   
+  func testShowWithButton_callClosureOnTap() {
+    var didCallClosure = false
+    
+    obj.showInSuperview(superview, title: "My test message", withButton: "Continue") {
+      didCallClosure = true
+    }
+    
+    let view = glyptodonView(superview)!
+    view.didTapButtonHandler?()
+    
+    XCTAssert(didCallClosure)
+  }
+  
   // MARK: - Hide
   
   func testHide() {

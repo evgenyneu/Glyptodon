@@ -6,6 +6,9 @@ class GlyptodonView: UIView {
   /// Shows if the view is being hidden
   var beingHidden = false
   
+  /// Button tap closure supplied by the user
+  var didTapButtonHandler: (()->())?
+  
   convenience init(style: GlyptodonStyle) {
     self.init(frame: CGRect())
     
@@ -35,6 +38,7 @@ class GlyptodonView: UIView {
     
     showInSuperview(superview, title: title)
       
+    self.didTapButtonHandler = didTapButton
     createButton(buttonTitle)
   }
   
@@ -111,6 +115,7 @@ class GlyptodonView: UIView {
     button.setTitle(title, forState: .Normal)
     addButtonLayoutConstraints(button)
     applyButtonStyle(button)
+    setupTapHandler(button)
   }
   
   private func addButtonLayoutConstraints(button: UIButton) {
@@ -133,6 +138,14 @@ class GlyptodonView: UIView {
     label.font = style.button.font
     label.numberOfLines = style.button.numberOfLines
     label.shadowOffset = style.button.shadowOffset
+  }
+  
+  private func setupTapHandler(button: UIButton) {
+    button.addTarget(self, action: "didTapButton:", forControlEvents: .TouchUpInside)
+  }
+  
+  func didTapButton(button: UIButton) {
+    didTapButtonHandler?()
   }
   
   // MARK: - Animation
