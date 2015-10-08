@@ -14,7 +14,7 @@ There are three ways you can add Glyptodon to your project.
 
 **Add source (iOS 7+)**
 
-Simply add [GlyptodonDistrib.swift](https://github.com/exchangegroup/Dodo/blob/master/Distrib/DodoDistrib.swift) file into your Xcode project.
+Simply add [GlyptodonDistrib.swift](https://github.com/exchangegroup/glyptodon/blob/master/Distrib/GlyptodonDistrib.swift) file into your Xcode project.
 
 **Setup with Carthage (iOS 8+)**
 
