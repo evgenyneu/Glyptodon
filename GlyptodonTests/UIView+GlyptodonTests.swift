@@ -2,7 +2,7 @@ import UIKit
 import XCTest
 @testable import Glyptodon
 
-class UIViewDodoExtensionTests: XCTestCase {
+class UIViewGlyptodonExtensionTests: XCTestCase {
   func testGetCreatesAndStoresGlyptodonInstance() {
     let view = UIView()
     let glyptodon1 = view.glyptodon
