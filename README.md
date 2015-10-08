@@ -41,16 +41,13 @@ Glyptodon is an extension of UIView class. You can reach it by using using the `
 view.glyptodon.show("No new message")
 view.glyptodon.hide()
 
-// Check if the view is currently visible
-view.glyptodon.visible
-```
-
-### Show message with a button and a tap handler
-
-```Swift
+// Show message with a button
 view.glyptodon.show("Cart is empty", buttonLabel: 'Go shopping') {
-  // Called when button is tapped.
+  // Do something when the button is tapped.
 }
+
+// Check if the view is currently visible
+if view.glyptodon.visible { /* visible */ }
 ```
 
 ### Styling
