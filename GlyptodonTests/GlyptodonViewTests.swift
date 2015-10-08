@@ -64,18 +64,21 @@ class GlyptodonViewTests: XCTestCase {
   }
   
   func testStyleButton() {
-    style.title.font = UIFont.systemFontOfSize(38.31)
-    style.title.color = UIColor.purpleColor()
-    style.title.numberOfLines = 3
-    style.title.shadowColor = UIColor.yellowColor()
-    style.title.shadowOffset = CGSize(width: 3, height: 2)
+    style.button.font = UIFont.systemFontOfSize(38.31)
+    style.button.color = UIColor.purpleColor()
+    style.button.numberOfLines = 3
+    style.button.shadowColor = UIColor.yellowColor()
+    style.button.shadowOffset = CGSize(width: 3, height: 2)
     
-    obj.showInSuperview(superview, title: "My test message")
+    obj.showInSuperview(superview, title: "Empty", withButton: "Continue", didTapButton: {})
     
-    XCTAssertEqual(38.31, glyptodonTitleLabel(superview)?.font.pointSize)
-    XCTAssertEqual(UIColor.purpleColor(), glyptodonTitleLabel(superview)?.textColor)
-    XCTAssertEqual(3, glyptodonTitleLabel(superview)?.numberOfLines)
-    XCTAssertEqual(UIColor.yellowColor(), glyptodonTitleLabel(superview)?.shadowColor)
-    XCTAssertEqual(CGSize(width: 3, height: 2), glyptodonTitleLabel(superview)?.shadowOffset)
+    let button = glyptodonButton(superview)!
+    let buttonLabel = button.titleLabel
+    
+    XCTAssertEqual(38.31, buttonLabel?.font.pointSize)
+    XCTAssertEqual(UIColor.purpleColor(), buttonLabel?.textColor)
+    XCTAssertEqual(3, buttonLabel?.numberOfLines)
+    XCTAssertEqual(UIColor.yellowColor(), buttonLabel?.shadowColor)
+    XCTAssertEqual(CGSize(width: 3, height: 2), buttonLabel?.shadowOffset)
   }
 }

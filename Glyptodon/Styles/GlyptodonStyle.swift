@@ -31,4 +31,11 @@ public class GlyptodonStyle {
   
   */
   public lazy var title = GlyptodonTitleStyle()
+  
+  /**
+  
+  Styles for the button.
+  
+  */
+  public lazy var button = GlyptodonButtonStyle()
 }
