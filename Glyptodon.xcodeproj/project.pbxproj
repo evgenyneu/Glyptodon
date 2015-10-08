@@ -16,6 +16,7 @@
 		2BAC6F7A1BC6102A00D0A9A2 /* GlyptodonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F791BC6102A00D0A9A2 /* GlyptodonTests.swift */; settings = {ASSET_TAGS = (); }; };
 		2BAC6F7D1BC610B100D0A9A2 /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F7C1BC610B100D0A9A2 /* XCTestCase+Helpers.swift */; settings = {ASSET_TAGS = (); }; };
 		2BAC6F7F1BC610D100D0A9A2 /* GlyptodonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F7E1BC610D100D0A9A2 /* GlyptodonView.swift */; settings = {ASSET_TAGS = (); }; };
+		2BAC6F811BC613B600D0A9A2 /* GlyptodonViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F801BC613B600D0A9A2 /* GlyptodonViewTests.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		2BAC6F791BC6102A00D0A9A2 /* GlyptodonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonTests.swift; sourceTree = "<group>"; };
 		2BAC6F7C1BC610B100D0A9A2 /* XCTestCase+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Helpers.swift"; sourceTree = "<group>"; };
 		2BAC6F7E1BC610D100D0A9A2 /* GlyptodonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonView.swift; sourceTree = "<group>"; };
+		2BAC6F801BC613B600D0A9A2 /* GlyptodonViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				2BAC6F7B1BC610AC00D0A9A2 /* TestHelpers */,
 				2BAC6F791BC6102A00D0A9A2 /* GlyptodonTests.swift */,
+				2BAC6F801BC613B600D0A9A2 /* GlyptodonViewTests.swift */,
 				2BAC6F751BC6077800D0A9A2 /* UIView+GlyptodonTests.swift */,
 				2BAC6F6E1BC6075F00D0A9A2 /* Info.plist */,
 			);
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BAC6F7D1BC610B100D0A9A2 /* XCTestCase+Helpers.swift in Sources */,
+				2BAC6F811BC613B600D0A9A2 /* GlyptodonViewTests.swift in Sources */,
 				2BAC6F7A1BC6102A00D0A9A2 /* GlyptodonTests.swift in Sources */,
 				2BAC6F761BC6077800D0A9A2 /* UIView+GlyptodonTests.swift in Sources */,
 			);

@@ -29,7 +29,8 @@ final class Glyptodon: GlyptodonInterface {
   
   */
   func show(message: String) {
-   
+    let view = GlyptodonView()
+    view.showInSuperview(superview, withMessage: message)
   }
   
   /// Hide the message window if it's currently open.
