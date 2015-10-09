@@ -2,7 +2,7 @@
 
 # Glyptodon, a UI widget for displaying 'no content' message in iOS
 
-This is a UI element for iOS that shows a 'no content' message with an optional button. It can be used for displaying a missing content message and suggesting an action.
+This is a UI element for iOS that shows a 'no content' message over an existing view. It can be used for displaying a missing content message and suggesting an action.
 
 For example, consider we have an ecommerce app with a shopping cart screen that  shows the list of products. If the user goes to the empty cart screen we can show a "Cart is empty" message and a "Search" button.
 
