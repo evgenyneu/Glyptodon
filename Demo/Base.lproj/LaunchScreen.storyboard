@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -24,11 +25,21 @@
                                     <constraint firstAttribute="height" constant="65" id="8MK-N3-boL"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchUmage_glyptodon.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Px-iZ-51L">
+                                <rect key="frame" x="194" y="447" width="212" height="128"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0Px-iZ-51L" secondAttribute="height" multiplier="514:310" id="Pdw-pX-wyf"/>
+                                    <constraint firstAttribute="height" constant="128" id="XNW-TS-r6Y"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.95686274509803915" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="0Px-iZ-51L" secondAttribute="bottom" constant="25" id="00b-fw-To2"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="lfQ-Zi-2pD" secondAttribute="bottom" id="2qy-fo-UMF"/>
+                            <constraint firstItem="0Px-iZ-51L" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Dqs-0c-sId"/>
                             <constraint firstAttribute="trailing" secondItem="lfQ-Zi-2pD" secondAttribute="trailing" id="iYN-6B-e3w"/>
                             <constraint firstItem="lfQ-Zi-2pD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="rdf-zZ-q6y"/>
                         </constraints>
@@ -40,6 +51,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LaunchUmage_glyptodon.png" width="514" height="310"/>
         <image name="LaunchUmage_ground.png" width="1994" height="214"/>
     </resources>
 </document>
