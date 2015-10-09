@@ -1,7 +1,7 @@
 //
 // Glyptodon
 //
-// A UI widget for displaying 'no content' message in iOS
+// A UI widget for displaying 'no results' message in iOS
 //
 // https://github.com/exchangegroup/glyptodon
 //
@@ -20,7 +20,7 @@ import UIKit
 
 /**
 
-Coordinates the process of showing and hiding of the message view.
+Glyptodon object is for showing and hiding of the message view.
 
 The instance is created automatically in the `glyptodon` property of any UIView instance.
 It is not expected to be instantiated manually anywhere except unit tests.
@@ -34,6 +34,12 @@ view.glyptodon.show("No messages")
 final public class Glyptodon {
   private weak var superview: UIView!
   var didHide: (()->())? // Used in unit tests
+  
+  /// Specify optional layout guide for positioning the view.
+  var topLayoutGuide: UILayoutSupport?
+  
+  /// Specify optional layout guide for positioning the view.
+  var bottomLayoutGuide: UILayoutSupport?
     
   init(superview: UIView) {
     self.superview = superview
@@ -51,7 +57,9 @@ final public class Glyptodon {
   */
   public func show(title: String, withAnimation: Bool = true) {
     removeExistingViews()
-    let view = GlyptodonView(style: style)
+    let view = GlyptodonView(style: style,
+      topLayoutGuide: topLayoutGuide, bottomLayoutGuide: bottomLayoutGuide)
+    
     view.showInSuperview(superview, title: title, withAnimation: withAnimation)
   }
   
@@ -66,7 +74,8 @@ final public class Glyptodon {
   */
   public func show(title: String, withButton button: String, withAnimation: Bool = true, didTap: ()->()) {
     removeExistingViews()
-    let view = GlyptodonView(style: style)
+    let view = GlyptodonView(style: style, topLayoutGuide: topLayoutGuide,
+      bottomLayoutGuide: bottomLayoutGuide)
     
     view.showInSuperview(superview, title: title, withButton: button, withAnimation: withAnimation, didTapButton: didTap)
   }
@@ -102,7 +111,6 @@ final public class Glyptodon {
       }
     }
   }
-  
 }
 
 
@@ -123,10 +131,15 @@ class GlyptodonView: UIView {
   /// Button tap closure supplied by the user
   var didTapButtonHandler: (()->())?
   
-  convenience init(style: GlyptodonStyle) {
+  var topLayoutGuide: UILayoutSupport?
+  var bottomLayoutGuide: UILayoutSupport?
+  
+  convenience init(style: GlyptodonStyle, topLayoutGuide: UILayoutSupport?, bottomLayoutGuide: UILayoutSupport?) {
     self.init(frame: CGRect())
     
     self.style = style
+    self.topLayoutGuide = topLayoutGuide
+    self.bottomLayoutGuide = bottomLayoutGuide
   }
   
   override init(frame: CGRect) {

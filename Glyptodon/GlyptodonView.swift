@@ -9,10 +9,15 @@ class GlyptodonView: UIView {
   /// Button tap closure supplied by the user
   var didTapButtonHandler: (()->())?
   
-  convenience init(style: GlyptodonStyle) {
+  var topLayoutGuide: UILayoutSupport?
+  var bottomLayoutGuide: UILayoutSupport?
+  
+  convenience init(style: GlyptodonStyle, topLayoutGuide: UILayoutSupport?, bottomLayoutGuide: UILayoutSupport?) {
     self.init(frame: CGRect())
     
     self.style = style
+    self.topLayoutGuide = topLayoutGuide
+    self.bottomLayoutGuide = bottomLayoutGuide
   }
   
   override init(frame: CGRect) {

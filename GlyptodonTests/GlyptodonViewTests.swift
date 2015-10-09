@@ -11,7 +11,7 @@ class GlyptodonViewTests: XCTestCase {
     super.setUp()
     
     style = GlyptodonStyle()
-    obj = GlyptodonView(style: style)
+    obj = GlyptodonView(style: style, topLayoutGuide: nil, bottomLayoutGuide: nil)
     superview = UIView()
   }
   
