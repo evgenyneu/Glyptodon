@@ -10,6 +10,8 @@ class ViewController: UIViewController {
     
     updateButtonTitle()
     
+    GlyptodonViewDefaultStyles.backgroundColor = GlyptodonColor.fromHexString("#FFF4D1")
+    GlyptodonTitleDefaultStyles.color = GlyptodonColor.fromHexString("#455840")
     GlyptodonButtonDefaultStyles.color = GlyptodonColor.fromHexString("#7CB06F")
   }
 

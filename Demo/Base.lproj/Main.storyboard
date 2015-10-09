@@ -87,11 +87,11 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g7f-eV-ebV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jzm-hc-X9p">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="jzm-hc-X9p">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="barTintColor" red="0.27212834731117314" green="0.34330831290849684" blue="0.25263845090017373" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.27058823529411763" green="0.34509803921568627" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
