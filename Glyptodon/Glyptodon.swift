@@ -3,7 +3,7 @@ import UIKit
 
 /**
 
-Coordinates the process of showing and hiding of the message view.
+Glyptodon object is for showing and hiding of the message view.
 
 The instance is created automatically in the `glyptodon` property of any UIView instance.
 It is not expected to be instantiated manually anywhere except unit tests.
@@ -85,5 +85,4 @@ final public class Glyptodon {
       }
     }
   }
-  
 }

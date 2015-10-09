@@ -1,7 +1,7 @@
 //
 // Glyptodon
 //
-// A UI widget for displaying 'no results' message in iOS
+// A UI widget for displaying 'no content' message in iOS
 //
 // https://github.com/exchangegroup/glyptodon
 //
@@ -934,7 +934,7 @@ private var sabAssociationKey: UInt8 = 0
 
 /**
 
-UIView extension for showing a 'no results' message.
+UIView extension for showing a 'no content' message.
 
 let view = UIView()
 view.glyptodon.show("Shopping cart is empty")

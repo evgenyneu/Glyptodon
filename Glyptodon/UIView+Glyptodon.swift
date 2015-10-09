@@ -4,7 +4,7 @@ private var sabAssociationKey: UInt8 = 0
 
 /**
 
-UIView extension for showing a 'no results' message.
+UIView extension for showing a 'no content' message.
 
 let view = UIView()
 view.glyptodon.show("Shopping cart is empty")
