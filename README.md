@@ -2,11 +2,10 @@
 
 # Glyptodon, a UI widget for displaying 'no content' message in iOS
 
-This is a UI element for iOS that shows 'no content' message with an optional button. It can be used on screens with optional content. When the content is empty we may want to inform the user why it is empty and suggest an action. For example, consider we have an ecommerce app with a shopping cart screen that  shows the list of products. If the user goes to the empty cart screen we can show a "Cart is empty" message and a "Go shopping" button.
+This is a UI element for iOS that shows 'no content' message with an optional button. It can be used on screens with optional content. When the content is empty we may want to inform the user why it is empty and suggest an action. For example, consider we have an ecommerce app with a shopping cart screen that  shows the list of products. If the user goes to the empty cart screen we can show a "Cart is empty" message and a "Search" button.
 
-<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/Drawings/Glyptodon_Riha2000.jpg' alt='UI widget for displaying 'no results' message in iOS' width='450'>
+<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/screenshots/glyptodon_ios_screenshot.png' width='320' alt='Glyptodon iOS message view example'>
 
-*A large extinct armadillo on his walk round the Guayana highlands. Image by Pavel Riha. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Glyptodon_(Riha2000).jpg).*
 
 ## Setup
 
@@ -74,6 +73,12 @@ view.glyptodon.style.button.color = GlyptodonColor.fromHexString("#007AFF")
 view.glyptodon.style.button.colorHighlighted = GlyptodonColor.fromHexString("#007AFF33")
 ```
 
+
 ## License
 
 Glyptodon is released under the [MIT License](LICENSE).
+
+
+<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/Drawings/Glyptodon_Riha2000.jpg' alt='UI widget for displaying 'no results' message in iOS' width='450'>
+
+*A large extinct armadillo on his walk round the Guayana highlands. Image by Pavel Riha. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Glyptodon_(Riha2000).jpg).*
