@@ -131,6 +131,8 @@ class GlyptodonView: UIView {
   
   private func applyButtonStyle(button: UIButton) {
     button.setTitleColor(style.button.color, forState: .Normal)
+    button.setTitleColor(UIColor.yellowColor(), forState: .Highlighted)
+    
     button.setTitleShadowColor(style.button.shadowColor, forState: .Normal)
     
     guard let label = button.titleLabel else { return }

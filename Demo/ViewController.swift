@@ -19,7 +19,9 @@ class ViewController: UIViewController {
     }
     
     if withButtonSwitch.on {
-      view.glyptodon.show("Cart is empty", withButton: "Go shopping") { }
+      view.glyptodon.show("Screen is static", withButton: "Rotate") {
+        print("Hello")
+      }
     } else {
       view.glyptodon.show("No new messages")
     }
