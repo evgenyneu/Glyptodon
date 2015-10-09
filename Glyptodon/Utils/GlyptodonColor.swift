@@ -1,7 +1,7 @@
 import UIKit
 
 /**
-  
+
 Creates a UIColor object from a string.
 
 Examples:
@@ -10,6 +10,8 @@ Examples:
 
     // With alpha channel
     GlyptodonColor.fromHexString('#f1a2b3a6')
+
+Source: https://github.com/exchangegroup/Glyptodon
 
 */
 public class GlyptodonColor {

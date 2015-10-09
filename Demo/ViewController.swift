@@ -8,11 +8,15 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    styleMessageView()
     updateButtonTitle()
-    
-    GlyptodonViewDefaultStyles.backgroundColor = GlyptodonColor.fromHexString("#FFF4D1")
-    GlyptodonTitleDefaultStyles.color = GlyptodonColor.fromHexString("#455840")
-    GlyptodonButtonDefaultStyles.color = GlyptodonColor.fromHexString("#7CB06F")
+  }
+  
+  private func styleMessageView() {
+    view.glyptodon.style.view.backgroundColor = GlyptodonColor.fromHexString("#FFF4D1")
+    view.glyptodon.style.title.color = GlyptodonColor.fromHexString("#455840")
+    view.glyptodon.style.button.color = GlyptodonColor.fromHexString("#7CB06F")
+    view.glyptodon.style.button.colorHighlighted = GlyptodonColor.fromHexString("#7CB06F33")
   }
 
   @IBAction func didTapShowButton(sender: AnyObject) {

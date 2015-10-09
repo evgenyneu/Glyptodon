@@ -38,11 +38,11 @@ Glyptodon is an extension of UIView class. You can reach it by using using the `
 
 
 ```Swift
-view.glyptodon.show("No new message")
+view.glyptodon.show("No new messages")
 view.glyptodon.hide()
 
 // Show message with a button
-view.glyptodon.show("Cart is empty", buttonLabel: 'Go shopping') {
+view.glyptodon.show("Cart is empty", withButton: "Go shopping") {
   // Do something when the button is tapped.
 }
 
@@ -68,21 +68,10 @@ view.glyptodon.style.title.color = GlyptodonColor.fromHexString("#666666")
 view.glyptodon.style.button.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
 
 // Set the button color
-view.glyptodon.style.button.color = UIColor.blueColor()
-```
+view.glyptodon.style.button.color = GlyptodonColor.fromHexString("#007AFF")
 
-### Customize animation
-
-Configure the animation effect of the view before it is shown.
-
-
-```Swift
-// Use existing animations
-view.glyptodon.style.bar.animationShow = GlyptodonAnimations.Fade.show
-view.glyptodon.style.bar.animationHide = GlyptodonAnimations.Fade.hide
-
-// Turn off animation
-view.glyptodon.style.bar.animationShow = GlyptodonAnimations.NoAnimation.show
+// Set the button color
+view.glyptodon.style.button.colorHighlighted = GlyptodonColor.fromHexString("#007AFF33")
 ```
 
 ## License
