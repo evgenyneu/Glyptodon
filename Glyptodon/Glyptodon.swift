@@ -14,7 +14,7 @@ let view = UIView()
 view.glyptodon.show("No messages")
 
 */
-final class Glyptodon: GlyptodonInterface {
+final public class Glyptodon {
   private weak var superview: UIView!
   var didHide: (()->())? // Used in unit tests
     
@@ -23,7 +23,7 @@ final class Glyptodon: GlyptodonInterface {
   }
   
   /// Defines styles for the view.
-  var style = GlyptodonStyle()
+  public var style = GlyptodonStyle()
   
   /**
   
@@ -32,10 +32,10 @@ final class Glyptodon: GlyptodonInterface {
   - parameter title: The text message to be shown.
   
   */
-  func show(title: String) {
+  public func show(title: String, withAnimation: Bool = true) {
     removeExistingViews()
     let view = GlyptodonView(style: style)
-    view.showInSuperview(superview, title: title)
+    view.showInSuperview(superview, title: title, withAnimation: withAnimation)
   }
   
   /**
@@ -47,22 +47,22 @@ final class Glyptodon: GlyptodonInterface {
   - parameter didTap: A closure that will be called when the button is tapped.
   
   */
-  func show(title: String, withButton button: String, didTap: ()->()) {
+  public func show(title: String, withButton button: String, withAnimation: Bool = true, didTap: ()->()) {
     removeExistingViews()
     let view = GlyptodonView(style: style)
     
-    view.showInSuperview(superview, title: title, withButton: button, didTapButton: didTap)
+    view.showInSuperview(superview, title: title, withButton: button, withAnimation: withAnimation, didTapButton: didTap)
   }
   
   /// Hide the message window if it's currently open.
-  func hide() {
-    glyptodonView?.hide() { [weak self] in
+  public func hide(withAnimation withAnimation: Bool = true) {
+    glyptodonView?.hide(withAnimation: withAnimation) { [weak self] in
       self?.didHide?()
     }
   }
   
   /// Check if the message view is currently visible.
-  var visible: Bool {
+  public var visible: Bool {
     get {
       if let glyptodonView = glyptodonView {
         return !glyptodonView.beingHidden

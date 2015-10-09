@@ -6,6 +6,7 @@ public class GlyptodonButtonStyle {
   /// Clears the styles for all properties for this style object. Default styles will be used instead.
   public func clear() {
     _color = nil
+    _colorHighlighted = nil
     _font = nil
     _horizontalMargin = nil
     _numberOfLines = nil
@@ -26,6 +27,21 @@ public class GlyptodonButtonStyle {
     
     set {
       _color = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _colorHighlighted: UIColor?
+  
+  /// Color of the button title when it's tapped.
+  public var colorHighlighted: UIColor {
+    get {
+      return _colorHighlighted ?? GlyptodonButtonDefaultStyles.colorHighlighted
+    }
+    
+    set {
+      _colorHighlighted = newValue
     }
   }
   

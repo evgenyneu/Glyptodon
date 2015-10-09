@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2BAC6F5B1BC6053A00D0A9A2 /* Glyptodon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BAC6F5A1BC6053A00D0A9A2 /* Glyptodon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2BAC6F631BC605FE00D0A9A2 /* GlyptodonInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F621BC605FE00D0A9A2 /* GlyptodonInterface.swift */; settings = {ASSET_TAGS = (); }; };
 		2BAC6F651BC606DE00D0A9A2 /* Glyptodon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F641BC606DE00D0A9A2 /* Glyptodon.swift */; settings = {ASSET_TAGS = (); }; };
 		2BAC6F6F1BC6075F00D0A9A2 /* Glyptodon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAC6F571BC6053A00D0A9A2 /* Glyptodon.framework */; settings = {ASSET_TAGS = (); }; };
 		2BAC6F761BC6077800D0A9A2 /* UIView+GlyptodonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F751BC6077800D0A9A2 /* UIView+GlyptodonTests.swift */; settings = {ASSET_TAGS = (); }; };
@@ -71,7 +70,6 @@
 		2BAC6F571BC6053A00D0A9A2 /* Glyptodon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Glyptodon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAC6F5A1BC6053A00D0A9A2 /* Glyptodon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Glyptodon.h; sourceTree = "<group>"; };
 		2BAC6F5C1BC6053A00D0A9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2BAC6F621BC605FE00D0A9A2 /* GlyptodonInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlyptodonInterface.swift; sourceTree = "<group>"; };
 		2BAC6F641BC606DE00D0A9A2 /* Glyptodon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Glyptodon.swift; sourceTree = "<group>"; };
 		2BAC6F6A1BC6075F00D0A9A2 /* GlyptodonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlyptodonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAC6F6E1BC6075F00D0A9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 				2BAC6F5A1BC6053A00D0A9A2 /* Glyptodon.h */,
 				2BAC6F5C1BC6053A00D0A9A2 /* Info.plist */,
 				2BAC6F641BC606DE00D0A9A2 /* Glyptodon.swift */,
-				2BAC6F621BC605FE00D0A9A2 /* GlyptodonInterface.swift */,
 				2BAC6F7E1BC610D100D0A9A2 /* GlyptodonView.swift */,
 				2BAC6F771BC60F5500D0A9A2 /* UIView+Glyptodon.swift */,
 			);
@@ -407,7 +404,6 @@
 				2BAC6FB41BC61F0900D0A9A2 /* GlyptodonTitleDefaultStyles.swift in Sources */,
 				2BAC6F7F1BC610D100D0A9A2 /* GlyptodonView.swift in Sources */,
 				2BAC6FAB1BC61BB700D0A9A2 /* GlyptodonColor.swift in Sources */,
-				2BAC6F631BC605FE00D0A9A2 /* GlyptodonInterface.swift in Sources */,
 				2BAC6FA91BC61B5C00D0A9A2 /* GlyptodonViewDefaultStyles.swift in Sources */,
 				2BAC6F9F1BC6168900D0A9A2 /* TegAutolayoutConstraints.swift in Sources */,
 				2BAC6F781BC60F5500D0A9A2 /* UIView+Glyptodon.swift in Sources */,
@@ -686,6 +682,7 @@
 				2BAC6F611BC6053A00D0A9A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2BAC6F721BC6075F00D0A9A2 /* Build configuration list for PBXNativeTarget "GlyptodonTests" */ = {
 			isa = XCConfigurationList;
@@ -694,6 +691,7 @@
 				2BAC6F741BC6075F00D0A9A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2BAC6F951BC614F500D0A9A2 /* Build configuration list for PBXNativeTarget "Demo" */ = {
 			isa = XCConfigurationList;
@@ -702,6 +700,7 @@
 				2BAC6F971BC614F500D0A9A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2BAC6FA11BC618F000D0A9A2 /* Build configuration list for PBXLegacyTarget "ConcatenateSwift" */ = {
 			isa = XCConfigurationList;
@@ -710,6 +709,7 @@
 				2BAC6FA31BC618F000D0A9A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

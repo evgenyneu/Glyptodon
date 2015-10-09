@@ -20,6 +20,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e6Q-on-gLc">
                                 <rect key="frame" x="296" y="285" width="51" height="31"/>
                                 <animations/>
+                                <connections>
+                                    <action selector="didTapShowButtonSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="2BP-yu-3pA"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With button" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lE-nc-pNK">
                                 <rect key="frame" x="196" y="290" width="90" height="21"/>
@@ -28,17 +31,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMi-3T-yKX">
-                                <rect key="frame" x="277" y="346" width="46" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JMi-3T-yKX" firstAttribute="top" secondItem="e6Q-on-gLc" secondAttribute="bottom" constant="30" id="Odu-9j-ahW"/>
-                            <constraint firstItem="JMi-3T-yKX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rud-YU-0lK"/>
                             <constraint firstItem="e6Q-on-gLc" firstAttribute="leading" secondItem="3lE-nc-pNK" secondAttribute="trailing" constant="10" id="U5M-Qq-lhf"/>
                             <constraint firstItem="3lE-nc-pNK" firstAttribute="centerY" secondItem="e6Q-on-gLc" secondAttribute="centerY" id="d6e-wN-RYR"/>
                             <constraint firstItem="e6Q-on-gLc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="20" id="xWv-Oy-cY1"/>

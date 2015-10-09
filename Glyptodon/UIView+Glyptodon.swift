@@ -20,9 +20,9 @@ public extension UIView {
   view.glyptodon.show("Shopping cart is empty")
   
   */
-  public var glyptodon: GlyptodonInterface {
+  public var glyptodon: Glyptodon {
     get {
-      if let value = objc_getAssociatedObject(self, &sabAssociationKey) as? GlyptodonInterface {
+      if let value = objc_getAssociatedObject(self, &sabAssociationKey) as? Glyptodon {
         return value
       } else {
         let glyptodon = Glyptodon(superview: self)

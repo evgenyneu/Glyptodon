@@ -12,6 +12,18 @@ class ViewController: UIViewController {
   }
 
   @IBAction func didTapShowButton(sender: AnyObject) {
+    showMessageView()
+  }
+  
+  @IBAction func didTapShowButtonSwitch(sender: AnyObject) {
+    showMessageView()
+  }
+  
+  private func updateButtonTitle() {
+    showHideButton.title = view.glyptodon.visible ? "Hide" : "Show"
+  }
+  
+  private func showMessageView() {
     if view.glyptodon.visible {
       view.glyptodon.hide()
       updateButtonTitle()
@@ -19,18 +31,14 @@ class ViewController: UIViewController {
     }
     
     if withButtonSwitch.on {
-      view.glyptodon.show("Screen is static", withButton: "Rotate") {
-        print("Hello")
+      view.glyptodon.show("Why is there something rather then nothing?", withButton: "Get an answer") { [weak self] in
+        self?.view.glyptodon.show("Because 'nothing' is unstable.", withAnimation: false)
       }
     } else {
-      view.glyptodon.show("No new messages")
+      view.glyptodon.show("There is nothing here.")
     }
     
     updateButtonTitle()
-  }
-  
-  private func updateButtonTitle() {
-    showHideButton.title = view.glyptodon.visible ? "Hide" : "Show"
   }
 }
 

@@ -12,6 +12,7 @@ public struct GlyptodonButtonDefaultStyles {
   /// Revert the property values to their defaults
   public static func resetToDefaults() {
     color = _color
+    colorHighlighted = _colorHighlighted
     font = _font
     horizontalMargin = _horizontalMargin
     numberOfLines = _numberOfLines
@@ -23,10 +24,19 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
 
-  private static let _color: UIColor = GlyptodonColor.fromHexString("#007Aff")
+  private static let _color: UIColor = GlyptodonColor.fromHexString("#007AFF")
   
   /// Color of the button title.
   public static var color = _color
+  
+  
+  // ---------------------------
+  
+  
+  private static let _colorHighlighted: UIColor = GlyptodonColor.fromHexString("#007AFF33")
+  
+  /// Color of the button title when it's tapped.
+  public static var colorHighlighted = _colorHighlighted
   
   
   // ---------------------------

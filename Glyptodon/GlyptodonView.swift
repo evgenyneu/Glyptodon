@@ -25,24 +25,27 @@ class GlyptodonView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func showInSuperview(superview: UIView, title: String) {
+  func showInSuperview(superview: UIView, title: String, withAnimation: Bool) {
     superview.addSubview(self)
     addLayoutConstraints()
     createTitle(title)
     applyStyle()
-    animateIn()
+    
+    if withAnimation {
+      animateIn()
+    }
   }
   
   func showInSuperview(superview: UIView, title: String,
-    withButton buttonTitle: String, didTapButton: ()->()) {
+    withButton buttonTitle: String, withAnimation: Bool, didTapButton: ()->()) {
     
-    showInSuperview(superview, title: title)
+    showInSuperview(superview, title: title, withAnimation: withAnimation)
       
     self.didTapButtonHandler = didTapButton
     createButton(buttonTitle)
   }
   
-  func hide(didFinish: ()->()) {
+  func hide(withAnimation withAnimation: Bool, didFinish: ()->()) {
     if beingHidden {
       didFinish()
       return
@@ -50,8 +53,13 @@ class GlyptodonView: UIView {
     
     beingHidden = true
     
-    animateOut() { [weak self] in
-      self?.removeFromSuperview()
+    if withAnimation {
+      animateOut() { [weak self] in
+        self?.removeFromSuperview()
+        didFinish()
+      }
+    } else {
+      removeFromSuperview()
       didFinish()
     }
   }
@@ -131,7 +139,7 @@ class GlyptodonView: UIView {
   
   private func applyButtonStyle(button: UIButton) {
     button.setTitleColor(style.button.color, forState: .Normal)
-    button.setTitleColor(UIColor.yellowColor(), forState: .Highlighted)
+    button.setTitleColor(style.button.colorHighlighted, forState: .Highlighted)
     
     button.setTitleShadowColor(style.button.shadowColor, forState: .Normal)
     

@@ -31,7 +31,7 @@ let view = UIView()
 view.glyptodon.show("No messages")
 
 */
-final class Glyptodon: GlyptodonInterface {
+final public class Glyptodon {
   private weak var superview: UIView!
   var didHide: (()->())? // Used in unit tests
     
@@ -40,7 +40,7 @@ final class Glyptodon: GlyptodonInterface {
   }
   
   /// Defines styles for the view.
-  var style = GlyptodonStyle()
+  public var style = GlyptodonStyle()
   
   /**
   
@@ -49,10 +49,10 @@ final class Glyptodon: GlyptodonInterface {
   - parameter title: The text message to be shown.
   
   */
-  func show(title: String) {
+  public func show(title: String, withAnimation: Bool = true) {
     removeExistingViews()
     let view = GlyptodonView(style: style)
-    view.showInSuperview(superview, title: title)
+    view.showInSuperview(superview, title: title, withAnimation: withAnimation)
   }
   
   /**
@@ -64,22 +64,22 @@ final class Glyptodon: GlyptodonInterface {
   - parameter didTap: A closure that will be called when the button is tapped.
   
   */
-  func show(title: String, withButton button: String, didTap: ()->()) {
+  public func show(title: String, withButton button: String, withAnimation: Bool = true, didTap: ()->()) {
     removeExistingViews()
     let view = GlyptodonView(style: style)
     
-    view.showInSuperview(superview, title: title, withButton: button, didTapButton: didTap)
+    view.showInSuperview(superview, title: title, withButton: button, withAnimation: withAnimation, didTapButton: didTap)
   }
   
   /// Hide the message window if it's currently open.
-  func hide() {
-    glyptodonView?.hide() { [weak self] in
+  public func hide(withAnimation withAnimation: Bool = true) {
+    glyptodonView?.hide(withAnimation: withAnimation) { [weak self] in
       self?.didHide?()
     }
   }
   
   /// Check if the message view is currently visible.
-  var visible: Bool {
+  public var visible: Bool {
     get {
       if let glyptodonView = glyptodonView {
         return !glyptodonView.beingHidden
@@ -103,60 +103,6 @@ final class Glyptodon: GlyptodonInterface {
     }
   }
   
-}
-
-
-// ----------------------------
-//
-// GlyptodonInterface.swift
-//
-// ----------------------------
-
-import UIKit
-
-/**
-
-Coordinates the process of showing and hiding of the view.
-
-The instance is created automatically in the `glyptodon` property of any UIView instance.
-It is not expected to be instantiated manually anywhere except unit tests.
-
-For example:
-
-let view = UIView()
-view.glyptodon.show("No messages")
-
-*/
-public protocol GlyptodonInterface: class {
-  
-  /// Defines styles for the view.
-  var style: GlyptodonStyle { get set }
-
-  /**
-  
-  Shows the message view with a title.
-  
-  - parameter title: The text message to be shown.
-  
-  */
-  func show(title: String)
-  
-  /**
-  
-  Shows the message view with a title and a button.
-  
-  - parameter title: The text message to be shown.
-  - parameter withButton: The title for the button
-  - parameter didTap: A closure that will be called when the button is tapped.
-
-  */
-  func show(title: String, withButton button: String, didTap: ()->())
-  
-  /// Hide the message window if it's currently open.
-  func hide()
-  
-  /// Check if the message view is currently visible.
-  var visible: Bool { get }
 }
 
 
@@ -193,24 +139,27 @@ class GlyptodonView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func showInSuperview(superview: UIView, title: String) {
+  func showInSuperview(superview: UIView, title: String, withAnimation: Bool) {
     superview.addSubview(self)
     addLayoutConstraints()
     createTitle(title)
     applyStyle()
-    animateIn()
+    
+    if withAnimation {
+      animateIn()
+    }
   }
   
   func showInSuperview(superview: UIView, title: String,
-    withButton buttonTitle: String, didTapButton: ()->()) {
+    withButton buttonTitle: String, withAnimation: Bool, didTapButton: ()->()) {
     
-    showInSuperview(superview, title: title)
+    showInSuperview(superview, title: title, withAnimation: withAnimation)
       
     self.didTapButtonHandler = didTapButton
     createButton(buttonTitle)
   }
   
-  func hide(didFinish: ()->()) {
+  func hide(withAnimation withAnimation: Bool, didFinish: ()->()) {
     if beingHidden {
       didFinish()
       return
@@ -218,8 +167,13 @@ class GlyptodonView: UIView {
     
     beingHidden = true
     
-    animateOut() { [weak self] in
-      self?.removeFromSuperview()
+    if withAnimation {
+      animateOut() { [weak self] in
+        self?.removeFromSuperview()
+        didFinish()
+      }
+    } else {
+      removeFromSuperview()
       didFinish()
     }
   }
@@ -299,6 +253,8 @@ class GlyptodonView: UIView {
   
   private func applyButtonStyle(button: UIButton) {
     button.setTitleColor(style.button.color, forState: .Normal)
+    button.setTitleColor(style.button.colorHighlighted, forState: .Highlighted)
+    
     button.setTitleShadowColor(style.button.shadowColor, forState: .Normal)
     
     guard let label = button.titleLabel else { return }
@@ -359,6 +315,7 @@ public struct GlyptodonButtonDefaultStyles {
   /// Revert the property values to their defaults
   public static func resetToDefaults() {
     color = _color
+    colorHighlighted = _colorHighlighted
     font = _font
     horizontalMargin = _horizontalMargin
     numberOfLines = _numberOfLines
@@ -370,10 +327,19 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
 
-  private static let _color: UIColor = GlyptodonColor.fromHexString("#007Aff")
+  private static let _color: UIColor = GlyptodonColor.fromHexString("#007AFF")
   
   /// Color of the button title.
   public static var color = _color
+  
+  
+  // ---------------------------
+  
+  
+  private static let _colorHighlighted: UIColor = GlyptodonColor.fromHexString("#007AFF33")
+  
+  /// Color of the button title when it's tapped.
+  public static var colorHighlighted = _colorHighlighted
   
   
   // ---------------------------
@@ -447,6 +413,7 @@ public class GlyptodonButtonStyle {
   /// Clears the styles for all properties for this style object. Default styles will be used instead.
   public func clear() {
     _color = nil
+    _colorHighlighted = nil
     _font = nil
     _horizontalMargin = nil
     _numberOfLines = nil
@@ -467,6 +434,21 @@ public class GlyptodonButtonStyle {
     
     set {
       _color = newValue
+    }
+  }
+  
+  // -----------------------------
+  
+  private var _colorHighlighted: UIColor?
+  
+  /// Color of the button title when it's tapped.
+  public var colorHighlighted: UIColor {
+    get {
+      return _colorHighlighted ?? GlyptodonButtonDefaultStyles.colorHighlighted
+    }
+    
+    set {
+      _colorHighlighted = newValue
     }
   }
   
@@ -968,9 +950,9 @@ public extension UIView {
   view.glyptodon.show("Shopping cart is empty")
   
   */
-  public var glyptodon: GlyptodonInterface {
+  public var glyptodon: Glyptodon {
     get {
-      if let value = objc_getAssociatedObject(self, &sabAssociationKey) as? GlyptodonInterface {
+      if let value = objc_getAssociatedObject(self, &sabAssociationKey) as? Glyptodon {
         return value
       } else {
         let glyptodon = Glyptodon(superview: self)
