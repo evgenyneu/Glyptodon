@@ -30,7 +30,6 @@ public struct GlyptodonTitleDefaultStyles {
   
   // ---------------------------
   
-  
   private static let defaultNonDynamicFontSize: CGFloat = 28
   
   private static let _font: UIFont = {

@@ -10,24 +10,10 @@ public class GlyptodonViewStyle {
   
   // ---------------------------
   
-  private var _backgroundColor: UIColor?
-  
-  /// Background color of the bar.
-  public var backgroundColor: UIColor? {
-    get {
-      return _backgroundColor ?? GlyptodonViewDefaultStyles.backgroundColor
-    }
-    
-    set {
-      _backgroundColor = newValue
-    }
-  }
-  
-  // ---------------------------
   
   private var _animationDurationSeconds: NSTimeInterval?
   
-  /// Duration of the fade animation that is used to show the message view. Setting it to 0 will result in no animation.
+  /// Duration of the fade animation that is used to show and hide the message view. Setting it to 0 will result in no animation.
   public var animationDurationSeconds: NSTimeInterval {
     get {
       return _animationDurationSeconds ?? GlyptodonViewDefaultStyles.animationDurationSeconds
@@ -39,4 +25,19 @@ public class GlyptodonViewStyle {
   }
   
   // -----------------------------
+  
+  private var _backgroundColor: UIColor?
+  
+  /// Background color of the message view.
+  public var backgroundColor: UIColor? {
+    get {
+      return _backgroundColor ?? GlyptodonViewDefaultStyles.backgroundColor
+    }
+    
+    set {
+      _backgroundColor = newValue
+    }
+  }
+  
+  // ---------------------------
 }

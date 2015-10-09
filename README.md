@@ -53,7 +53,7 @@ if view.glyptodon.visible { /* visible */ }
 
 ### Styling
 
-Set `glyptodon.style` property to style the view **before** it is shown.
+Set `glyptodon.style` property to style the view **before** it is shown. See the [styling manual](https://github.com/exchangegroup/Glyptodon/wiki/Styling) for the complete list of configuration options.
 
 ```Swift
 // Set the view background color

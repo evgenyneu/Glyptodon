@@ -16,17 +16,18 @@ public struct GlyptodonViewDefaultStyles {
   
   // ---------------------------
   
-  private static let _backgroundColor: UIColor? = GlyptodonColor.fromHexString("#EEEEEE")
-  
-  /// Background color of the view.
-  public static var backgroundColor = _backgroundColor
-  
-  // ---------------------------
-  
   private static let _animationDurationSeconds: NSTimeInterval = 0.3
   
-  /// Duration of the fade animation that is used to show the message view. Setting it to 0 will result in no animation.
+  /// Duration of the fade animation that is used to show and hide the message view. Setting it to 0 will result in no animation.
   public static var animationDurationSeconds = _animationDurationSeconds
   
   // ---------------------------
+  
+  private static let _backgroundColor: UIColor? = GlyptodonColor.fromHexString("#EEEEEE")
+  
+  /// Background color of the message view.
+  public static var backgroundColor = _backgroundColor
+  
+  // ---------------------------
+
 }
