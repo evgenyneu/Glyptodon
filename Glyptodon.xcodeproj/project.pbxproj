@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B6BF6FC1BC76F92008421F8 /* LaunchUmage.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6BF6FB1BC76F92008421F8 /* LaunchUmage.png */; settings = {ASSET_TAGS = (); }; };
 		2BAC6F5B1BC6053A00D0A9A2 /* Glyptodon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BAC6F5A1BC6053A00D0A9A2 /* Glyptodon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2BAC6F651BC606DE00D0A9A2 /* Glyptodon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6F641BC606DE00D0A9A2 /* Glyptodon.swift */; settings = {ASSET_TAGS = (); }; };
 		2BAC6F6F1BC6075F00D0A9A2 /* Glyptodon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAC6F571BC6053A00D0A9A2 /* Glyptodon.framework */; settings = {ASSET_TAGS = (); }; };
@@ -67,6 +68,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2B6BF6FB1BC76F92008421F8 /* LaunchUmage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchUmage.png; sourceTree = "<group>"; };
 		2BAC6F571BC6053A00D0A9A2 /* Glyptodon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Glyptodon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAC6F5A1BC6053A00D0A9A2 /* Glyptodon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Glyptodon.h; sourceTree = "<group>"; };
 		2BAC6F5C1BC6053A00D0A9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B6BF6FA1BC76F8C008421F8 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2B6BF6FB1BC76F92008421F8 /* LaunchUmage.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		2BAC6F4D1BC6053A00D0A9A2 = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +195,7 @@
 		2BAC6F871BC614F500D0A9A2 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				2B6BF6FA1BC76F8C008421F8 /* Images */,
 				2BAC6F881BC614F500D0A9A2 /* AppDelegate.swift */,
 				2BAC6F8A1BC614F500D0A9A2 /* ViewController.swift */,
 				2BAC6F8C1BC614F500D0A9A2 /* Main.storyboard */,
@@ -384,6 +395,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B6BF6FC1BC76F92008421F8 /* LaunchUmage.png in Resources */,
 				2BAC6F931BC614F500D0A9A2 /* LaunchScreen.storyboard in Resources */,
 				2BAC6F901BC614F500D0A9A2 /* Assets.xcassets in Resources */,
 				2BAC6F8E1BC614F500D0A9A2 /* Main.storyboard in Resources */,

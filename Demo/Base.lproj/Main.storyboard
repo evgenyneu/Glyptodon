@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,27 +19,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e6Q-on-gLc">
-                                <rect key="frame" x="296" y="285" width="51" height="31"/>
+                                <rect key="frame" x="296" y="114" width="51" height="31"/>
                                 <animations/>
                                 <connections>
                                     <action selector="didTapShowButtonSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="2BP-yu-3pA"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With button" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lE-nc-pNK">
-                                <rect key="frame" x="196" y="290" width="90" height="21"/>
+                                <rect key="frame" x="196" y="119" width="90" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchUmage.png" translatesAutoresizingMaskIntoConstraints="NO" id="laJ-vD-p2m">
+                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="laJ-vD-p2m" secondAttribute="bottom" id="Dk3-kj-3Yq"/>
+                            <constraint firstItem="laJ-vD-p2m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HSk-cB-KJ8"/>
+                            <constraint firstItem="e6Q-on-gLc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="K1e-sC-554"/>
                             <constraint firstItem="e6Q-on-gLc" firstAttribute="leading" secondItem="3lE-nc-pNK" secondAttribute="trailing" constant="10" id="U5M-Qq-lhf"/>
+                            <constraint firstItem="laJ-vD-p2m" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="aTr-DO-wo0"/>
                             <constraint firstItem="3lE-nc-pNK" firstAttribute="centerY" secondItem="e6Q-on-gLc" secondAttribute="centerY" id="d6e-wN-RYR"/>
                             <constraint firstItem="e6Q-on-gLc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="20" id="xWv-Oy-cY1"/>
-                            <constraint firstItem="e6Q-on-gLc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zGi-lW-zHV"/>
+                            <constraint firstAttribute="trailing" secondItem="laJ-vD-p2m" secondAttribute="trailing" id="xxR-jU-Iyw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YFD-71-Sbf">
@@ -77,4 +86,7 @@
             <point key="canvasLocation" x="375" y="415"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LaunchUmage.png" width="1009" height="554"/>
+    </resources>
 </document>
