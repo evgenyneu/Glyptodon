@@ -4,7 +4,7 @@
 
 This is a UI element for iOS that shows 'no content' message with an optional button. It can be used on screens with optional content. When the content is empty we may want to inform the user why it is empty and suggest an action. For example, consider we have an ecommerce app with a shopping cart screen that  shows the list of products. If the user goes to the empty cart screen we can show a "Cart is empty" message and a "Search" button.
 
-<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/screenshots/glyptodon_ios_screenshot.png' width='320' alt='Glyptodon iOS message view example'>
+<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/screenshots/glyptodon_ios_screenshot_2.png' width='320' alt='Glyptodon iOS message view example'>
 
 
 ## Setup
