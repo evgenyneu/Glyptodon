@@ -9,6 +9,8 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     updateButtonTitle()
+    
+    GlyptodonButtonDefaultStyles.color = GlyptodonColor.fromHexString("#7CB06F")
   }
 
   @IBAction func didTapShowButton(sender: AnyObject) {

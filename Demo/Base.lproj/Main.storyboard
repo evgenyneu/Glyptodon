@@ -21,6 +21,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e6Q-on-gLc">
                                 <rect key="frame" x="296" y="114" width="51" height="31"/>
                                 <animations/>
+                                <color key="tintColor" red="0.39607843139999999" green="0.49803921569999998" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="0.396078431372549" green="0.49803921568627452" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.48627450980392156" green="0.69019607843137254" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="didTapShowButtonSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="2BP-yu-3pA"/>
                                 </connections>
@@ -29,7 +32,7 @@
                                 <rect key="frame" x="196" y="119" width="90" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.396078431372549" green="0.49803921568627452" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchUmage_ground.png" translatesAutoresizingMaskIntoConstraints="NO" id="laJ-vD-p2m">
@@ -64,6 +67,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YFD-71-Sbf">
                         <barButtonItem key="rightBarButtonItem" title="Show" id="ZoN-mK-juk">
+                            <color key="tintColor" red="0.58899605682505651" green="0.83831792183434339" blue="0.52946424769816547" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="didTapShowButton:" destination="BYZ-38-t0r" id="Czu-ab-5Y2"/>
                             </connections>
@@ -87,6 +91,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="barTintColor" red="0.27212834731117314" green="0.34330831290849684" blue="0.25263845090017373" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
