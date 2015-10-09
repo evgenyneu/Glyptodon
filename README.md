@@ -88,4 +88,4 @@ Glyptodon library is released under the [MIT License](LICENSE).
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/Drawings/Glyptodon_Riha2000.jpg' alt='UI widget for displaying 'no results' message in iOS' width='450'>
 
-*Drawing of Glyptodon by Pavel Riha. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Glyptodon_(Riha2000).jpg).*
+*Drawing of a Glyptodon by Pavel Riha. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Glyptodon_(Riha2000).jpg).*
