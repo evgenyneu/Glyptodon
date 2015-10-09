@@ -75,6 +75,11 @@ view.glyptodon.style.button.color = GlyptodonColor.fromHexString("#007AFF")
 view.glyptodon.style.button.colorHighlighted = GlyptodonColor.fromHexString("#007AFF33")
 ```
 
+## Demo
+
+This project includes a demo iOS app
+
+<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/screenshots/glyptodon_demo_ios_app.png' alt='Glyptodon demo iOS app' width='320'>
 
 ## License
 
