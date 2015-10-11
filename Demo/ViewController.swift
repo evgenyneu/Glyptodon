@@ -9,7 +9,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     styleMessageView()
-    updateButtonTitle()
+    updateButtonTitle()    
   }
   
   private func styleMessageView() {

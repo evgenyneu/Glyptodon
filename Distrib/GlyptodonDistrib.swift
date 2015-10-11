@@ -98,6 +98,20 @@ final public class Glyptodon {
     }
   }
   
+  /// Returns the title label.
+  public var title: UILabel? {
+    get {
+      return glyptodonView?.subviews.filter { $0 is UILabel }.map { $0 as! UILabel }.first
+    }
+  }
+  
+  /// Returns the button.
+  public var button: UIButton? {
+    get {
+      return glyptodonView?.subviews.filter { $0 is UIButton }.map { $0 as! UIButton }.first
+    }
+  }
+  
   private var glyptodonView: GlyptodonView? {
     get {
       return superview.subviews.filter { $0 is GlyptodonView }.map { $0 as! GlyptodonView }.first
@@ -646,7 +660,6 @@ public struct GlyptodonTitleDefaultStyles {
   
   // ---------------------------
   
-  
   private static let defaultNonDynamicFontSize: CGFloat = 28
   
   private static let _font: UIFont = {
@@ -869,19 +882,20 @@ public struct GlyptodonViewDefaultStyles {
   
   // ---------------------------
   
-  private static let _backgroundColor: UIColor? = GlyptodonColor.fromHexString("#EEEEEE")
-  
-  /// Background color of the view.
-  public static var backgroundColor = _backgroundColor
-  
-  // ---------------------------
-  
   private static let _animationDurationSeconds: NSTimeInterval = 0.3
   
-  /// Duration of the fade animation that is used to show the message view. Setting it to 0 will result in no animation.
+  /// Duration of the fade animation that is used to show and hide the message view. Setting it to 0 will result in no animation.
   public static var animationDurationSeconds = _animationDurationSeconds
   
   // ---------------------------
+  
+  private static let _backgroundColor: UIColor? = GlyptodonColor.fromHexString("#EEEEEE")
+  
+  /// Background color of the message view.
+  public static var backgroundColor = _backgroundColor
+  
+  // ---------------------------
+
 }
 
 
@@ -903,24 +917,10 @@ public class GlyptodonViewStyle {
   
   // ---------------------------
   
-  private var _backgroundColor: UIColor?
-  
-  /// Background color of the bar.
-  public var backgroundColor: UIColor? {
-    get {
-      return _backgroundColor ?? GlyptodonViewDefaultStyles.backgroundColor
-    }
-    
-    set {
-      _backgroundColor = newValue
-    }
-  }
-  
-  // ---------------------------
   
   private var _animationDurationSeconds: NSTimeInterval?
   
-  /// Duration of the fade animation that is used to show the message view. Setting it to 0 will result in no animation.
+  /// Duration of the fade animation that is used to show and hide the message view. Setting it to 0 will result in no animation.
   public var animationDurationSeconds: NSTimeInterval {
     get {
       return _animationDurationSeconds ?? GlyptodonViewDefaultStyles.animationDurationSeconds
@@ -932,6 +932,21 @@ public class GlyptodonViewStyle {
   }
   
   // -----------------------------
+  
+  private var _backgroundColor: UIColor?
+  
+  /// Background color of the message view.
+  public var backgroundColor: UIColor? {
+    get {
+      return _backgroundColor ?? GlyptodonViewDefaultStyles.backgroundColor
+    }
+    
+    set {
+      _backgroundColor = newValue
+    }
+  }
+  
+  // ---------------------------
 }
 
 
@@ -994,7 +1009,7 @@ public extension UIView {
 import UIKit
 
 /**
-  
+
 Creates a UIColor object from a string.
 
 Examples:
@@ -1003,6 +1018,8 @@ Examples:
 
     // With alpha channel
     GlyptodonColor.fromHexString('#f1a2b3a6')
+
+Source: https://github.com/exchangegroup/Glyptodon
 
 */
 public class GlyptodonColor {

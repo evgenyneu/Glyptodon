@@ -79,4 +79,26 @@ class GlyptodonTests: XCTestCase {
     waitForExpectationsWithTimeout(0.5, handler: nil)
     XCTAssertFalse(obj.visible)
   }
+  
+  // MARK: - Title
+  
+  func testTitle() {
+    obj.show("Nothing here")
+    XCTAssertEqual("Nothing here", obj.title?.text)
+  }
+  
+  func testTitle_missing() {
+    XCTAssert(obj.title == nil)
+  }
+  
+  // MARK: - Button
+  
+  func testButton() {
+    obj.show("Nothing here", withButton: "Continue") { }
+    XCTAssertEqual("Continue", obj.button?.titleLabel?.text)
+  }
+  
+  func testButton_missing() {
+    XCTAssert(obj.button == nil)
+  }
 }

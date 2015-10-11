@@ -81,6 +81,20 @@ final public class Glyptodon {
     }
   }
   
+  /// Returns the title label.
+  public var title: UILabel? {
+    get {
+      return glyptodonView?.subviews.filter { $0 is UILabel }.map { $0 as! UILabel }.first
+    }
+  }
+  
+  /// Returns the button.
+  public var button: UIButton? {
+    get {
+      return glyptodonView?.subviews.filter { $0 is UIButton }.map { $0 as! UIButton }.first
+    }
+  }
+  
   private var glyptodonView: GlyptodonView? {
     get {
       return superview.subviews.filter { $0 is GlyptodonView }.map { $0 as! GlyptodonView }.first

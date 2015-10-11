@@ -2,7 +2,7 @@
 
 # Glyptodon, a UI widget for displaying 'no content' message in iOS
 
-This is a UI element for iOS that shows a 'no content' message over an existing view. It can be used for displaying a missing content message and suggesting an action.
+This is a UI element for iOS that shows a 'no content' message over an existing view. It can be used to show a missing content message and suggest an action.
 
 For example, consider we have an ecommerce app with a shopping cart screen that shows a list of products. If the user goes to the empty cart screen we can show a "Cart is empty" message and a "Search" button.
 
@@ -46,9 +46,6 @@ view.glyptodon.hide()
 view.glyptodon.show("Cart is empty", withButton: "Go shopping") {
   // Do something when the button is tapped.
 }
-
-// Check if the view is currently visible
-if view.glyptodon.visible { /* visible */ }
 ```
 
 ### Styling
@@ -73,6 +70,21 @@ view.glyptodon.style.button.color = GlyptodonColor.fromHexString("#007AFF")
 
 // Set the button color
 view.glyptodon.style.button.colorHighlighted = GlyptodonColor.fromHexString("#007AFF33")
+```
+
+### Unit testing
+
+Sometimes it is useful to verify the presence of the message view and its content in the unit test. The library provides the following helper properties to make unit testing easier.
+
+```Swift
+// Indicates if the view is currently visible
+view.glyptodon.visible
+
+// Returns the currently displayed title label
+view.glyptodon.title
+
+// Returns the currently displayed button
+view.glyptodon.button
 ```
 
 ## Demo
