@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
                    DESC
   s.authors     = { "Evgenii Neumerzhitckii" => "sausageskin@gmail.com" }
   s.source      = { :git => "https://github.com/exchangegroup/Glyptodon.git", :tag => s.version }
-  s.screenshots  = "https://raw.githubusercontent.com/exchangegroup/Dodo/master/Graphics/Paintings/alices_adventures_in_wonderland.png"
+  s.screenshots  = "https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/Glyptodon_logo.png"
   s.source_files = "Glyptodon/**/*.swift"
   s.resources  = "Glyptodon/**/*.xcassets"
   s.ios.deployment_target = "8.0"
