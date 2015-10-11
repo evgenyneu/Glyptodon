@@ -101,7 +101,6 @@ class GlyptodonView: UIView {
   private func addTitleLayoutConstraints(label: UILabel) {
     label.translatesAutoresizingMaskIntoConstraints = false
     
-    
     // Make the width of the title label the same as the view, minus the margins.
     TegAutolayoutConstraints.fillParent(label, parentView: self,
       margin: style.title.horizontalMargin, vertically: false)
