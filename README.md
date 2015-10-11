@@ -1,5 +1,3 @@
-<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/Glyptodon_in_space_logo_2.png' alt='Glyptodon library for iOS' width='128'>
-
 # Glyptodon, a UI widget for displaying 'no content' message in iOS
 
 This is a UI element for iOS that shows a 'no content' message over an existing view. It can be used to show a missing content message and suggest an action.
@@ -98,6 +96,4 @@ This project includes a demo iOS app.
 Glyptodon library is released under the [MIT License](LICENSE).
 
 
-<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/Drawings/Glyptodon_Riha2000.jpg' alt='UI widget for displaying 'no results' message in iOS' width='450'>
-
-*Drawing of a Glyptodon by Pavel Riha. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Glyptodon_(Riha2000).jpg).*
+<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/Glyptodon_in_space_logo_2.png' alt='Glyptodon library for iOS' width='128'>
