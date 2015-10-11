@@ -19,14 +19,14 @@ Simply add [GlyptodonDistrib.swift](https://github.com/exchangegroup/Glyptodon/b
 
 **Setup with Carthage (iOS 8+)**
 
-Add `github "exchangegroup/Glyptodon" ~> 2.0` to your Cartfile and run `carthage update`.
+Add `github "exchangegroup/Glyptodon" ~> 1.0` to your Cartfile and run `carthage update`.
 
 **Setup with CocoaPods (iOS 8+)**
 
 If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
-    pod 'Glyptodon', '~> 2.0'
+    pod 'Glyptodon', '~> 1.0'
 
 ## Usage
 
