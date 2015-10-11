@@ -1,5 +1,12 @@
 # Glyptodon, a UI widget for displaying 'no content' message in iOS
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)][carthage]
+[![CocoaPods Version](https://img.shields.io/cocoapods/v/Glyptodon.svg?style=flat)][cocoadocs]
+[![License](https://img.shields.io/cocoapods/l/Glyptodon.svg?style=flat)](LICENSE)
+[![Platform](https://img.shields.io/cocoapods/p/Glyptodon.svg?style=flat)][cocoadocs]
+[cocoadocs]: http://cocoadocs.org/docsets/Glyptodon
+[carthage]: https://github.com/Carthage/Carthage
+
 This is a UI element for iOS that shows a 'no content' message over an existing view. It can be used to show a missing content message and suggest an action.
 
 For example, consider we have an ecommerce app with a shopping cart screen that shows a list of products. If the user goes to the empty cart screen we can show a "Cart is empty" message and a "Search" button.
