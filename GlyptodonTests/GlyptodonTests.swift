@@ -82,13 +82,13 @@ class GlyptodonTests: XCTestCase {
   
   // MARK: - Title
   
-  func testTitle() {
+  func testTitleLabel() {
     obj.show("Nothing here")
-    XCTAssertEqual("Nothing here", obj.title?.text)
+    XCTAssertEqual("Nothing here", obj.titleLabel?.text)
   }
   
   func testTitle_missing() {
-    XCTAssert(obj.title == nil)
+    XCTAssert(obj.titleLabel == nil)
   }
   
   // MARK: - Button

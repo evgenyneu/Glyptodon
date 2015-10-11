@@ -98,8 +98,8 @@ final public class Glyptodon {
     }
   }
   
-  /// Returns the title label.
-  public var title: UILabel? {
+  /// Returns the currently displayed title label.
+  public var titleLabel: UILabel? {
     get {
       return glyptodonView?.subviews.filter { $0 is UILabel }.map { $0 as! UILabel }.first
     }
@@ -236,7 +236,6 @@ class GlyptodonView: UIView {
   
   private func addTitleLayoutConstraints(label: UILabel) {
     label.translatesAutoresizingMaskIntoConstraints = false
-    
     
     // Make the width of the title label the same as the view, minus the margins.
     TegAutolayoutConstraints.fillParent(label, parentView: self,

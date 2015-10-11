@@ -86,7 +86,7 @@ Sometimes it is useful to verify the presence of the message view and its conten
 view.glyptodon.visible
 
 // Returns the currently displayed title label
-view.glyptodon.title
+view.glyptodon.titleLabel
 
 // Returns the currently displayed button
 view.glyptodon.button
