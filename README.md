@@ -96,4 +96,4 @@ This project includes a demo iOS app.
 Glyptodon library is released under the [MIT License](LICENSE).
 
 
-<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/Glyptodon_in_space_logo_2.png' alt='Glyptodon library for iOS' width='128'>
+<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/Glyptodon_in_space_logo_3.png' alt='Glyptodon library for iOS' width='128'>
