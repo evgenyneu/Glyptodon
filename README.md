@@ -1,4 +1,4 @@
-<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/Glyptodon_in_space_logo.png' alt='Glyptodon library for iOS' width='128'>
+<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/Glyptodon_in_space_logo_2.png' alt='Glyptodon library for iOS' width='128'>
 
 # Glyptodon, a UI widget for displaying 'no content' message in iOS
 
