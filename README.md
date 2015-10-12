@@ -21,6 +21,8 @@ view.glyptodon.show("Cart is empty", withButton: "Search") {
 }
 ```
 
+Notice that you have full control over the placement of this message overlay by specifying the view where you want to show it.
+
 ## Setup
 
 There are three ways you can add Glyptodon to your project.
