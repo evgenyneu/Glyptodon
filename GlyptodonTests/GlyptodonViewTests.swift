@@ -11,26 +11,26 @@ class GlyptodonViewTests: XCTestCase {
     super.setUp()
     
     style = GlyptodonStyle()
-    obj = GlyptodonView(style: style, topLayoutGuide: nil, bottomLayoutGuide: nil)
+    obj = GlyptodonView(style: style)
     superview = UIView()
   }
   
   // MARK: - Show
   
   func testShow_withAnimation() {
-    obj.showInSuperview(superview, title: "My test message", withAnimation: true)
+    obj.showInSuperview(superview, title: "My test message", withAnimation: true) { }
     
     XCTAssert(glyptodonView(superview) != nil)
   }
   
   func testShow_noAnimation() {
-    obj.showInSuperview(superview, title: "My test message", withAnimation: false)
+    obj.showInSuperview(superview, title: "My test message", withAnimation: false) { }
     
     XCTAssert(glyptodonView(superview) != nil)
   }
   
   func testShow_message() {
-    obj.showInSuperview(superview, title: "My test message", withAnimation: false)
+    obj.showInSuperview(superview, title: "My test message", withAnimation: false) { }
     
     XCTAssertEqual("My test message", glyptodonTitleLabel(superview)?.text)
   }
@@ -39,14 +39,14 @@ class GlyptodonViewTests: XCTestCase {
   
   func testShowWithButton_withAnimation() {
     obj.showInSuperview(superview, title: "My test message", withButton: "Continue",
-      withAnimation: true) { }
+      withAnimation: true, didTapButton: { }) { }
     
     XCTAssertEqual("Continue", glyptodonButton(superview)?.titleLabel?.text)
   }
   
   func testShowWithButton_noAnimation() {
     obj.showInSuperview(superview, title: "My test message", withButton: "Continue",
-      withAnimation: false) { }
+      withAnimation: false, didTapButton: { }) { }
     
     XCTAssertEqual("Continue", glyptodonButton(superview)?.titleLabel?.text)
   }
@@ -55,10 +55,11 @@ class GlyptodonViewTests: XCTestCase {
     var didCallClosure = false
     
     obj.showInSuperview(superview, title: "My test message", withButton: "Continue",
-      withAnimation: true) {
+      withAnimation: true, didTapButton: {
         
-      didCallClosure = true
-    }
+        didCallClosure = true
+      }
+    ) { }
     
     let view = glyptodonView(superview)!
     view.didTapButtonHandler?()
@@ -71,7 +72,8 @@ class GlyptodonViewTests: XCTestCase {
   func testHide_withAnimation() {
     let expectation = expectationWithDescription("view is removed")
 
-    obj.showInSuperview(superview, title: "My test message", withAnimation: true)
+    obj.showInSuperview(superview, title: "My test message", withAnimation: true) { }
+    
     XCTAssertFalse(glyptodonView(superview)!.beingHidden)
     
     obj.hide(withAnimation: true) { expectation.fulfill() }
@@ -85,7 +87,7 @@ class GlyptodonViewTests: XCTestCase {
   func testHide_noAnimation() {
     var didCallClosure = false
     
-    obj.showInSuperview(superview, title: "My test message", withAnimation: true)
+    obj.showInSuperview(superview, title: "My test message", withAnimation: true) { }
     XCTAssertFalse(glyptodonView(superview)!.beingHidden)
     
     obj.hide(withAnimation: false) { didCallClosure = true }
@@ -103,7 +105,7 @@ class GlyptodonViewTests: XCTestCase {
     style.title.shadowColor = UIColor.yellowColor()
     style.title.shadowOffset = CGSize(width: 3, height: 2)
     
-    obj.showInSuperview(superview, title: "My test message", withAnimation: true)
+    obj.showInSuperview(superview, title: "My test message", withAnimation: true) { }
     
     XCTAssertEqual(38.31, glyptodonTitleLabel(superview)?.font.pointSize)
     XCTAssertEqual(UIColor.purpleColor(), glyptodonTitleLabel(superview)?.textColor)
@@ -120,7 +122,7 @@ class GlyptodonViewTests: XCTestCase {
     style.button.shadowOffset = CGSize(width: 3, height: 2)
     
     obj.showInSuperview(superview, title: "Empty", withButton: "Continue", withAnimation: true,
-      didTapButton: {})
+      didTapButton: {}) { }
     
     let button = glyptodonButton(superview)!
     let buttonLabel = button.titleLabel

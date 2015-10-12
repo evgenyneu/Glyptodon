@@ -39,8 +39,10 @@ class ViewController: UIViewController {
     }
     
     if withButtonSwitch.on {
-      view.glyptodon.show("Why is there something rather then nothing?", withButton: "Get an answer") { [weak self] in
-        self?.view.glyptodon.show("Because 'nothing' is unstable.", withAnimation: false)
+      view.glyptodon.show("Why is there something rather then nothing?",
+        withButton: "Get an answer") { [weak self] in
+          
+        self?.view.glyptodon.show("Because 'nothing' is unstable.")
       }
     } else {
       view.glyptodon.show("There is nothing here.")

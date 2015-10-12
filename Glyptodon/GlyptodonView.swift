@@ -9,15 +9,10 @@ class GlyptodonView: UIView {
   /// Button tap closure supplied by the user
   var didTapButtonHandler: (()->())?
   
-  var topLayoutGuide: UILayoutSupport?
-  var bottomLayoutGuide: UILayoutSupport?
-  
-  convenience init(style: GlyptodonStyle, topLayoutGuide: UILayoutSupport?, bottomLayoutGuide: UILayoutSupport?) {
+  convenience init(style: GlyptodonStyle) {
     self.init(frame: CGRect())
     
     self.style = style
-    self.topLayoutGuide = topLayoutGuide
-    self.bottomLayoutGuide = bottomLayoutGuide
   }
   
   override init(frame: CGRect) {
@@ -30,29 +25,35 @@ class GlyptodonView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func showInSuperview(superview: UIView, title: String, withAnimation: Bool) {
+  func showInSuperview(superview: UIView, title: String, withAnimation: Bool,
+    didFinishAnimation: ()->()) {
+      
     superview.addSubview(self)
     addLayoutConstraints()
     createTitle(title)
     applyStyle()
     
     if withAnimation {
-      animateIn()
+      animateIn() { didFinishAnimation() }
+    } else {
+      didFinishAnimation()
     }
   }
   
   func showInSuperview(superview: UIView, title: String,
-    withButton buttonTitle: String, withAnimation: Bool, didTapButton: ()->()) {
+    withButton buttonTitle: String, withAnimation: Bool, didTapButton: ()->(),
+    didFinishAnimation: ()->()) {
     
-    showInSuperview(superview, title: title, withAnimation: withAnimation)
+    showInSuperview(superview, title: title, withAnimation: withAnimation,
+      didFinishAnimation: didFinishAnimation)
       
     self.didTapButtonHandler = didTapButton
     createButton(buttonTitle)
   }
   
-  func hide(withAnimation withAnimation: Bool, didFinish: ()->()) {
+  func hide(withAnimation withAnimation: Bool, didFinishAnimation: ()->()) {
     if beingHidden {
-      didFinish()
+      didFinishAnimation()
       return
     }
     
@@ -61,11 +62,11 @@ class GlyptodonView: UIView {
     if withAnimation {
       animateOut() { [weak self] in
         self?.removeFromSuperview()
-        didFinish()
+        didFinishAnimation()
       }
     } else {
       removeFromSuperview()
-      didFinish()
+      didFinishAnimation()
     }
   }
   
@@ -164,21 +165,26 @@ class GlyptodonView: UIView {
   
   // MARK: - Animation
   
-  private func animateIn() {
+  private func animateIn(didFinishAnimation: ()->()) {
     alpha = 0
     
-    UIView.animateWithDuration(style.view.animationDurationSeconds) { [weak self] in
-      self?.alpha = 1
-    }
+    UIView.animateWithDuration(style.view.animationDurationSeconds,
+      animations: { [weak self] in
+        self?.alpha = 1
+      },
+      completion: { _ in
+        didFinishAnimation()
+      }
+    )
   }
   
-  private func animateOut(didFinish: ()->()) {
+  private func animateOut(didFinishAnimation: ()->()) {
     UIView.animateWithDuration(style.view.animationDurationSeconds,
       animations: { [weak self] in
         self?.alpha = 0
       },
       completion: { _ in
-        didFinish()
+        didFinishAnimation()
       }
     )
   }
