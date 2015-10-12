@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name        = "Glyptodon"
-  s.version     = "1.0.4"
+  s.version     = "1.0.5"
   s.license     = { :type => "MIT" }
   s.homepage    = "https://github.com/exchangegroup/Glyptodon"
-  s.summary     = "A UI widget for displaying 'no content' message in iOS written in Swift"
+  s.summary     = "A 'no content' message overlay for iOS written in Swift."
   s.description  = <<-DESC
-                   This is a UI element for iOS that shows a 'no content' message over an existing view. It can be used to show a missing content message and suggest an action.
+                   This is an iOS library for showing a 'no content' message over an existing view. It can be used to show a missing content message and suggest an action.
 
                    For example, consider we have an ecommerce app with a shopping cart screen that shows a list of products. If the user goes to the empty cart screen we can show a "Cart is empty" message and a "Search" button.
                    DESC
