@@ -1,4 +1,4 @@
-# Glyptodon, a 'no content' message overlay for iOS
+# A 'no content' message overlay for iOS
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)][carthage]
 [![CocoaPods Version](https://img.shields.io/cocoapods/v/Glyptodon.svg?style=flat)][cocoadocs]
