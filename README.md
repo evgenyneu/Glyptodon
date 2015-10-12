@@ -7,7 +7,7 @@
 [cocoadocs]: http://cocoadocs.org/docsets/Glyptodon
 [carthage]: https://github.com/Carthage/Carthage
 
-This is a UI control for iOS written in Swift. It shows a 'no content' message over an existing view. It can be useful when you want to show a missing content message to the user over your existing view and suggest an action.
+This is a UI control for iOS written in Swift. It shows a 'no content' message over an existing view. It can be useful when you want to show a missing content message to the user over your existing view and suggest an action. Something like: "cart is empty", "no new messages", "no favorites", "no comments" etc.
 
 For example, consider we are building a shopping app with a cart screen. We can show an "Empty cart" message and a "Search" button when the cart is empty.
 
