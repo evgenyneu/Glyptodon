@@ -73,7 +73,7 @@ view.glyptodon.style.button.font = UIFont.preferredFontForTextStyle(UIFontTextSt
 // Set the button color
 view.glyptodon.style.button.color = GlyptodonColor.fromHexString("#007AFF")
 
-// Set the button color
+// Set the color of the tapped button
 view.glyptodon.style.button.colorHighlighted = GlyptodonColor.fromHexString("#007AFF33")
 ```
 
