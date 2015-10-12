@@ -9,7 +9,7 @@
 
 This is a UI control for iOS written in Swift. It shows a 'no content' message over an existing view. It can be useful when you want to show a missing content message to the user over your existing view and suggest an action.
 
-For example, consider we have an ecommerce app with a shopping cart screen that shows a list of products. If the user goes to the empty cart screen we can show a "Cart is empty" message and a "Search" button.
+For example, consider we have an ecommerce app with a shopping cart screen that shows a list of products. We can show an "Empty cart" message and a "Search" button when the cart if empty.
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/screenshots/glyptodon_ios_screenshot_2.png' width='320' alt='Glyptodon iOS message view example'>
 
