@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                    This is an iOS library for showing a 'no content' message over an existing view. It can be used to show a missing content message and suggest an action.
 
-                   For example, consider we have an ecommerce app with a shopping cart screen that shows a list of products. If the user goes to the empty cart screen we can show a "Cart is empty" message and a "Search" button.
+                   For example, consider we have an ecommerce app with a shopping cart screen that shows a list of products. If the user goes to the empty cart screen we can show an "Empty cart" message and a "Search" button.
                    DESC
   s.authors     = { "Evgenii Neumerzhitckii" => "sausageskin@gmail.com" }
   s.source      = { :git => "https://github.com/exchangegroup/Glyptodon.git", :tag => s.version }
