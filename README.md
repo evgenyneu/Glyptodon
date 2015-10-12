@@ -17,7 +17,7 @@ Glyptodon allows to show such a message over an existing view:
 
 ```Swift
 view.glyptodon.show("Cart is empty", withButton: "Search") {
-  // Do something when the button is tapped.
+  // User has tapped the button, show the "Search" screen here.
 }
 ```
 
