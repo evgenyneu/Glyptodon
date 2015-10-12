@@ -21,7 +21,7 @@ view.glyptodon.show("Cart is empty", withButton: "Search") {
 }
 ```
 
-Notice that you have full control over the placement of this message overlay by specifying the view where you want to show it.
+Notice that you have full control over the placement of this message overlay by specifying the view where you want to show it. This view can be a root view of your view controller or can be any other UIView object.
 
 ## Setup
 
