@@ -25,7 +25,7 @@ view.glyptodon.show("Cart is empty", withButton: "Search") {
 
 * `view.glyptodon.show` method adds a subview to your existing view.
 * You can remove the glyptodon view by calling `view.glyptodon.hide()`.
-* Glyptodon view fills the full area of your view using auto layout constraints acting like an overlay.
+* Glyptodon view acts like an overlay by filling the full area of your view.
 * You have full control over the placement of this glyptodon overlay by specifying the view where you want to show it. This view can be the root view of your view controller or can be any other UIView object.
 
 ## Setup
