@@ -21,11 +21,12 @@ view.glyptodon.show("Cart is empty", withButton: "Search") {
 }
 ```
 
-Things to note:
+## How it works
 
-* You have full control over the placement of this message overlay by specifying the view where you want to show it. This view can be the root view of your view controller or can be any other UIView object.
-* The glyptodon is an overlay view that is added to your existing view. It does not remove or modify existing subviews of your views.
-* You can remove the message view by calling `view.glyptodon.hide`.
+* The glyptodon adds a subviews to your existing view. It does not remove or modify existing subviews of your views.
+* You can remove the glyptodon view by calling `view.glyptodon.hide`.
+* Glyptodon view fills the full area of your view.
+* You have full control over the placement of this glyptodon overlay by specifying the view where you want to show it. This view can be the root view of your view controller or can be any other UIView object.
 
 ## Setup
 
