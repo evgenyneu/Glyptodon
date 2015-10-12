@@ -13,6 +13,15 @@ For example, consider we have an ecommerce app with a shopping cart screen that 
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/screenshots/glyptodon_ios_screenshot_2.png' width='320' alt='Glyptodon iOS message view example'>
 
+Glyptodon allows to show such a message over an existing view:
+
+```Swift
+view.glyptodon.show("Cart is empty", withButton: "Search") {
+  // User has tapped the "Search" button.
+}
+```
+
+Notice that you have full control over the placement of this message overlay by specifying the view where you want to show it. This view can be a root view of your view controller or can be any other UIView object.
 
 ## Setup
 
