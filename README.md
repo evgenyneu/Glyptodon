@@ -13,7 +13,7 @@ For example, consider we have an ecommerce app with a shopping cart screen that 
 
 <img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/screenshots/glyptodon_ios_screenshot_2.png' width='320' alt='Glyptodon iOS message view example'>
 
-Glyptodon allows to show such a message over an existing view:
+Here is how to show such a message over your existing view with Glyptodon:
 
 ```Swift
 view.glyptodon.show("Cart is empty", withButton: "Search") {
