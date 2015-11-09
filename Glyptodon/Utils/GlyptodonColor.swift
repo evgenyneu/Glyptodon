@@ -11,7 +11,7 @@ Examples:
     // With alpha channel
     GlyptodonColor.fromHexString('#f1a2b3a6')
 
-Source: https://github.com/exchangegroup/Glyptodon
+Source: https://github.com/marketplacer/Glyptodon
 
 */
 public class GlyptodonColor {

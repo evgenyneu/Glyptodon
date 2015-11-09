@@ -11,7 +11,7 @@ This is a UI control for iOS written in Swift. It shows a 'no content' message o
 
 For example, consider we are building a shopping app with a cart screen. We can show an "Empty cart" message and a "Search" button when the cart is empty.
 
-<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/screenshots/glyptodon_ios_screenshot_2.png' width='320' alt='Glyptodon iOS message view example'>
+<img src='https://raw.githubusercontent.com/marketplacer/Glyptodon/master/Graphics/screenshots/glyptodon_ios_screenshot_2.png' width='320' alt='Glyptodon iOS message view example'>
 
 Here is how to show the "Cart is empty" message over your existing view with Glyptodon:
 
@@ -34,11 +34,11 @@ There are three ways you can add Glyptodon to your project.
 
 **Add source (iOS 7+)**
 
-Simply add [GlyptodonDistrib.swift](https://github.com/exchangegroup/Glyptodon/blob/master/Distrib/GlyptodonDistrib.swift) file into your Xcode project.
+Simply add [GlyptodonDistrib.swift](https://github.com/marketplacer/Glyptodon/blob/master/Distrib/GlyptodonDistrib.swift) file into your Xcode project.
 
 **Setup with Carthage (iOS 8+)**
 
-Add `github "exchangegroup/Glyptodon" ~> 1.0` to your Cartfile and run `carthage update`.
+Add `github "marketplacer/Glyptodon" ~> 1.0` to your Cartfile and run `carthage update`.
 
 **Setup with CocoaPods (iOS 8+)**
 
@@ -72,7 +72,7 @@ view.glyptodon.show("Cart is empty", withButton: "Go shopping") {
 
 ### Styling
 
-Set `glyptodon.style` property to style the view **before** it is shown. See the [styling manual](https://github.com/exchangegroup/Glyptodon/wiki/Styling) for the complete list of configuration options.
+Set `glyptodon.style` property to style the view **before** it is shown. See the [styling manual](https://github.com/marketplacer/Glyptodon/wiki/Styling) for the complete list of configuration options.
 
 ```Swift
 // Set the view background color
@@ -113,11 +113,11 @@ view.glyptodon.button
 
 This project includes a demo iOS app.
 
-<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/screenshots/glyptodon_demo_ios_app.png' alt='Glyptodon demo iOS app' width='320'>
+<img src='https://raw.githubusercontent.com/marketplacer/Glyptodon/master/Graphics/screenshots/glyptodon_demo_ios_app.png' alt='Glyptodon demo iOS app' width='320'>
 
 ## License
 
 Glyptodon library is released under the [MIT License](LICENSE).
 
 
-<img src='https://raw.githubusercontent.com/exchangegroup/Glyptodon/master/Graphics/Glyptodon_in_space_logo_3.png' alt='Glyptodon library for iOS' width='128'>
+<img src='https://raw.githubusercontent.com/marketplacer/Glyptodon/master/Graphics/Glyptodon_in_space_logo_3.png' alt='Glyptodon library for iOS' width='128'>
