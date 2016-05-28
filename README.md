@@ -45,6 +45,7 @@ Add `github "marketplacer/Glyptodon" ~> 1.0` to your Cartfile and run `carthage 
 If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
+    target 'Your target name'
     pod 'Glyptodon', '~> 1.0'
 
 ## Usage
