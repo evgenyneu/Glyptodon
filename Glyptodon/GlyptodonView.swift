@@ -25,8 +25,8 @@ class GlyptodonView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func showInSuperview(superview: UIView, title: String, withAnimation: Bool,
-    didFinishAnimation: ()->()) {
+  func showInSuperview(_ superview: UIView, title: String, withAnimation: Bool,
+    didFinishAnimation: @escaping ()->()) {
       
     superview.addSubview(self)
     addLayoutConstraints()
@@ -40,9 +40,9 @@ class GlyptodonView: UIView {
     }
   }
   
-  func showInSuperview(superview: UIView, title: String,
-    withButton buttonTitle: String, withAnimation: Bool, didTapButton: ()->(),
-    didFinishAnimation: ()->()) {
+  func showInSuperview(_ superview: UIView, title: String,
+    withButton buttonTitle: String, withAnimation: Bool, didTapButton: @escaping ()->(),
+    didFinishAnimation: @escaping ()->()) {
     
     showInSuperview(superview, title: title, withAnimation: withAnimation,
       didFinishAnimation: didFinishAnimation)
@@ -51,7 +51,7 @@ class GlyptodonView: UIView {
     createButton(buttonTitle)
   }
   
-  func hide(withAnimation withAnimation: Bool, didFinishAnimation: ()->()) {
+  func hide(withAnimation: Bool, didFinishAnimation: @escaping ()->()) {
     if beingHidden {
       didFinishAnimation()
       return
@@ -70,11 +70,11 @@ class GlyptodonView: UIView {
     }
   }
   
-  private func applyStyle() {
+  fileprivate func applyStyle() {
     backgroundColor = style.view.backgroundColor
   }
   
-  private func addLayoutConstraints() {
+  fileprivate func addLayoutConstraints() {
     guard let superview = superview else { return }
     
     translatesAutoresizingMaskIntoConstraints = false
@@ -84,13 +84,13 @@ class GlyptodonView: UIView {
     TegAutolayoutConstraints.fillParent(self, parentView: superview, margin: 0, vertically: false)
   }
   
-  private var titleLabel: UILabel? {
+  fileprivate var titleLabel: UILabel? {
     return subviews.filter { $0 is UILabel }.map { $0 as! UILabel }.first
   }
   
   // MARK: - Title
   
-  private func createTitle(title: String) {
+  fileprivate func createTitle(_ title: String) {
     let label = UILabel()
     addSubview(label)
     label.text = title
@@ -99,7 +99,7 @@ class GlyptodonView: UIView {
     applyTitleStyle(label)
   }
   
-  private func addTitleLayoutConstraints(label: UILabel) {
+  fileprivate func addTitleLayoutConstraints(_ label: UILabel) {
     label.translatesAutoresizingMaskIntoConstraints = false
     
     // Make the width of the title label the same as the view, minus the margins.
@@ -111,8 +111,8 @@ class GlyptodonView: UIView {
       constant: style.title.verticalOffset)
   }
   
-  private func applyTitleStyle(label: UILabel) {
-    label.textAlignment = .Center
+  fileprivate func applyTitleStyle(_ label: UILabel) {
+    label.textAlignment = .center
     label.font = style.title.font
     label.textColor = style.title.color
     label.numberOfLines = style.title.numberOfLines
@@ -122,16 +122,16 @@ class GlyptodonView: UIView {
   
   // MARK: - Button
   
-  private func createButton(title: String) {
+  fileprivate func createButton(_ title: String) {
     let button = UIButton()
     addSubview(button)
-    button.setTitle(title, forState: .Normal)
+    button.setTitle(title, for: UIControlState())
     addButtonLayoutConstraints(button)
     applyButtonStyle(button)
     setupTapHandler(button)
   }
   
-  private func addButtonLayoutConstraints(button: UIButton) {
+  fileprivate func addButtonLayoutConstraints(_ button: UIButton) {
     guard let titleLabel = titleLabel else { return }
     button.translatesAutoresizingMaskIntoConstraints = false
     
@@ -142,11 +142,11 @@ class GlyptodonView: UIView {
     TegAutolayoutConstraints.twoViewsNextToEachOther(titleLabel, viewTwo: button, constraintContainer: self, margin: 20, vertically: true)
   }
   
-  private func applyButtonStyle(button: UIButton) {
-    button.setTitleColor(style.button.color, forState: .Normal)
-    button.setTitleColor(style.button.colorHighlighted, forState: .Highlighted)
+  fileprivate func applyButtonStyle(_ button: UIButton) {
+    button.setTitleColor(style.button.color, for: UIControlState())
+    button.setTitleColor(style.button.colorHighlighted, for: .highlighted)
     
-    button.setTitleShadowColor(style.button.shadowColor, forState: .Normal)
+    button.setTitleShadowColor(style.button.shadowColor, for: UIControlState())
     
     guard let label = button.titleLabel else { return }
     
@@ -155,20 +155,20 @@ class GlyptodonView: UIView {
     label.shadowOffset = style.button.shadowOffset
   }
   
-  private func setupTapHandler(button: UIButton) {
-    button.addTarget(self, action: "didTapButton:", forControlEvents: .TouchUpInside)
+  fileprivate func setupTapHandler(_ button: UIButton) {
+    button.addTarget(self, action: #selector(GlyptodonView.didTapButton(_:)), for: .touchUpInside)
   }
   
-  func didTapButton(button: UIButton) {
+  func didTapButton(_ button: UIButton) {
     didTapButtonHandler?()
   }
   
   // MARK: - Animation
   
-  private func animateIn(didFinishAnimation: ()->()) {
+  fileprivate func animateIn(_ didFinishAnimation: @escaping ()->()) {
     alpha = 0
     
-    UIView.animateWithDuration(style.view.animationDurationSeconds,
+    UIView.animate(withDuration: style.view.animationDurationSeconds,
       animations: { [weak self] in
         self?.alpha = 1
       },
@@ -178,8 +178,8 @@ class GlyptodonView: UIView {
     )
   }
   
-  private func animateOut(didFinishAnimation: ()->()) {
-    UIView.animateWithDuration(style.view.animationDurationSeconds,
+  fileprivate func animateOut(_ didFinishAnimation: @escaping ()->()) {
+    UIView.animate(withDuration: style.view.animationDurationSeconds,
       animations: { [weak self] in
         self?.alpha = 0
       },

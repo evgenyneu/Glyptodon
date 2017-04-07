@@ -1,10 +1,10 @@
 import UIKit
 
 /// Defines styles related to the title label.
-public class GlyptodonTitleStyle {
+open class GlyptodonTitleStyle {
   
   /// Clears the styles for all properties for this style object. Default styles will be used instead.
-  public func clear() {
+  open func clear() {
     _color = nil
     _font = nil
     _horizontalMargin = nil
@@ -16,10 +16,10 @@ public class GlyptodonTitleStyle {
 
   // -----------------------------
   
-  private var _color: UIColor?
+  fileprivate var _color: UIColor?
   
   /// Color of the title text.
-  public var color: UIColor {
+  open var color: UIColor {
     get {
       return _color ??  GlyptodonTitleDefaultStyles.color
     }
@@ -31,10 +31,10 @@ public class GlyptodonTitleStyle {
   
   // -----------------------------
   
-  private var _font: UIFont?
+  fileprivate var _font: UIFont?
   
   /// Color of the title text.
-  public var font: UIFont {
+  open var font: UIFont {
     get {
       return _font ?? GlyptodonTitleDefaultStyles.font
     }
@@ -46,10 +46,10 @@ public class GlyptodonTitleStyle {
   
   // -----------------------------
   
-  private var _horizontalMargin: CGFloat?
+  fileprivate var _horizontalMargin: CGFloat?
   
   /// Horizontal margin between the title and the edge of the view.
-  public var horizontalMargin: CGFloat {
+  open var horizontalMargin: CGFloat {
     get {
       return _horizontalMargin ?? GlyptodonTitleDefaultStyles.horizontalMargin
     }
@@ -61,10 +61,10 @@ public class GlyptodonTitleStyle {
   
   // -----------------------------
   
-  private var _numberOfLines: Int?
+  fileprivate var _numberOfLines: Int?
   
   /// The maximum number of lines in the title.
-  public var numberOfLines: Int {
+  open var numberOfLines: Int {
     get {
       return _numberOfLines ?? GlyptodonTitleDefaultStyles.numberOfLines
     }
@@ -76,10 +76,10 @@ public class GlyptodonTitleStyle {
   
   // -----------------------------
   
-  private var _shadowColor: UIColor?
+  fileprivate var _shadowColor: UIColor?
   
   /// Color of text shadow.
-  public var shadowColor: UIColor? {
+  open var shadowColor: UIColor? {
     get {
       return _shadowColor ?? GlyptodonTitleDefaultStyles.shadowColor
     }
@@ -91,10 +91,10 @@ public class GlyptodonTitleStyle {
   
   // -----------------------------
   
-  private var _shadowOffset: CGSize?
+  fileprivate var _shadowOffset: CGSize?
   
   /// Text shadow offset.
-  public var shadowOffset: CGSize {
+  open var shadowOffset: CGSize {
     get {
       return _shadowOffset ?? GlyptodonTitleDefaultStyles.shadowOffset
     }
@@ -106,10 +106,10 @@ public class GlyptodonTitleStyle {
   
   // -----------------------------
   
-  private var _verticalOffset: CGFloat?
+  fileprivate var _verticalOffset: CGFloat?
   
   /// Vertical offset of the title relative to the center of the view. If zero the label is aligned exactly at the center.
-  public var verticalOffset: CGFloat {
+  open var verticalOffset: CGFloat {
     get {
       return _verticalOffset ?? GlyptodonTitleDefaultStyles.verticalOffset
     }

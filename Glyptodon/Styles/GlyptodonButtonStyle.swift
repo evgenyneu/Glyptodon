@@ -1,10 +1,10 @@
 import UIKit
 
 /// Defines styles related to the button.
-public class GlyptodonButtonStyle {
+open class GlyptodonButtonStyle {
   
   /// Clears the styles for all properties for this style object. Default styles will be used instead.
-  public func clear() {
+  open func clear() {
     _color = nil
     _colorHighlighted = nil
     _font = nil
@@ -17,10 +17,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _color: UIColor?
+  fileprivate var _color: UIColor?
   
   /// Color of the button title.
-  public var color: UIColor {
+  open var color: UIColor {
     get {
       return _color ?? GlyptodonButtonDefaultStyles.color
     }
@@ -32,10 +32,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _colorHighlighted: UIColor?
+  fileprivate var _colorHighlighted: UIColor?
   
   /// Color of the button title when it's tapped.
-  public var colorHighlighted: UIColor {
+  open var colorHighlighted: UIColor {
     get {
       return _colorHighlighted ?? GlyptodonButtonDefaultStyles.colorHighlighted
     }
@@ -47,10 +47,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _font: UIFont?
+  fileprivate var _font: UIFont?
   
   /// Font of the button title.
-  public var font: UIFont {
+  open var font: UIFont {
     get {
       return _font ?? GlyptodonButtonDefaultStyles.font
     }
@@ -62,10 +62,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _horizontalMargin: CGFloat?
+  fileprivate var _horizontalMargin: CGFloat?
   
   /// Horizontal margin between the button and the edge of the view.
-  public var horizontalMargin: CGFloat {
+  open var horizontalMargin: CGFloat {
     get {
       return _horizontalMargin ?? GlyptodonButtonDefaultStyles.horizontalMargin
     }
@@ -77,10 +77,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _numberOfLines: Int?
+  fileprivate var _numberOfLines: Int?
   
   /// The maximum number of lines in the button title.
-  public var numberOfLines: Int {
+  open var numberOfLines: Int {
     get {
       return _numberOfLines ?? GlyptodonButtonDefaultStyles.numberOfLines
     }
@@ -92,10 +92,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _shadowColor: UIColor?
+  fileprivate var _shadowColor: UIColor?
   
   /// Color of text shadow.
-  public var shadowColor: UIColor? {
+  open var shadowColor: UIColor? {
     get {
       return _shadowColor ?? GlyptodonButtonDefaultStyles.shadowColor
     }
@@ -107,10 +107,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _shadowOffset: CGSize?
+  fileprivate var _shadowOffset: CGSize?
   
   /// Text shadow offset.
-  public var shadowOffset: CGSize {
+  open var shadowOffset: CGSize {
     get {
       return _shadowOffset ?? GlyptodonButtonDefaultStyles.shadowOffset
     }
@@ -122,10 +122,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _verticalMargin: CGFloat?
+  fileprivate var _verticalMargin: CGFloat?
   
   /// Vertical margin between the title and the button.
-  public var verticalMargin: CGFloat {
+  open var verticalMargin: CGFloat {
     get {
       return _verticalMargin ?? GlyptodonButtonDefaultStyles.verticalMargin
     }

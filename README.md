@@ -38,7 +38,7 @@ Simply add [GlyptodonDistrib.swift](https://github.com/marketplacer/Glyptodon/bl
 
 **Setup with Carthage (iOS 8+)**
 
-Add `github "marketplacer/Glyptodon" ~> 1.0` to your Cartfile and run `carthage update`.
+Add `github "marketplacer/Glyptodon" ~> 2.0` to your Cartfile and run `carthage update`.
 
 **Setup with CocoaPods (iOS 8+)**
 
@@ -46,7 +46,7 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'Glyptodon', '~> 1.0'
+    pod 'Glyptodon', '~> 2.0'
 
 ## Usage
 

@@ -15,7 +15,7 @@ For example:
 
 */
 final public class Glyptodon {
-  private weak var superview: UIView!
+  fileprivate weak var superview: UIView!
   var didFinishShowAnimation: (()->())? // Called after the show animation is finished. Used in unit tests
   var didFinishHideAnimation: (()->())? // Called after hide animation is finished. Used in unit tests
     
@@ -33,7 +33,7 @@ final public class Glyptodon {
   - parameter title: The text message to be shown.
   
   */
-  public func show(title: String, withAnimation: Bool = true) {
+  public func show(_ title: String, withAnimation: Bool = true) {
     let currentExistingViews = existingViews
     
     let view = GlyptodonView(style: style)
@@ -58,8 +58,8 @@ final public class Glyptodon {
   - parameter didTap: A closure that will be called when the button is tapped.
   
   */
-  public func show(title: String, withButton button: String, withAnimation: Bool = true,
-    didTap: ()->()) {
+  public func show(_ title: String, withButton button: String, withAnimation: Bool = true,
+    didTap: @escaping ()->()) {
       
     let currentExistingViews = existingViews
     
@@ -78,10 +78,10 @@ final public class Glyptodon {
   }
   
   /// Hide the message window if it's currently open.
-  public func hide(withAnimation withAnimation: Bool = true) {
+  public func hide(withAnimation: Bool = true) {
     let viewToHide = existingViews
     
-    for (index, view) in viewToHide.enumerate() {
+    for (index, view) in viewToHide.enumerated() {
       let topView = index == viewToHide.count - 1
       let useAnimation = topView ? withAnimation : false // Animate only top view
       
@@ -118,17 +118,17 @@ final public class Glyptodon {
     }
   }
   
-  private var glyptodonView: GlyptodonView? {
+  fileprivate var glyptodonView: GlyptodonView? {
     get {
       return existingViews.last
     }
   }
   
-  private var existingViews: [GlyptodonView] {
+  fileprivate var existingViews: [GlyptodonView] {
     return superview.subviews.filter { $0 is GlyptodonView }.map { $0 as! GlyptodonView }
   }
   
-  private class func removeViews(views: [UIView]) {
+  fileprivate class func removeViews(_ views: [UIView]) {
     for view in views {
       view.removeFromSuperview()
     }

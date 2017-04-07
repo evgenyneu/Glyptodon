@@ -24,7 +24,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
 
-  private static let _color: UIColor = GlyptodonColor.fromHexString("#007AFF")
+  fileprivate static let _color: UIColor = GlyptodonColor.fromHexString("#007AFF")
   
   /// Color of the button title.
   public static var color = _color
@@ -33,7 +33,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let _colorHighlighted: UIColor = GlyptodonColor.fromHexString("#007AFF33")
+  fileprivate static let _colorHighlighted: UIColor = GlyptodonColor.fromHexString("#007AFF33")
   
   /// Color of the button title when it's tapped.
   public static var colorHighlighted = _colorHighlighted
@@ -42,7 +42,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let _font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+  fileprivate static let _font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
   
   /// Font of the button title.
   public static var font = _font
@@ -50,7 +50,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let _horizontalMargin: CGFloat = 15
+  fileprivate static let _horizontalMargin: CGFloat = 15
   
   /// Horizontal margin between the button and the edge of the view.
   public static var horizontalMargin = _horizontalMargin
@@ -59,7 +59,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let _numberOfLines: Int = 5
+  fileprivate static let _numberOfLines: Int = 5
   
   /// The maximum number of lines in the button title.
   public static var numberOfLines = _numberOfLines
@@ -68,7 +68,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let _shadowColor: UIColor? = nil
+  fileprivate static let _shadowColor: UIColor? = nil
   
   /// Color of text shadow.
   public static var shadowColor = _shadowColor
@@ -77,7 +77,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let _shadowOffset = CGSize(width: 0, height: 1)
+  fileprivate static let _shadowOffset = CGSize(width: 0, height: 1)
   
   /// Text shadow offset.
   public static var shadowOffset = _shadowOffset
@@ -86,7 +86,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let _verticalMargin: CGFloat = 20
+  fileprivate static let _verticalMargin: CGFloat = 20
   
   /// Vertical margin between the title and the button.
   public static var verticalMargin = _verticalMargin

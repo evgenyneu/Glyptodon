@@ -12,33 +12,33 @@ class ViewController: UIViewController {
     updateButtonTitle()    
   }
   
-  private func styleMessageView() {
+  fileprivate func styleMessageView() {
     view.glyptodon.style.view.backgroundColor = GlyptodonColor.fromHexString("#FFF4D1")
     view.glyptodon.style.title.color = GlyptodonColor.fromHexString("#455840")
     view.glyptodon.style.button.color = GlyptodonColor.fromHexString("#7CB06F")
     view.glyptodon.style.button.colorHighlighted = GlyptodonColor.fromHexString("#7CB06F33")
   }
 
-  @IBAction func didTapShowButton(sender: AnyObject) {
+  @IBAction func didTapShowButton(_ sender: AnyObject) {
     showMessageView()
   }
   
-  @IBAction func didTapShowButtonSwitch(sender: AnyObject) {
+  @IBAction func didTapShowButtonSwitch(_ sender: AnyObject) {
     showMessageView()
   }
   
-  private func updateButtonTitle() {
+  fileprivate func updateButtonTitle() {
     showHideButton.title = view.glyptodon.visible ? "Hide" : "Show"
   }
   
-  private func showMessageView() {
+  fileprivate func showMessageView() {
     if view.glyptodon.visible {
       view.glyptodon.hide()
       updateButtonTitle()
       return
     }
     
-    if withButtonSwitch.on {
+    if withButtonSwitch.isOn {
       view.glyptodon.show("Why is there something rather then nothing?",
         withButton: "Get an answer") { [weak self] in
           

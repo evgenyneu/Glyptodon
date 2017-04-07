@@ -1,20 +1,20 @@
 import UIKit
 
 /// Defines styles related to the view in general.
-public class GlyptodonViewStyle {
+open class GlyptodonViewStyle {
   
   /// Clears the styles for all properties for this style object. Default styles will be used instead.
-  public func clear() {
+  open func clear() {
     _backgroundColor = nil
   }
   
   // ---------------------------
   
   
-  private var _animationDurationSeconds: NSTimeInterval?
+  fileprivate var _animationDurationSeconds: TimeInterval?
   
   /// Duration of the fade animation that is used to show and hide the message view. Setting it to 0 will result in no animation.
-  public var animationDurationSeconds: NSTimeInterval {
+  open var animationDurationSeconds: TimeInterval {
     get {
       return _animationDurationSeconds ?? GlyptodonViewDefaultStyles.animationDurationSeconds
     }
@@ -26,10 +26,10 @@ public class GlyptodonViewStyle {
   
   // -----------------------------
   
-  private var _backgroundColor: UIColor?
+  fileprivate var _backgroundColor: UIColor?
   
   /// Background color of the message view.
-  public var backgroundColor: UIColor? {
+  open var backgroundColor: UIColor? {
     get {
       return _backgroundColor ?? GlyptodonViewDefaultStyles.backgroundColor
     }

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "Glyptodon"
-  s.version     = "1.0.10"
+  s.version     = "2.0.0"
   s.license     = { :type => "MIT" }
   s.homepage    = "https://github.com/marketplacer/Glyptodon"
   s.summary     = "A 'no content' message overlay for iOS written in Swift."
