@@ -22,15 +22,15 @@ class GlyptodonTests: XCTestCase {
   }
   
   func testShow_showOnceViewWhenCalledMultipleTimes() {
-    var expectation = expectationWithDescription("did show")
+    var expectation = self.expectation(description: "did show")
     obj.didFinishShowAnimation = { expectation.fulfill() }
     
     // Show first view
     obj.show("Message 1")
-    waitForExpectationsWithTimeout(0.5, handler: nil)
+    waitForExpectations(timeout: 0.5, handler: nil)
     
     // Show second view
-    expectation = expectationWithDescription("did show")
+    expectation = self.expectation(description: "did show")
     obj.show("Message 2")
     
     // There are two views currently shown
@@ -38,7 +38,7 @@ class GlyptodonTests: XCTestCase {
     XCTAssertEqual(2, views.count)
   
     // Wait for the second view to finish show animation, that's when it will remove the previous view.
-    waitForExpectationsWithTimeout(0.5, handler: nil)
+    waitForExpectations(timeout: 0.5, handler: nil)
     
     // There should be only one view present
     views = superview.subviews.filter { $0 is GlyptodonView }.map { $0 as! GlyptodonView }
@@ -56,15 +56,15 @@ class GlyptodonTests: XCTestCase {
   }
   
   func testShowWithButton_showOnceViewWhenCalledMultipleTimes() {
-    var expectation = expectationWithDescription("did show")
+    var expectation = self.expectation(description: "did show")
     obj.didFinishShowAnimation = { expectation.fulfill() }
     
     // Show first view
     obj.show("Message 1", withButton: "Continue 1") { }
-    waitForExpectationsWithTimeout(0.5, handler: nil)
+    waitForExpectations(timeout: 0.5, handler: nil)
     
     // Show second view
-    expectation = expectationWithDescription("did show")
+    expectation = self.expectation(description: "did show")
     obj.show("Message 2", withButton: "Continue 2") { }
     
     // There are two views currently shown
@@ -72,7 +72,7 @@ class GlyptodonTests: XCTestCase {
     XCTAssertEqual(2, views.count)
 
     // Wait for the second view to finish show animation, that's when it will remove the previous view.
-    waitForExpectationsWithTimeout(0.5, handler: nil)
+    waitForExpectations(timeout: 0.5, handler: nil)
     
     // There should be only one view present
     views = superview.subviews.filter { $0 is GlyptodonView }.map { $0 as! GlyptodonView }
@@ -83,19 +83,19 @@ class GlyptodonTests: XCTestCase {
   // MARK: - Hide
   
   func testHide() {
-    let expectation = expectationWithDescription("did hide")
+    let expectation = self.expectation(description: "did hide")
     obj.didFinishHideAnimation = { expectation.fulfill() }
     
     obj.show("Nothing here")
 
     obj.hide()
 
-    waitForExpectationsWithTimeout(0.5, handler: nil)
+    waitForExpectations(timeout: 0.5, handler: nil)
     XCTAssert(glyptodonView(superview) == nil)
   }
   
   func testHideMultipleViews_edgeCase() {
-    let expectation = expectationWithDescription("did hide")
+    let expectation = self.expectation(description: "did hide")
     obj.didFinishHideAnimation = { expectation.fulfill() }
     
     var view = GlyptodonView()
@@ -106,7 +106,7 @@ class GlyptodonTests: XCTestCase {
     
     obj.hide()
     
-    waitForExpectationsWithTimeout(0.5, handler: nil)
+    waitForExpectations(timeout: 0.5, handler: nil)
     XCTAssert(glyptodonView(superview) == nil)
   }
   
@@ -116,13 +116,13 @@ class GlyptodonTests: XCTestCase {
     obj.show("Nothing here")
     XCTAssert(obj.visible)
     
-    let expectation = expectationWithDescription("did hide")
+    let expectation = self.expectation(description: "did hide")
     obj.didFinishHideAnimation = { expectation.fulfill() }
     
     obj.hide()
     XCTAssertFalse(obj.visible)
     
-    waitForExpectationsWithTimeout(0.5, handler: nil)
+    waitForExpectations(timeout: 0.5, handler: nil)
     XCTAssertFalse(obj.visible)
   }
   

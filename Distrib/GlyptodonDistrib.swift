@@ -32,7 +32,7 @@ For example:
 
 */
 final public class Glyptodon {
-  private weak var superview: UIView!
+  fileprivate weak var superview: UIView!
   var didFinishShowAnimation: (()->())? // Called after the show animation is finished. Used in unit tests
   var didFinishHideAnimation: (()->())? // Called after hide animation is finished. Used in unit tests
     
@@ -50,7 +50,7 @@ final public class Glyptodon {
   - parameter title: The text message to be shown.
   
   */
-  public func show(title: String, withAnimation: Bool = true) {
+  public func show(_ title: String, withAnimation: Bool = true) {
     let currentExistingViews = existingViews
     
     let view = GlyptodonView(style: style)
@@ -75,8 +75,8 @@ final public class Glyptodon {
   - parameter didTap: A closure that will be called when the button is tapped.
   
   */
-  public func show(title: String, withButton button: String, withAnimation: Bool = true,
-    didTap: ()->()) {
+  public func show(_ title: String, withButton button: String, withAnimation: Bool = true,
+    didTap: @escaping ()->()) {
       
     let currentExistingViews = existingViews
     
@@ -95,10 +95,10 @@ final public class Glyptodon {
   }
   
   /// Hide the message window if it's currently open.
-  public func hide(withAnimation withAnimation: Bool = true) {
+  public func hide(withAnimation: Bool = true) {
     let viewToHide = existingViews
     
-    for (index, view) in viewToHide.enumerate() {
+    for (index, view) in viewToHide.enumerated() {
       let topView = index == viewToHide.count - 1
       let useAnimation = topView ? withAnimation : false // Animate only top view
       
@@ -135,17 +135,17 @@ final public class Glyptodon {
     }
   }
   
-  private var glyptodonView: GlyptodonView? {
+  fileprivate var glyptodonView: GlyptodonView? {
     get {
       return existingViews.last
     }
   }
   
-  private var existingViews: [GlyptodonView] {
+  fileprivate var existingViews: [GlyptodonView] {
     return superview.subviews.filter { $0 is GlyptodonView }.map { $0 as! GlyptodonView }
   }
   
-  private class func removeViews(views: [UIView]) {
+  fileprivate class func removeViews(_ views: [UIView]) {
     for view in views {
       view.removeFromSuperview()
     }
@@ -186,8 +186,8 @@ class GlyptodonView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func showInSuperview(superview: UIView, title: String, withAnimation: Bool,
-    didFinishAnimation: ()->()) {
+  func showInSuperview(_ superview: UIView, title: String, withAnimation: Bool,
+    didFinishAnimation: @escaping ()->()) {
       
     superview.addSubview(self)
     addLayoutConstraints()
@@ -201,9 +201,9 @@ class GlyptodonView: UIView {
     }
   }
   
-  func showInSuperview(superview: UIView, title: String,
-    withButton buttonTitle: String, withAnimation: Bool, didTapButton: ()->(),
-    didFinishAnimation: ()->()) {
+  func showInSuperview(_ superview: UIView, title: String,
+    withButton buttonTitle: String, withAnimation: Bool, didTapButton: @escaping ()->(),
+    didFinishAnimation: @escaping ()->()) {
     
     showInSuperview(superview, title: title, withAnimation: withAnimation,
       didFinishAnimation: didFinishAnimation)
@@ -212,7 +212,7 @@ class GlyptodonView: UIView {
     createButton(buttonTitle)
   }
   
-  func hide(withAnimation withAnimation: Bool, didFinishAnimation: ()->()) {
+  func hide(withAnimation: Bool, didFinishAnimation: @escaping ()->()) {
     if beingHidden {
       didFinishAnimation()
       return
@@ -231,11 +231,11 @@ class GlyptodonView: UIView {
     }
   }
   
-  private func applyStyle() {
+  fileprivate func applyStyle() {
     backgroundColor = style.view.backgroundColor
   }
   
-  private func addLayoutConstraints() {
+  fileprivate func addLayoutConstraints() {
     guard let superview = superview else { return }
     
     translatesAutoresizingMaskIntoConstraints = false
@@ -245,13 +245,13 @@ class GlyptodonView: UIView {
     TegAutolayoutConstraints.fillParent(self, parentView: superview, margin: 0, vertically: false)
   }
   
-  private var titleLabel: UILabel? {
+  fileprivate var titleLabel: UILabel? {
     return subviews.filter { $0 is UILabel }.map { $0 as! UILabel }.first
   }
   
   // MARK: - Title
   
-  private func createTitle(title: String) {
+  fileprivate func createTitle(_ title: String) {
     let label = UILabel()
     addSubview(label)
     label.text = title
@@ -260,7 +260,7 @@ class GlyptodonView: UIView {
     applyTitleStyle(label)
   }
   
-  private func addTitleLayoutConstraints(label: UILabel) {
+  fileprivate func addTitleLayoutConstraints(_ label: UILabel) {
     label.translatesAutoresizingMaskIntoConstraints = false
     
     // Make the width of the title label the same as the view, minus the margins.
@@ -272,8 +272,8 @@ class GlyptodonView: UIView {
       constant: style.title.verticalOffset)
   }
   
-  private func applyTitleStyle(label: UILabel) {
-    label.textAlignment = .Center
+  fileprivate func applyTitleStyle(_ label: UILabel) {
+    label.textAlignment = .center
     label.font = style.title.font
     label.textColor = style.title.color
     label.numberOfLines = style.title.numberOfLines
@@ -283,16 +283,16 @@ class GlyptodonView: UIView {
   
   // MARK: - Button
   
-  private func createButton(title: String) {
+  fileprivate func createButton(_ title: String) {
     let button = UIButton()
     addSubview(button)
-    button.setTitle(title, forState: .Normal)
+    button.setTitle(title, for: UIControlState())
     addButtonLayoutConstraints(button)
     applyButtonStyle(button)
     setupTapHandler(button)
   }
   
-  private func addButtonLayoutConstraints(button: UIButton) {
+  fileprivate func addButtonLayoutConstraints(_ button: UIButton) {
     guard let titleLabel = titleLabel else { return }
     button.translatesAutoresizingMaskIntoConstraints = false
     
@@ -303,11 +303,11 @@ class GlyptodonView: UIView {
     TegAutolayoutConstraints.twoViewsNextToEachOther(titleLabel, viewTwo: button, constraintContainer: self, margin: 20, vertically: true)
   }
   
-  private func applyButtonStyle(button: UIButton) {
-    button.setTitleColor(style.button.color, forState: .Normal)
-    button.setTitleColor(style.button.colorHighlighted, forState: .Highlighted)
+  fileprivate func applyButtonStyle(_ button: UIButton) {
+    button.setTitleColor(style.button.color, for: UIControlState())
+    button.setTitleColor(style.button.colorHighlighted, for: .highlighted)
     
-    button.setTitleShadowColor(style.button.shadowColor, forState: .Normal)
+    button.setTitleShadowColor(style.button.shadowColor, for: UIControlState())
     
     guard let label = button.titleLabel else { return }
     
@@ -316,20 +316,20 @@ class GlyptodonView: UIView {
     label.shadowOffset = style.button.shadowOffset
   }
   
-  private func setupTapHandler(button: UIButton) {
-    button.addTarget(self, action: "didTapButton:", forControlEvents: .TouchUpInside)
+  fileprivate func setupTapHandler(_ button: UIButton) {
+    button.addTarget(self, action: #selector(GlyptodonView.didTapButton(_:)), for: .touchUpInside)
   }
   
-  func didTapButton(button: UIButton) {
+  func didTapButton(_ button: UIButton) {
     didTapButtonHandler?()
   }
   
   // MARK: - Animation
   
-  private func animateIn(didFinishAnimation: ()->()) {
+  fileprivate func animateIn(_ didFinishAnimation: @escaping ()->()) {
     alpha = 0
     
-    UIView.animateWithDuration(style.view.animationDurationSeconds,
+    UIView.animate(withDuration: style.view.animationDurationSeconds,
       animations: { [weak self] in
         self?.alpha = 1
       },
@@ -339,8 +339,8 @@ class GlyptodonView: UIView {
     )
   }
   
-  private func animateOut(didFinishAnimation: ()->()) {
-    UIView.animateWithDuration(style.view.animationDurationSeconds,
+  fileprivate func animateOut(_ didFinishAnimation: @escaping ()->()) {
+    UIView.animate(withDuration: style.view.animationDurationSeconds,
       animations: { [weak self] in
         self?.alpha = 0
       },
@@ -384,7 +384,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
 
-  private static let _color: UIColor = GlyptodonColor.fromHexString("#007AFF")
+  fileprivate static let _color: UIColor = GlyptodonColor.fromHexString("#007AFF")
   
   /// Color of the button title.
   public static var color = _color
@@ -393,7 +393,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let _colorHighlighted: UIColor = GlyptodonColor.fromHexString("#007AFF33")
+  fileprivate static let _colorHighlighted: UIColor = GlyptodonColor.fromHexString("#007AFF33")
   
   /// Color of the button title when it's tapped.
   public static var colorHighlighted = _colorHighlighted
@@ -402,7 +402,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let _font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+  fileprivate static let _font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
   
   /// Font of the button title.
   public static var font = _font
@@ -410,7 +410,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let _horizontalMargin: CGFloat = 15
+  fileprivate static let _horizontalMargin: CGFloat = 15
   
   /// Horizontal margin between the button and the edge of the view.
   public static var horizontalMargin = _horizontalMargin
@@ -419,7 +419,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let _numberOfLines: Int = 5
+  fileprivate static let _numberOfLines: Int = 5
   
   /// The maximum number of lines in the button title.
   public static var numberOfLines = _numberOfLines
@@ -428,7 +428,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let _shadowColor: UIColor? = nil
+  fileprivate static let _shadowColor: UIColor? = nil
   
   /// Color of text shadow.
   public static var shadowColor = _shadowColor
@@ -437,7 +437,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let _shadowOffset = CGSize(width: 0, height: 1)
+  fileprivate static let _shadowOffset = CGSize(width: 0, height: 1)
   
   /// Text shadow offset.
   public static var shadowOffset = _shadowOffset
@@ -446,7 +446,7 @@ public struct GlyptodonButtonDefaultStyles {
   // ---------------------------
   
   
-  private static let _verticalMargin: CGFloat = 20
+  fileprivate static let _verticalMargin: CGFloat = 20
   
   /// Vertical margin between the title and the button.
   public static var verticalMargin = _verticalMargin
@@ -465,10 +465,10 @@ public struct GlyptodonButtonDefaultStyles {
 import UIKit
 
 /// Defines styles related to the button.
-public class GlyptodonButtonStyle {
+open class GlyptodonButtonStyle {
   
   /// Clears the styles for all properties for this style object. Default styles will be used instead.
-  public func clear() {
+  open func clear() {
     _color = nil
     _colorHighlighted = nil
     _font = nil
@@ -481,10 +481,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _color: UIColor?
+  fileprivate var _color: UIColor?
   
   /// Color of the button title.
-  public var color: UIColor {
+  open var color: UIColor {
     get {
       return _color ?? GlyptodonButtonDefaultStyles.color
     }
@@ -496,10 +496,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _colorHighlighted: UIColor?
+  fileprivate var _colorHighlighted: UIColor?
   
   /// Color of the button title when it's tapped.
-  public var colorHighlighted: UIColor {
+  open var colorHighlighted: UIColor {
     get {
       return _colorHighlighted ?? GlyptodonButtonDefaultStyles.colorHighlighted
     }
@@ -511,10 +511,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _font: UIFont?
+  fileprivate var _font: UIFont?
   
   /// Font of the button title.
-  public var font: UIFont {
+  open var font: UIFont {
     get {
       return _font ?? GlyptodonButtonDefaultStyles.font
     }
@@ -526,10 +526,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _horizontalMargin: CGFloat?
+  fileprivate var _horizontalMargin: CGFloat?
   
   /// Horizontal margin between the button and the edge of the view.
-  public var horizontalMargin: CGFloat {
+  open var horizontalMargin: CGFloat {
     get {
       return _horizontalMargin ?? GlyptodonButtonDefaultStyles.horizontalMargin
     }
@@ -541,10 +541,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _numberOfLines: Int?
+  fileprivate var _numberOfLines: Int?
   
   /// The maximum number of lines in the button title.
-  public var numberOfLines: Int {
+  open var numberOfLines: Int {
     get {
       return _numberOfLines ?? GlyptodonButtonDefaultStyles.numberOfLines
     }
@@ -556,10 +556,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _shadowColor: UIColor?
+  fileprivate var _shadowColor: UIColor?
   
   /// Color of text shadow.
-  public var shadowColor: UIColor? {
+  open var shadowColor: UIColor? {
     get {
       return _shadowColor ?? GlyptodonButtonDefaultStyles.shadowColor
     }
@@ -571,10 +571,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _shadowOffset: CGSize?
+  fileprivate var _shadowOffset: CGSize?
   
   /// Text shadow offset.
-  public var shadowOffset: CGSize {
+  open var shadowOffset: CGSize {
     get {
       return _shadowOffset ?? GlyptodonButtonDefaultStyles.shadowOffset
     }
@@ -586,10 +586,10 @@ public class GlyptodonButtonStyle {
   
   // -----------------------------
   
-  private var _verticalMargin: CGFloat?
+  fileprivate var _verticalMargin: CGFloat?
   
   /// Vertical margin between the title and the button.
-  public var verticalMargin: CGFloat {
+  open var verticalMargin: CGFloat {
     get {
       return _verticalMargin ?? GlyptodonButtonDefaultStyles.verticalMargin
     }
@@ -612,20 +612,20 @@ public class GlyptodonButtonStyle {
 import UIKit
 
 /// Combines various styles for the toolbar element.
-public class GlyptodonStyle {
+open class GlyptodonStyle {
   /**
   
   Reverts all the default styles to their initial values. Usually used in setUp() function in the unit tests.
   
   */
-  public static func resetDefaultStyles() {
+  open static func resetDefaultStyles() {
     GlyptodonViewDefaultStyles.resetToDefaults()
     GlyptodonTitleDefaultStyles.resetToDefaults()
   }
   
   
   /// Clears the styles for all properties for this style object. The styles will be taken from parent and default properties.
-  public func clear() {
+  open func clear() {
     view.clear()
   }
   
@@ -634,21 +634,21 @@ public class GlyptodonStyle {
   Styles for the  view.
 
   */
-  public lazy var view = GlyptodonViewStyle()
+  open lazy var view = GlyptodonViewStyle()
   
   /**
   
   Styles for the title text.
   
   */
-  public lazy var title = GlyptodonTitleStyle()
+  open lazy var title = GlyptodonTitleStyle()
   
   /**
   
   Styles for the button.
   
   */
-  public lazy var button = GlyptodonButtonStyle()
+  open lazy var button = GlyptodonButtonStyle()
 }
 
 
@@ -682,7 +682,7 @@ public struct GlyptodonTitleDefaultStyles {
   // ---------------------------
   
   
-  private static let _color = GlyptodonColor.fromHexString("#666666")
+  fileprivate static let _color = GlyptodonColor.fromHexString("#666666")
   
   /// Color of the title text.
   public static var color = _color
@@ -690,18 +690,18 @@ public struct GlyptodonTitleDefaultStyles {
   
   // ---------------------------
   
-  private static let defaultNonDynamicFontSize: CGFloat = 28
+  fileprivate static let defaultNonDynamicFontSize: CGFloat = 28
   
-  private static let _font: UIFont = {
+  fileprivate static let _font: UIFont = {
     if #available(iOS 8.2, *) {
       if #available(iOS 9.0, *) {
         // Use dynamic type font for accessibility when available
-        return UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
+        return UIFont.preferredFont(forTextStyle: UIFontTextStyle.title1)
       } else {
-        return UIFont.systemFontOfSize(defaultNonDynamicFontSize, weight: UIFontWeightLight)
+        return UIFont.systemFont(ofSize: defaultNonDynamicFontSize, weight: UIFontWeightLight)
       }
     } else {
-      return UIFont.systemFontOfSize(defaultNonDynamicFontSize)
+      return UIFont.systemFont(ofSize: defaultNonDynamicFontSize)
     }
   }()
   
@@ -711,7 +711,7 @@ public struct GlyptodonTitleDefaultStyles {
   // ---------------------------
   
   
-  private static let _horizontalMargin: CGFloat = 15
+  fileprivate static let _horizontalMargin: CGFloat = 15
   
   /// Horizontal margin between the title and the edge of the view.
   public static var horizontalMargin = _horizontalMargin
@@ -720,7 +720,7 @@ public struct GlyptodonTitleDefaultStyles {
   // ---------------------------
   
   
-  private static let _numberOfLines: Int = 5
+  fileprivate static let _numberOfLines: Int = 5
   
   /// The maximum number of lines in the title.
   public static var numberOfLines = _numberOfLines
@@ -729,7 +729,7 @@ public struct GlyptodonTitleDefaultStyles {
   // ---------------------------
   
   
-  private static let _shadowColor: UIColor? = nil
+  fileprivate static let _shadowColor: UIColor? = nil
   
   /// Color of text shadow.
   public static var shadowColor = _shadowColor
@@ -738,7 +738,7 @@ public struct GlyptodonTitleDefaultStyles {
   // ---------------------------
 
   
-  private static let _shadowOffset = CGSize(width: 0, height: 1)
+  fileprivate static let _shadowOffset = CGSize(width: 0, height: 1)
   
   /// Text shadow offset.
   public static var shadowOffset = _shadowOffset
@@ -747,7 +747,7 @@ public struct GlyptodonTitleDefaultStyles {
   // ---------------------------
   
   
-  private static let _verticalOffset: CGFloat = 0
+  fileprivate static let _verticalOffset: CGFloat = 0
   
   /// Vertical offset of the title relative to the center of the view. If zero the label is aligned exactly at the center.
   public static var verticalOffset = _verticalOffset
@@ -766,10 +766,10 @@ public struct GlyptodonTitleDefaultStyles {
 import UIKit
 
 /// Defines styles related to the title label.
-public class GlyptodonTitleStyle {
+open class GlyptodonTitleStyle {
   
   /// Clears the styles for all properties for this style object. Default styles will be used instead.
-  public func clear() {
+  open func clear() {
     _color = nil
     _font = nil
     _horizontalMargin = nil
@@ -781,10 +781,10 @@ public class GlyptodonTitleStyle {
 
   // -----------------------------
   
-  private var _color: UIColor?
+  fileprivate var _color: UIColor?
   
   /// Color of the title text.
-  public var color: UIColor {
+  open var color: UIColor {
     get {
       return _color ??  GlyptodonTitleDefaultStyles.color
     }
@@ -796,10 +796,10 @@ public class GlyptodonTitleStyle {
   
   // -----------------------------
   
-  private var _font: UIFont?
+  fileprivate var _font: UIFont?
   
   /// Color of the title text.
-  public var font: UIFont {
+  open var font: UIFont {
     get {
       return _font ?? GlyptodonTitleDefaultStyles.font
     }
@@ -811,10 +811,10 @@ public class GlyptodonTitleStyle {
   
   // -----------------------------
   
-  private var _horizontalMargin: CGFloat?
+  fileprivate var _horizontalMargin: CGFloat?
   
   /// Horizontal margin between the title and the edge of the view.
-  public var horizontalMargin: CGFloat {
+  open var horizontalMargin: CGFloat {
     get {
       return _horizontalMargin ?? GlyptodonTitleDefaultStyles.horizontalMargin
     }
@@ -826,10 +826,10 @@ public class GlyptodonTitleStyle {
   
   // -----------------------------
   
-  private var _numberOfLines: Int?
+  fileprivate var _numberOfLines: Int?
   
   /// The maximum number of lines in the title.
-  public var numberOfLines: Int {
+  open var numberOfLines: Int {
     get {
       return _numberOfLines ?? GlyptodonTitleDefaultStyles.numberOfLines
     }
@@ -841,10 +841,10 @@ public class GlyptodonTitleStyle {
   
   // -----------------------------
   
-  private var _shadowColor: UIColor?
+  fileprivate var _shadowColor: UIColor?
   
   /// Color of text shadow.
-  public var shadowColor: UIColor? {
+  open var shadowColor: UIColor? {
     get {
       return _shadowColor ?? GlyptodonTitleDefaultStyles.shadowColor
     }
@@ -856,10 +856,10 @@ public class GlyptodonTitleStyle {
   
   // -----------------------------
   
-  private var _shadowOffset: CGSize?
+  fileprivate var _shadowOffset: CGSize?
   
   /// Text shadow offset.
-  public var shadowOffset: CGSize {
+  open var shadowOffset: CGSize {
     get {
       return _shadowOffset ?? GlyptodonTitleDefaultStyles.shadowOffset
     }
@@ -871,10 +871,10 @@ public class GlyptodonTitleStyle {
   
   // -----------------------------
   
-  private var _verticalOffset: CGFloat?
+  fileprivate var _verticalOffset: CGFloat?
   
   /// Vertical offset of the title relative to the center of the view. If zero the label is aligned exactly at the center.
-  public var verticalOffset: CGFloat {
+  open var verticalOffset: CGFloat {
     get {
       return _verticalOffset ?? GlyptodonTitleDefaultStyles.verticalOffset
     }
@@ -912,14 +912,14 @@ public struct GlyptodonViewDefaultStyles {
   
   // ---------------------------
   
-  private static let _animationDurationSeconds: NSTimeInterval = 0.3
+  fileprivate static let _animationDurationSeconds: TimeInterval = 0.3
   
   /// Duration of the fade animation that is used to show and hide the message view. Setting it to 0 will result in no animation.
   public static var animationDurationSeconds = _animationDurationSeconds
   
   // ---------------------------
   
-  private static let _backgroundColor: UIColor? = GlyptodonColor.fromHexString("#EEEEEE")
+  fileprivate static let _backgroundColor: UIColor? = GlyptodonColor.fromHexString("#EEEEEE")
   
   /// Background color of the message view.
   public static var backgroundColor = _backgroundColor
@@ -938,20 +938,20 @@ public struct GlyptodonViewDefaultStyles {
 import UIKit
 
 /// Defines styles related to the view in general.
-public class GlyptodonViewStyle {
+open class GlyptodonViewStyle {
   
   /// Clears the styles for all properties for this style object. Default styles will be used instead.
-  public func clear() {
+  open func clear() {
     _backgroundColor = nil
   }
   
   // ---------------------------
   
   
-  private var _animationDurationSeconds: NSTimeInterval?
+  fileprivate var _animationDurationSeconds: TimeInterval?
   
   /// Duration of the fade animation that is used to show and hide the message view. Setting it to 0 will result in no animation.
-  public var animationDurationSeconds: NSTimeInterval {
+  open var animationDurationSeconds: TimeInterval {
     get {
       return _animationDurationSeconds ?? GlyptodonViewDefaultStyles.animationDurationSeconds
     }
@@ -963,10 +963,10 @@ public class GlyptodonViewStyle {
   
   // -----------------------------
   
-  private var _backgroundColor: UIColor?
+  fileprivate var _backgroundColor: UIColor?
   
   /// Background color of the message view.
-  public var backgroundColor: UIColor? {
+  open var backgroundColor: UIColor? {
     get {
       return _backgroundColor ?? GlyptodonViewDefaultStyles.backgroundColor
     }
@@ -1052,7 +1052,7 @@ Examples:
 Source: https://github.com/marketplacer/Glyptodon
 
 */
-public class GlyptodonColor {
+open class GlyptodonColor {
   /**
   
   Creates a UIColor object from a string.
@@ -1062,7 +1062,7 @@ public class GlyptodonColor {
   - returns: UIColor object.
   
   */
-  public class func fromHexString(rgba: String) -> UIColor {
+  open class func fromHexString(_ rgba: String) -> UIColor {
     var red: CGFloat   = 0.0
     var green: CGFloat = 0.0
     var blue: CGFloat  = 0.0
@@ -1073,12 +1073,12 @@ public class GlyptodonColor {
       return UIColor()
     }
     
-    let index = rgba.startIndex.advancedBy(1)
-    let hex = rgba.substringFromIndex(index)
-    let scanner = NSScanner(string: hex)
+    let index = rgba.characters.index(rgba.startIndex, offsetBy: 1)
+    let hex = rgba.substring(from: index)
+    let scanner = Scanner(string: hex)
     var hexValue: CUnsignedLongLong = 0
     
-    if !scanner.scanHexLongLong(&hexValue) {
+    if !scanner.scanHexInt64(&hexValue) {
       print("Warning: GlyptodonColor.fromHexString, error scanning hex value")
       return UIColor()
     }
@@ -1117,29 +1117,30 @@ public class GlyptodonColor {
 import UIKit
 
 class TegAutolayoutConstraints {
-  class func centerX(viewOne: UIView, viewTwo: UIView,
+  class func centerX(_ viewOne: UIView, viewTwo: UIView,
     constraintContainer: UIView, constant: CGFloat = 0) -> [NSLayoutConstraint] {
       
     return center(viewOne, viewTwo: viewTwo, constraintContainer: constraintContainer,
       vertically: false, constant: constant)
   }
   
-  class func centerY(viewOne: UIView, viewTwo: UIView,
+  @discardableResult
+  class func centerY(_ viewOne: UIView, viewTwo: UIView,
     constraintContainer: UIView, constant: CGFloat = 0) -> [NSLayoutConstraint] {
       
     return center(viewOne, viewTwo: viewTwo, constraintContainer: constraintContainer,
       vertically: true, constant: constant)
   }
   
-  private class func center(viewOne: UIView, viewTwo: UIView,
+  fileprivate class func center(_ viewOne: UIView, viewTwo: UIView,
     constraintContainer: UIView, vertically: Bool = false, constant: CGFloat = 0) -> [NSLayoutConstraint] {
       
-    let attribute = vertically ? NSLayoutAttribute.CenterY : NSLayoutAttribute.CenterX
+    let attribute = vertically ? NSLayoutAttribute.centerY : NSLayoutAttribute.centerX
     
     let constraint = NSLayoutConstraint(
       item: viewOne,
       attribute: attribute,
-      relatedBy: NSLayoutRelation.Equal,
+      relatedBy: NSLayoutRelation.equal,
       toItem: viewTwo,
       attribute: attribute,
       multiplier: 1,
@@ -1150,7 +1151,7 @@ class TegAutolayoutConstraints {
     return [constraint]
   }
   
-  class func fillParent(view: UIView, parentView: UIView, margin: CGFloat = 0, vertically: Bool) {
+  class func fillParent(_ view: UIView, parentView: UIView, margin: CGFloat = 0, vertically: Bool) {
     var marginFormat = ""
     
     if margin != 0 {
@@ -1163,14 +1164,15 @@ class TegAutolayoutConstraints {
       format = "V:" + format
     }
     
-    let constraints = NSLayoutConstraint.constraintsWithVisualFormat(format,
+    let constraints = NSLayoutConstraint.constraints(withVisualFormat: format,
       options: [], metrics: nil,
       views: ["view": view])
     
     parentView.addConstraints(constraints)
   }
   
-  class func twoViewsNextToEachOther(viewOne: UIView, viewTwo: UIView,
+  @discardableResult
+  class func twoViewsNextToEachOther(_ viewOne: UIView, viewTwo: UIView,
     constraintContainer: UIView, margin: CGFloat = 0,
     vertically: Bool = false) -> [NSLayoutConstraint] {
       
@@ -1186,7 +1188,7 @@ class TegAutolayoutConstraints {
         format = "V:" + format
       }
       
-      let constraints = NSLayoutConstraint.constraintsWithVisualFormat(format,
+      let constraints = NSLayoutConstraint.constraints(withVisualFormat: format,
         options: [], metrics: nil,
         views: [ "viewOne": viewOne, "viewTwo": viewTwo ])
       

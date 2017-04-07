@@ -70,7 +70,7 @@ class GlyptodonViewTests: XCTestCase {
   // MARK: - Hide
   
   func testHide_withAnimation() {
-    let expectation = expectationWithDescription("view is removed")
+    let expectation = self.expectation(description: "view is removed")
 
     obj.showInSuperview(superview, title: "My test message", withAnimation: true) { }
     
@@ -80,7 +80,7 @@ class GlyptodonViewTests: XCTestCase {
       
     XCTAssert(glyptodonView(superview)!.beingHidden)
     
-    waitForExpectationsWithTimeout(0.5, handler: nil)
+    waitForExpectations(timeout: 0.5, handler: nil)
     XCTAssert(glyptodonView(superview) == nil)
   }
   
@@ -99,26 +99,26 @@ class GlyptodonViewTests: XCTestCase {
   // MARK: - Style
   
   func testStyleLabel() {
-    style.title.font = UIFont.systemFontOfSize(38.31)
-    style.title.color = UIColor.purpleColor()
+    style.title.font = UIFont.systemFont(ofSize: 38.31)
+    style.title.color = UIColor.purple
     style.title.numberOfLines = 3
-    style.title.shadowColor = UIColor.yellowColor()
+    style.title.shadowColor = UIColor.yellow
     style.title.shadowOffset = CGSize(width: 3, height: 2)
     
     obj.showInSuperview(superview, title: "My test message", withAnimation: true) { }
     
     XCTAssertEqual(38.31, glyptodonTitleLabel(superview)?.font.pointSize)
-    XCTAssertEqual(UIColor.purpleColor(), glyptodonTitleLabel(superview)?.textColor)
+    XCTAssertEqual(UIColor.purple, glyptodonTitleLabel(superview)?.textColor)
     XCTAssertEqual(3, glyptodonTitleLabel(superview)?.numberOfLines)
-    XCTAssertEqual(UIColor.yellowColor(), glyptodonTitleLabel(superview)?.shadowColor)
+    XCTAssertEqual(UIColor.yellow, glyptodonTitleLabel(superview)?.shadowColor)
     XCTAssertEqual(CGSize(width: 3, height: 2), glyptodonTitleLabel(superview)?.shadowOffset)
   }
   
   func testStyleButton() {
-    style.button.font = UIFont.systemFontOfSize(12.31)
-    style.button.color = UIColor.purpleColor()
+    style.button.font = UIFont.systemFont(ofSize: 12.31)
+    style.button.color = UIColor.purple
     style.button.numberOfLines = 3
-    style.button.shadowColor = UIColor.yellowColor()
+    style.button.shadowColor = UIColor.yellow
     style.button.shadowOffset = CGSize(width: 3, height: 2)
     
     obj.showInSuperview(superview, title: "Empty", withButton: "Continue", withAnimation: true,
@@ -128,9 +128,9 @@ class GlyptodonViewTests: XCTestCase {
     let buttonLabel = button.titleLabel
     
     XCTAssertEqual(12.31, buttonLabel?.font.pointSize)
-    XCTAssertEqual(UIColor.purpleColor(), button.titleColorForState(.Normal))
+    XCTAssertEqual(UIColor.purple, button.titleColor(for: UIControlState()))
     XCTAssertEqual(3, buttonLabel?.numberOfLines)
-    XCTAssertEqual(UIColor.yellowColor(), button.titleShadowColorForState(.Normal))
+    XCTAssertEqual(UIColor.yellow, button.titleShadowColor(for: UIControlState()))
     XCTAssertEqual(CGSize(width: 3, height: 2), buttonLabel?.shadowOffset)
   }
 }
