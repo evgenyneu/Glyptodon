@@ -1,11 +1,9 @@
 # A 'no content' message overlay for iOS
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)][carthage]
-[![CocoaPods Version](https://img.shields.io/cocoapods/v/Glyptodon.svg?style=flat)][cocoadocs]
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![CocoaPods Version](https://img.shields.io/cocoapods/v/Glyptodon.svg?style=flat)](http://cocoadocs.org/docsets/Glyptodon)
 [![License](https://img.shields.io/cocoapods/l/Glyptodon.svg?style=flat)](LICENSE)
-[![Platform](https://img.shields.io/cocoapods/p/Glyptodon.svg?style=flat)][cocoadocs]
-[cocoadocs]: http://cocoadocs.org/docsets/Glyptodon
-[carthage]: https://github.com/Carthage/Carthage
+[![Platform](https://img.shields.io/cocoapods/p/Glyptodon.svg?style=flat)](http://cocoadocs.org/docsets/Glyptodon)
 
 This is a UI control for iOS written in Swift. It shows a 'no content' message over an existing view. It can be useful when you want to show a missing content message to the user over your existing view and suggest an action. Something like: "cart is empty", "no new messages", "no favorites", "no comments" etc.
 
